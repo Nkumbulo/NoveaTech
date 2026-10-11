@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Web Development | Modern Websites & SaaS MVPs for US Startups | NoveaTech</title>
+<meta name="description" content="NoveaTech web development for US startups. Landing pages $1,200, Business sites $2,500, SaaS MVP $4.5k. Next.js, Stripe, Tailwind. 14-day delivery, EST Slack, 90-day support.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#00A8FF;--primary-deep:#0066FF;--accent:#00E5FF;--bg:#080C12;--surface:#111827;--card:#12161F;--border:#1E2632;--text:#CBD5E1;--muted:#94A3B8;--gradient:linear-gradient(135deg,var(--primary-deep),var(--accent));}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:Inter,sans-serif;background:var(--bg);color:white;overflow-x:hidden;line-height:1.5;min-width:0}
+.container{width:min(90%,1200px);margin-inline:auto}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;border:none;background:none;cursor:pointer}
+
+/* Header */
+.header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(5,5,5,.72);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.06)}
+.navbar{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-weight:900;font-size:22px;letter-spacing:-.02em;flex-shrink:0}
+.logo span{color:var(--accent)}
+.desktop-menu{display:flex;gap:28px;align-items:center}
+.desktop-menu a{color:var(--text);font-size:13.5px;font-weight:500;transition:.25s}
+.desktop-menu a:hover{color:white}
+.nav-cta{padding:11px 20px;border-radius:50px;background:var(--gradient);font-weight:700;font-size:13px;box-shadow:0 0 24px rgba(0,229,255,.22);color:white;white-space:nowrap;transition:.3s}
+.hamburger{display:none;width:42px;height:42px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);place-items:center;flex-shrink:0}
+.hamburger span{width:18px;height:2px;background:white;border-radius:2px;display:block;position:relative;transition:.3s}
+.hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:100%;height:100%;background:white;border-radius:2px;transition:.3s}
+.hamburger span::before{top:-6px}
+.hamburger span::after{top:6px}
+.hamburger.active span{background:transparent}
+.hamburger.active span::before{transform:rotate(45deg);top:0}
+.hamburger.active span::after{transform:rotate(-45deg);top:0}
+.mobile-drawer{position:fixed;inset:0;z-index:999;background:rgba(5,8,15,.96);backdrop-filter:blur(20px);transform:translateX(100%);transition:transform .45s cubic-bezier(.77,0,.175,1);padding:88px 24px 32px;display:flex;flex-direction:column}
+.mobile-drawer.open{transform:translateX(0)}
+.mobile-drawer a{font-size:18px;font-weight:600;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);color:var(--text);display:flex;justify-content:space-between}
+.mobile-drawer .mobile-cta{margin-top:24px;background:var(--gradient);padding:16px;border-radius:16px;text-align:center;color:white;font-weight:800;font-size:16px}
+
+.us-banner{margin-top:72px;background:linear-gradient(90deg,#0066FF,#00D4FF);color:white;display:flex;justify-content:center;align-items:center;gap:10px;padding:10px 16px;font-size:12.5px;font-weight:600;flex-wrap:wrap;text-align:center;line-height:1.4}
+.us-banner a{background:rgba(0,0,0,.22);padding:6px 14px;border-radius:50px;border:1px solid rgba(255,255,255,.22);white-space:nowrap}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding:48px 0 32px;min-width:0}
+.hero-label{display:inline-flex;padding:7px 14px;border-radius:50px;border:1px solid rgba(0,229,255,.28);background:rgba(0,229,255,.08);color:var(--accent);font-size:10.5px;font-weight:800;letter-spacing:1.4px;margin-bottom:18px;animation:fadeUp .6s ease both}
+.hero h1{font-size:clamp(34px,5vw,54px);font-weight:900;line-height:.9;letter-spacing:-.04em;margin-bottom:16px;animation:fadeUp .7s .1s ease both}
+.hero h1 span{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-desc{color:#8B95A5;font-size:clamp(14px,2vw,15.5px);line-height:1.65;max-width:560px;margin-bottom:22px;animation:fadeUp .7s .2s ease both}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;animation:fadeUp .7s .25s ease both}
+.pill{padding:6px 12px;border-radius:50px;background:#12161F;border:1px solid #1E2632;font-size:12px;color:#AAB4C2;transition:.25s}
+.pill:hover{border-color:rgba(0,212,255,.2);transform:translateY(-1px)}
+.pill b{color:white}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp .7s .3s ease both}
+.btn-primary{padding:14px 24px;border-radius:50px;background:var(--gradient);color:white;font-weight:700;font-size:13.5px;border:none;box-shadow:0 0 24px rgba(0,212,255,.3);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.3s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,102,255,.35)}
+.btn-secondary{padding:14px 24px;border-radius:50px;background:rgba(255,255,255,.06);border:1px solid #1E2632;color:white;font-weight:600;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:.3s}
+.btn-secondary:hover{background:rgba(255,255,255,.1)}
+
+.visual{position:relative;min-height:540px;display:grid;place-items:center;animation:fadeIn .9s .2s ease both}
+.circle{position:absolute;width:min(400px,80vw);height:min(400px,80vw);border-radius:50%;border:1px solid rgba(0,212,255,.12);background:radial-gradient(circle at 50% 50%, rgba(0,212,255,.08), transparent 70%);animation:float 6s ease-in-out infinite}
+.ring{position:absolute;width:min(480px,92vw);height:min(480px,92vw);border-radius:50%;border:1px dashed rgba(255,255,255,.06);animation:rotateSlow 40s linear infinite}
+.browser-card{background:#12161F;border:1px solid #1E2632;border-radius:20px;width:min(380px,100%);overflow:hidden;box-shadow:0 0 0 1px rgba(0,212,255,.1),0 24px 80px rgba(0,0,0,.5);position:relative;z-index:2;animation:floatCard 5s ease-in-out infinite}
+.browser-top{height:38px;background:#0C1017;border-bottom:1px solid #1E2632;display:flex;align-items:center;gap:6px;padding:0 14px}
+.dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.dot.r{background:#FF5F56}.dot.y{background:#FFBD2E}.dot.g{background:#27C93F}
+.browser-url{margin-left:12px;background:#12161F;border:1px solid #1E2632;border-radius:20px;padding:4px 12px;font-size:11px;color:#8B95A5;display:flex;align-items:center;gap:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.browser-content{padding:18px}
+.bar{height:8px;background:#1E2632;border-radius:50px;margin-bottom:10px;width:0;transition:width 1s cubic-bezier(.77,0,.175,1)}
+.bar.animate{width:var(--w)}
+.bar.w60{--w:60%}.bar.w80{--w:80%}.bar.w40{--w:40%}.bar.w90{--w:90%}
+.bar.cyan{background:linear-gradient(90deg,#00D4FF,#00A3FF);box-shadow:0 0 8px rgba(0,212,255,.3)}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.metric{background:#0C1017;border:1px solid #1E2632;border-radius:12px;padding:12px;transition:.25s}
+.metric:hover{border-color:rgba(0,212,255,.18);transform:translateY(-1px)}
+.metric b{font-size:18px;font-weight:800;display:block}
+.metric span{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:#5B697C}
+.code{background:#0C1017;border:1px solid #1E2632;border-radius:12px;padding:12px;margin-top:12px;font-family:monospace;font-size:11px;color:#AAB4C2;line-height:1.5;overflow:hidden}
+.code b{color:#00D4FF}
+
+/* Sections */
+.section{padding:76px 0;border-top:1px solid #1E2632;overflow:clip}
+.label{display:inline-flex;padding:7px 14px;border-radius:50px;border:1px solid rgba(0,229,255,.28);background:rgba(0,229,255,.08);color:var(--accent);font-size:10.5px;font-weight:800;letter-spacing:1.4px;margin-bottom:14px}
+.section h2{font-size:clamp(26px,4vw,36px);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:12px}
+.lead{color:#8B95A5;max-width:640px;font-size:clamp(14px,2vw,15px);line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.card{background:#12161F;border:1px solid #1E2632;border-radius:20px;padding:22px;transition:.35s cubic-bezier(.25,.46,.45,.94);position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:.4s}
+.card:hover::before{opacity:1}
+.card:hover{border-color:rgba(0,212,255,.22);transform:translateY(-4px);box-shadow:0 10px 32px rgba(0,0,0,.35)}
+.card-icon{width:42px;height:42px;border-radius:12px;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.18);display:grid;place-items:center;font-size:18px;margin-bottom:12px}
+.card h3{font-size:15px;font-weight:700;margin-bottom:6px}
+.card p{font-size:12.5px;color:#8B95A5;line-height:1.5;min-height:44px}
+.card ul{margin-top:10px;display:flex;flex-direction:column;gap:5px}
+.card ul li{font-size:11.5px;color:#AAB4C2;display:flex;gap:6px}
+.card ul li::before{content:"✓";color:#00D4FF;font-weight:700}
+
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.stack-item{padding:8px 14px;border-radius:50px;background:#0C1017;border:1px solid #1E2632;font-size:12px;display:flex;align-items:center;gap:6px;transition:.25s}
+.stack-item:hover{border-color:rgba(0,212,255,.2);transform:translateY(-1px);background:#12161F}
+
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.step{background:#0C1017;border:1px solid #1E2632;border-radius:16px;padding:18px;transition:.3s;position:relative;overflow:hidden}
+.step::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:.3s}
+.step:hover::before{opacity:1}
+.step:hover{transform:translateY(-3px);border-color:rgba(0,229,255,.14)}
+.num{width:32px;height:32px;border-radius:50%;background:var(--gradient);display:grid;place-items:center;font-weight:800;font-size:13px;margin-bottom:10px;box-shadow:0 0 14px rgba(0,212,255,.3)}
+.step h4{font-size:13.5px;font-weight:700;margin-bottom:4px}
+.step p{font-size:12px;color:#8B95A5;line-height:1.45}
+
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;align-items:stretch}
+.price{background:#12161F;border:1px solid #1E2632;border-radius:20px;padding:22px;display:flex;flex-direction:column;transition:.35s;position:relative}
+.price:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.price.popular{border-color:rgba(0,212,255,.28);background:linear-gradient(180deg,#121C2E,#12161F);box-shadow:0 0 0 1px rgba(0,212,255,.12) inset,0 20px 60px rgba(0,102,255,.15)}
+.pop-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gradient);padding:6px 14px;border-radius:50px;font-size:10.5px;font-weight:800;white-space:nowrap;box-shadow:0 6px 18px rgba(0,102,255,.35)}
+.price h3{font-size:16px;font-weight:800}
+.price .sub{font-size:12px;color:#8B95A5;margin:4px 0 14px}
+.amt{font-size:30px;font-weight:900;letter-spacing:-.03em}
+.amt span{font-size:12px;font-weight:500;color:#8B95A5}
+.price ul{list-style:none;margin:16px 0 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.price ul li{font-size:12.5px;color:#AAB4C2;display:flex;gap:6px;line-height:1.4}
+.price ul li::before{content:"✓";color:var(--accent);font-weight:800}
+.price-btn{width:100%;padding:14px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:white;font-weight:700;font-size:13.5px;transition:.25s;margin-top:auto}
+.price-btn:hover{background:white;color:#080C12}
+.popular .price-btn{background:var(--gradient);border-color:transparent;box-shadow:0 8px 24px rgba(0,102,255,.3)}
+.popular .price-btn:hover{transform:translateY(-1px)}
+
+.portfolio{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.port-item{background:#12161F;border:1px solid #1E2632;border-radius:16px;overflow:hidden;transition:.3s}
+.port-item:hover{border-color:rgba(0,212,255,.2);transform:translateY(-3px)}
+.port-img{background:#0C1017;height:140px;display:grid;place-items:center;font-size:12px;color:#5B697C;border-bottom:1px solid #1E2632}
+.port-content{padding:16px}
+.port-content h4{font-size:14px;font-weight:700}
+.port-content p{font-size:12px;color:#8B95A5;margin-top:4px;line-height:1.5}
+.port-tags{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.port-tags span{font-size:10.5px;padding:4px 8px;border-radius:50px;background:#0C1017;border:1px solid #1E2632;color:#8B95A5}
+
+/* FAQ */
+.faq{display:grid;gap:10px;margin-top:28px;max-width:800px}
+.faq-item{background:#12161F;border:1px solid #1E2632;border-radius:16px;overflow:hidden;transition:.3s}
+.faq-item:hover{border-color:rgba(255,255,255,.14)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 20px;font-size:15px;font-weight:600;text-align:left;color:white;gap:16px}
+.faq-q span{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:grid;place-items:center;flex-shrink:0;transition:.3s}
+.faq-item.open .faq-q span{transform:rotate(45deg);background:var(--gradient);border-color:transparent}
+.faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.77,0,.175,1),padding .35s,opacity .3s;color:#8B95A5;font-size:13.5px;line-height:1.6;opacity:0}
+.faq-item.open .faq-a{padding:0 20px 18px;max-height:300px;opacity:1}
+
+.cta{margin-top:44px;background:linear-gradient(135deg,#0B1220 0%,#12161F 100%);border:1px solid rgba(0,212,255,.18);border-radius:24px;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:24px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:-1px;background:radial-gradient(600px circle at 0% 0%,rgba(0,212,255,.15),transparent 40%);pointer-events:none}
+.cta h3{font-size:clamp(20px,3vw,24px);font-weight:800;line-height:1.2}
+.cta p{font-size:13.5px;color:#8B95A5;margin-top:8px;line-height:1.55;max-width:520px}
+.cta-btns{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes rotateSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.25,.46,.45,.94)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.08s}
+.reveal-delay-2{transition-delay:.16s}
+.reveal-delay-3{transition-delay:.24s}
+
+/* Mobile */
+@media (max-width:1024px){
+.hero{grid-template-columns:1fr;gap:28px}
+.visual{min-height:460px;order:-1}
+.grid{grid-template-columns:repeat(2,1fr)}
+.pricing{grid-template-columns:1fr;max-width:520px;margin-inline:auto}
+.process{grid-template-columns:repeat(2,1fr)}
+.portfolio{grid-template-columns:1fr;max-width:520px;margin-inline:auto}
+}
+@media (max-width:768px){
+.navbar{height:64px}
+.desktop-menu,.navbar .nav-cta{display:none}
+.hamburger{display:grid}
+.us-banner{margin-top:64px}
+.hero{padding:28px 0 20px}
+.visual{min-height:420px}
+.circle{width:min(320px,78vw);height:min(320px,78vw)}
+.ring{width:min(380px,90vw);height:min(380px,90vw)}
+.browser-card{width:min(340px,92vw)}
+.section{padding:56px 0}
+.grid{grid-template-columns:1fr}
+.process{grid-template-columns:1fr}
+.portfolio{grid-template-columns:1fr}
+.cta{flex-direction:column;align-items:stretch;padding:22px}
+.cta-btns{flex-direction:column}
+.cta-btns .btn-primary,.cta-btns .btn-secondary{width:100%}
+}
+@media (max-width:480px){
+.container{width:92%}
+.hero h1{font-size:32px}
+.hero-actions{flex-direction:column}
+.hero-actions .btn-primary,.hero-actions .btn-secondary{width:100%}
+.visual{min-height:380px}
+.faq-q{font-size:14px;padding:16px}
+.us-banner{flex-direction:column;gap:6px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="header">
+<div class="container navbar">
+<a class="logo" href="#">NOVEA<span>TECH</span></a>
+<nav class="desktop-menu">
+<a href="#services">Services</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+</nav>
+<a href="#book" class="nav-cta">Book Build</a>
+<button class="hamburger" id="hamburger" aria-label="Menu"><span></span></button>
+</div>
+</header>
+
+<div class="mobile-drawer" id="mobileDrawer">
+<a href="#services">Services <span>→</span></a>
+<a href="#pricing">Pricing <span>→</span></a>
+<a href="#faq">FAQ <span>→</span></a>
+<a href="#book" class="mobile-cta">Book 20-min Discovery →</a>
+</div>
+
+<div class="us-banner">
+<span>🇺🇸 For US Startups • EST Slack • 14-Day Delivery • Stripe USD • From $1,200</span>
+<a href="#pricing">See Pricing →</a>
+</div>
+
+<section class="container hero">
+<div>
+<div class="hero-label">WEB DEVELOPMENT • NEXT.JS • SAAS MVP • EST</div>
+<h1>Websites that <span>convert, rank, and ship.</span></h1>
+<p class="hero-desc">No WordPress bloat. Clean Next.js, Tailwind, Stripe — built to scale with your US startup. Landing $1,200, Business $2,500, SaaS MVP $4.5k, 14-day delivery, EST Slack.</p>
+<div class="pills">
+<div class="pill"><b>14-day</b> Delivery</div>
+<div class="pill"><b>100</b> Lighthouse</div>
+<div class="pill"><b>Next.js 14</b> + Tailwind</div>
+<div class="pill"><b>EST</b> Slack Loom</div>
+</div>
+<div class="hero-actions">
+<button class="btn-primary">Start $1,200 Landing →</button>
+<button class="btn-secondary">Book EST Call</button>
+</div>
+</div>
+
+<div class="visual">
+<div class="circle"></div>
+<div class="ring"></div>
+<div class="browser-card">
+<div class="browser-top"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="browser-url">🔒 noveatech.dev — 100 • SEO • Stripe</div></div>
+<div class="browser-content">
+<div class="bar w60 cyan"></div>
+<div class="bar w80"></div>
+<div class="bar w40"></div>
+<div class="bar w90 cyan"></div>
+<div class="metrics">
+<div class="metric"><b>0.8s</b><span>Load • 100 LCP</span></div>
+<div class="metric"><b>4.2%</b><span>Conv. • Ads</span></div>
+</div>
+<div class="code"><b>// Stripe + Auth + DB</b><br>const session = await stripe.checkout...<br><b>deploy()</b> → Vercel • 14 days • EST</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="services">
+<div class="container">
+<div class="label reveal">WHAT WE BUILD — WEB</div>
+<h2 class="reveal">From landing to SaaS MVP,<br>we ship in 14 days</h2>
+<p class="lead reveal">No WordPress bloat. Clean Next.js, Tailwind, Stripe — built to scale with your US startup.</p>
+<div class="grid">
+<div class="card reveal"><div class="card-icon">🚀</div><h3>Landing Page — Converts</h3><p>High-converting landing for ads, Product Hunt, waitlist. A/B ready, analytics, 100 Lighthouse.</p><ul><li>Next.js + Tailwind</li><li>Stripe / Calendly embed</li><li>SEO + OG tags</li></ul></div>
+<div class="card reveal reveal-delay-1"><div class="card-icon">🏢</div><h3>Business Site — Ranks</h3><p>5-10 pages, CMS, blog, SEO, Google Business. For US service businesses + startups.</p><ul><li>CMS (Sanity/Contentful)</li><li>Blog + SEO</li><li>90-day support</li></ul></div>
+<div class="card reveal reveal-delay-2"><div class="card-icon">💳</div><h3>SaaS MVP — Ships</h3><p>Auth, DB, Stripe subs, dashboard, onboarding. From idea to paying users in 14 days.</p><ul><li>Auth + DB + Stripe</li><li>Dashboard + onboarding</li><li>Vercel deploy</li></ul></div>
+<div class="card reveal"><div class="card-icon">🛒</div><h3>E-commerce — Sells</h3><p>Shopify headless or Next.js + Stripe. Fast checkout, inventory, email flows.</p><ul><li>Stripe Checkout</li><li>Inventory sync</li><li>Email flows</li></ul></div>
+<div class="card reveal reveal-delay-1"><div class="card-icon">⚙️</div><h3>Web App — Custom</h3><p>Internal tools, portals, dashboards — replaces spreadsheets + $500/mo SaaS.</p><ul><li>Custom logic + API</li><li>Role-based auth</li><li>CSV + reporting</li></ul></div>
+<div class="card reveal reveal-delay-2"><div class="card-icon">🔧</div><h3>Care Plan — Maintains</h3><p>We host, update, backup, fix. 24/7 monitoring + 15-min EST Slack.</p><ul><li>Updates + backups</li><li>Uptime monitoring</li><li>Content edits</li></ul></div>
+</div>
+
+<div class="stack reveal" id="stack">
+<div class="stack-item">⚛️ Next.js 14</div>
+<div class="stack-item">🎨 Tailwind CSS</div>
+<div class="stack-item">💳 Stripe</div>
+<div class="stack-item">🔐 Clerk/Auth.js</div>
+<div class="stack-item">🗄️ Supabase / Prisma</div>
+<div class="stack-item">▲ Vercel</div>
+<div class="stack-item">📈 GA4 + Plausible</div>
+<div class="stack-item">🔍 SEO + OG</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="pricing">
+<div class="container">
+<div class="label reveal">PRICING — USD • FIXED • 14-DAY DELIVERY</div>
+<h2 class="reveal">Pay for value, not hours.<br>From $1,200 to SaaS MVP.</h2>
+<div class="pricing">
+<div class="price reveal">
+<h3>Landing — Convert</h3><div class="sub">1 page, high converting</div>
+<div class="amt">$1,200<span> fixed</span></div>
+<ul><li>Next.js + Tailwind + 100 Lighthouse</li><li>Copy + design + responsive</li><li>Stripe / Calendly / Form</li><li>SEO + OG + Analytics</li><li>7-day delivery + 30-day tweaks</li></ul>
+<button class="price-btn">Start Landing $1,200</button>
+</div>
+<div class="price popular reveal reveal-delay-1">
+<div class="pop-badge">MOST POPULAR — US STARTUPS</div>
+<h3>Business — Rank</h3><div class="sub">5-10 pages, CMS, SEO</div>
+<div class="amt">$2,500<span> fixed</span></div>
+<ul><li>Everything in Landing</li><li>5-10 pages + CMS + blog</li><li>Google Business + SEO setup</li><li>Contact + CRM integration</li><li>14-day delivery + 90-day support</li></ul>
+<button class="price-btn">Start Business $2,500</button>
+</div>
+<div class="price reveal reveal-delay-2">
+<h3>SaaS MVP — Ship</h3><div class="sub">Auth + Stripe + Dashboard</div>
+<div class="amt">$4.5k-$8.5k<span> fixed</span></div>
+<ul><li>Auth + DB + Stripe subs</li><li>Dashboard + onboarding + billing</li><li>Email + webhooks + admin</li><li>Vercel deploy + docs</li><li>14-21 day delivery + 90-day support</li></ul>
+<button class="price-btn">Book MVP Call</button>
+</div>
+</div>
+
+<div class="portfolio">
+<div class="port-item reveal"><div class="port-img">SaaS Dashboard • Stripe • Next.js</div><div class="port-content"><h4>Fintech MVP — Austin, TX</h4><p>Auth + Stripe + dashboard shipped in 12 days. $4.5k, now $8k MRR.</p><div class="port-tags"><span>Next.js</span><span>Stripe</span><span>Supabase</span></div></div></div>
+<div class="port-item reveal reveal-delay-1"><div class="port-img">Landing • 4.2% Conversion • SEO</div><div class="port-content"><h4>Ecom Landing — Miami, FL</h4><p>Landing 0.8s load, 100 Lighthouse, 4.2% conversion from ads.</p><div class="port-tags"><span>Landing</span><span>Tailwind</span><span>GA4</span></div></div></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="faq">
+<div class="container">
+<div class="label reveal">FAQ — WEB DEV</div>
+<h2 class="reveal">How we ship fast for US teams</h2>
+<div class="faq">
+<div class="faq-item open reveal"><button class="faq-q">How do you deliver in 14 days EST? <span>+</span></button><div class="faq-a">We work 2PM-11PM CAT = 7AM-2PM EST overlap + async Loom. Day 1-2 discovery + wireframe, Day 3-5 design, Day 6-12 build, Day 13-14 QA + deploy. Slack #project channel, daily Loom. No meetings unless needed.</div></div>
+<div class="faq-item reveal"><button class="faq-q">What about revisions? <span>+</span></button><div class="faq-a">Landing: unlimited tweaks for 30 days. Business/SaaS: 90 days support + content edits. Major new features = separate scope. We aim for 1 revision loop because we nail brief in discovery.</div></div>
+<div class="faq-item reveal"><button class="faq-q">Do you do WordPress? <span>+</span></button><div class="faq-a">No — we do Next.js for speed/SEO/security. If you need WordPress we can, but we recommend headless. 100 Lighthouse vs 60 WordPress. US startups need fast.</div></div>
+<div class="faq-item reveal"><button class="faq-q">Who owns code? <span>+</span></button><div class="faq-a">You do. GitHub repo transferred to you, Vercel project yours, Stripe keys yours. No lock-in. We document env vars + deploy steps in Notion.</div></div>
+<div class="faq-item reveal"><button class="faq-q">Care plan after launch? <span>+</span></button><div class="faq-a">$199/mo includes updates, backups, uptime monitoring, content edits (2 hrs), EST Slack. Or $0 you host yourself — we hand over docs. Most US startups take care plan for peace.</div></div>
+</div>
+
+<div class="cta reveal" id="book">
+<div style="position:relative;z-index:1"><h3>Need website that actually converts?</h3><p>Book 20-min discovery — we audit your current site + give wireframe free. From $1,200 landing to $4.5k SaaS MVP, 14-day ship, EST Slack.</p></div>
+<div class="cta-btns" style="position:relative;z-index:1"><button class="btn-primary">Start $1,200 Landing →</button><button class="btn-secondary">Book EST Call</button></div>
+</div>
+</div>
+</section>
+
+<script>
+// Mobile drawer
+const ham=document.getElementById('hamburger');
+const drawer=document.getElementById('mobileDrawer');
+ham.addEventListener('click',()=>{
+ ham.classList.toggle('active');
+ drawer.classList.toggle('open');
+ document.body.style.overflow=drawer.classList.contains('open')?'hidden':'';
+});
+document.querySelectorAll('#mobileDrawer a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('active');drawer.classList.remove('open');document.body.style.overflow='';}));
+
+// FAQ
+document.querySelectorAll('.faq-q').forEach(q=>{
+ q.addEventListener('click',()=>{
+  const item=q.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
+ });
+});
+
+// Reveal + bar animation
+const obs=new IntersectionObserver((entries)=>{
+ entries.forEach(e=>{
+  if(e.isIntersecting){
+   e.target.classList.add('in');
+   e.target.querySelectorAll?.('.bar').forEach((b,i)=>{setTimeout(()=>b.classList.add('animate'), i*120)});
+  }
+ });
+},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal,.visual,.cta').forEach(el=>obs.observe(el));
+setTimeout(()=>{document.querySelectorAll('.bar').forEach(b=>b.classList.add('animate'))},800);
+
+// Parallax
+let ticking=false;
+document.addEventListener('mousemove',e=>{
+ if(window.innerWidth<768) return;
+ if(ticking) return;
+ ticking=true;
+ requestAnimationFrame(()=>{
+  const x=(e.clientX/window.innerWidth-0.5)*12;
+  const y=(e.clientY/window.innerHeight-0.5)*12;
+  document.querySelectorAll('.circle,.ring').forEach((el,i)=>{
+   el.style.transform=`translate(${x*(i+1)*0.6}px, ${y*(i+1)*0.6}px)`;
+  });
+  ticking=false;
+ });
+});
+</script>
+</body>
+</html>

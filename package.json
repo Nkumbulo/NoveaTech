@@ -1,0 +1,14 @@
+{
+  "name": "noveatech",
+  "version": "1.0.0",
+  "description": "Your frontend (`shop.js`) doesn't care which server answers it, as long as the server returns the same JSON shape at the same URL pattern. That's the whole point of the setup you have now — swapping backends should not require touching `shop.html` or `shop.js` except for one line.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

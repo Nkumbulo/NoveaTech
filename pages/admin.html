@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>NoveaTech Admin - Add Products</title>
+<style>
+body{font-family:Inter,sans-serif; background:#050505; color:white; padding:40px; max-width:800px; margin:auto}
+input,select,textarea{width:100%; padding:12px; margin:8px 0 16px; background:#0B1220; border:1px solid #1E293B; color:white; border-radius:10px}
+button{padding:12px 24px; background:linear-gradient(90deg,#00A8FF,#00E5FF); border:none; border-radius:50px; color:white; font-weight:700; cursor:pointer}
+label{font-size:12px; color:#00E5FF; letter-spacing:1px; font-weight:700}
+.card{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); padding:24px; border-radius:20px; margin-bottom:20px}
+</style>
+</head>
+<body>
+<h1>Add Product to Database</h1>
+<p style="color:#888">This saves to your MySQL via api/add_product.php. For JSON version, just edit products.json manually.</p>
+
+<div class="card">
+<form id="productForm">
+<label>CATEGORY</label>
+<select name="cat" required>
+<option value="phones">Phones</option>
+<option value="laptops">Laptops</option>
+<option value="accessories">Accessories</option>
+<option value="components">Components</option>
+<option value="tools">Repair Tools</option>
+</select>
+
+<label>TITLE</label>
+<input name="title" placeholder="iPhone 15 Pro 256GB" required>
+
+<label>BRAND LABEL</label>
+<input name="brand" placeholder="APPLE NEW" required>
+
+<label>PRICE</label>
+<input name="price" type="number" step="0.01" required>
+
+<label>OLD PRICE (for discount)</label>
+<input name="old_price" type="number" step="0.01">
+
+<label>BADGE TYPE</label>
+<select name="badge"><option value="new">new (blue)</option><option value="hot">hot (red)</option></select>
+
+<label>BADGE TEXT</label>
+<input name="badge_text" placeholder="NEW / HOT • SAVE $100">
+
+<label>STOCK TEXT</label>
+<input name="stock" placeholder="12 in stock">
+
+<label>IMAGE URL</label>
+<input name="img" placeholder="https://..." required>
+
+<label>DESCRIPTION (optional)</label>
+<textarea name="description" rows="3"></textarea>
+
+<button type="submit">Add Product →</button>
+</form>
+</div>
+
+<div id="status"></div>
+
+<script>
+document.getElementById('productForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target).entries());
+  document.getElementById('status').textContent = 'Saving...';
+  
+  // Option 1: If using PHP backend
+  try {
+    const res = await fetch('api/add_product.php', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(data)
+    });
+    const json = await res.json();
+    if (json.success) {
+      document.getElementById('status').innerHTML = '✅ Product added! Go check shop.html';
+      e.target.reset();
+    } else throw new Error(json.error);
+  } catch(err) {
+    // Fallback: Show JSON to copy into products.json
+    document.getElementById('status').innerHTML = `
+      <div style="background:#111; padding:16px; border-radius:12px; margin-top:20px">
+      <p>⚠️ No backend connected yet. Copy this into products.json:</p>
+      <pre style="overflow:auto; color:#00E5FF">${JSON.stringify({
+        id: Date.now(),
+        cat: data.cat,
+        title: data.title,
+        brand: data.brand,
+        price: parseFloat(data.price),
+        old: parseFloat(data.old_price) || parseFloat(data.price)+100,
+        badge: data.badge,
+        badgeText: data.badge_text,
+        stock: data.stock,
+        img: data.img,
+        dateAdded: new Date().toISOString()
+      }, null, 2)}</pre>
+      </div>`;
+  }
+});
+</script>
+</body>
+</html>

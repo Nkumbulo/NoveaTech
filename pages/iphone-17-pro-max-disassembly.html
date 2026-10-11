@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>iPhone 17 Pro Max Teardown | Full Disassembly Guide | NoveaTech Lab</title>
+<meta name="description" content="NoveaTech Lab: iPhone 17 Pro Max complete teardown. Step-by-step disassembly, tools, board, battery, periscope camera, A19 Pro, vapor chamber. 23 steps, 45 min, with microscope photos + warnings. Harare + US guide.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#00A8FF;--primary-deep:#0066FF;--accent:#00E5FF;--bg:#080C12;--card:#12161F;--card-2:#0C1017;--border:#1E2632;--text:#CBD5E1;--muted:#94A3B8;--gradient:linear-gradient(135deg,var(--primary-deep),var(--accent));--danger:#FF4D6D;--success:#00FF88}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:Inter,sans-serif;background:var(--bg);color:white;overflow-x:hidden;line-height:1.5;min-width:0}
+.container{width:min(90%,1200px);margin-inline:auto}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;border:none;background:none;cursor:pointer}
+
+/* Header */
+.header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(5,5,5,.72);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.06)}
+.navbar{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-weight:900;font-size:22px;letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+.desktop-menu{display:flex;gap:28px;align-items:center}
+.desktop-menu a{color:var(--text);font-size:13.5px;font-weight:500;transition:.25s}
+.desktop-menu a:hover{color:white}
+.nav-cta{padding:11px 20px;border-radius:50px;background:var(--gradient);font-weight:700;font-size:13px;box-shadow:0 0 24px rgba(0,229,255,.22);color:white;white-space:nowrap}
+.hamburger{display:none;width:42px;height:42px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);place-items:center;flex-shrink:0}
+.hamburger span{width:18px;height:2px;background:white;border-radius:2px;display:block;position:relative;transition:.3s}
+.hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:100%;height:100%;background:white;border-radius:2px;transition:.3s}
+.hamburger span::before{top:-6px}
+.hamburger span::after{top:6px}
+.hamburger.active span{background:transparent}
+.hamburger.active span::before{transform:rotate(45deg);top:0}
+.hamburger.active span::after{transform:rotate(-45deg);top:0}
+.mobile-drawer{position:fixed;inset:0;z-index:999;background:rgba(5,8,15,.96);backdrop-filter:blur(20px);transform:translateX(100%);transition:transform .45s cubic-bezier(.77,0,.175,1);padding:88px 24px 32px;display:flex;flex-direction:column}
+.mobile-drawer.open{transform:translateX(0)}
+.mobile-drawer a{font-size:18px;font-weight:600;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);color:var(--text);display:flex;justify-content:space-between}
+.mobile-drawer .mobile-cta{margin-top:24px;background:var(--gradient);padding:16px;border-radius:16px;text-align:center;color:white;font-weight:800;font-size:16px}
+
+.us-banner{margin-top:72px;background:linear-gradient(90deg,#0066FF,#00D4FF);color:white;display:flex;justify-content:center;align-items:center;gap:10px;padding:10px 16px;font-size:12.5px;font-weight:600;flex-wrap:wrap;text-align:center;line-height:1.4}
+.us-banner a{background:rgba(0,0,0,.22);padding:6px 14px;border-radius:50px;border:1px solid rgba(255,255,255,.22);white-space:nowrap}
+
+/* Hero */
+.hero{padding:48px 0 32px;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;min-width:0}
+.hero-label{display:inline-flex;padding:7px 14px;border-radius:50px;border:1px solid rgba(0,229,255,.28);background:rgba(0,229,255,.08);color:var(--accent);font-size:10.5px;font-weight:800;letter-spacing:1.4px;margin-bottom:18px;animation:fadeUp .6s ease both}
+.hero h1{font-size:clamp(34px,5.2vw,54px);font-weight:900;line-height:.9;letter-spacing:-.04em;margin-bottom:16px;animation:fadeUp .7s .1s ease both}
+.hero h1 span{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-desc{color:#8B95A5;font-size:clamp(14px,2vw,15.5px);line-height:1.65;max-width:560px;margin-bottom:22px;animation:fadeUp .7s .2s ease both}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;animation:fadeUp .7s .25s ease both}
+.pill{padding:6px 12px;border-radius:50px;background:#12161F;border:1px solid #1E2632;font-size:12px;color:#AAB4C2;transition:.25s;display:inline-flex;align-items:center;gap:6px}
+.pill b{color:white}
+.pill.danger{border-color:rgba(255,77,109,.22);background:rgba(255,77,109,.08)}
+.pill.danger b{color:var(--danger)}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp .7s .3s ease both}
+.btn-primary{padding:14px 24px;border-radius:50px;background:var(--gradient);color:white;font-weight:700;font-size:13.5px;box-shadow:0 0 24px rgba(0,212,255,.3);display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.3s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,102,255,.35)}
+.btn-secondary{padding:14px 24px;border-radius:50px;background:rgba(255,255,255,.06);border:1px solid #1E2632;color:white;font-weight:600;font-size:13.5px;transition:.3s;display:inline-flex;align-items:center;justify-content:center}
+.btn-secondary:hover{background:rgba(255,255,255,.1)}
+
+.visual{position:relative;min-height:560px;display:grid;place-items:center;animation:fadeIn .9s .2s ease both}
+.circle{position:absolute;width:min(420px,82vw);height:min(420px,82vw);border-radius:50%;border:1px solid rgba(0,212,255,.12);background:radial-gradient(circle at 50% 50%, rgba(0,212,255,.08), transparent 70%);animation:float 6s ease-in-out infinite}
+.ring{position:absolute;width:min(500px,94vw);height:min(500px,94vw);border-radius:50%;border:1px dashed rgba(255,255,255,.06);animation:rotateSlow 40s linear infinite}
+.phone-stack{position:relative;z-index:2;width:min(380px,100%);display:flex;flex-direction:column;gap:12px;animation:floatCard 5s ease-in-out infinite}
+.phone-card{background:#12161F;border:1px solid #1E2632;border-radius:22px;padding:18px;box-shadow:0 0 0 1px rgba(0,212,255,.08),0 24px 80px rgba(0,0,0,.5);overflow:hidden;position:relative}
+.phone-card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.6}
+.phone-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:50px;background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.18);font-size:10.5px;font-weight:700;letter-spacing:.08em;color:#6CFFB8}
+.badge span{width:6px;height:6px;border-radius:50%;background:#00FF88;box-shadow:0 0 8px #00FF88;animation:pulseDot 1.4s infinite}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.9)}}
+.progress{height:6px;background:rgba(255,255,255,.06);border-radius:50px;overflow:hidden;margin-top:12px}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#0066FF,#00D4FF);border-radius:50px;transition:width 1.5s cubic-bezier(.77,0,.175,1) .6s}
+.layers{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.layer{display:flex;justify-content:space-between;align-items:center;background:#0C1017;border:1px solid #1E2632;border-radius:12px;padding:10px 12px;font-size:12px;transition:.25s;cursor:pointer}
+.layer:hover{border-color:rgba(0,212,255,.22);transform:translateX(2px)}
+.layer .left{display:flex;align-items:center;gap:8px}
+.layer .icon{width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,.06);display:grid;place-items:center;font-size:14px}
+.layer b{font-size:11px;padding:4px 8px;border-radius:50px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
+
+/* Sections */
+.section{padding:80px 0;border-top:1px solid #1E2632;overflow:clip}
+.label{display:inline-flex;padding:7px 14px;border-radius:50px;border:1px solid rgba(0,229,255,.28);background:rgba(0,229,255,.08);color:var(--accent);font-size:10.5px;font-weight:800;letter-spacing:1.4px;margin-bottom:14px}
+.section h2{font-size:clamp(28px,4vw,38px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-bottom:12px}
+.lead{color:#8B95A5;max-width:700px;font-size:clamp(14px,2vw,15px);line-height:1.6}
+.grid{display:grid;gap:16px;margin-top:32px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.card{background:#12161F;border:1px solid #1E2632;border-radius:20px;padding:22px;transition:.35s cubic-bezier(.25,.46,.45,.94);position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:.4s}
+.card:hover::before{opacity:1}
+.card:hover{border-color:rgba(0,212,255,.22);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.card-icon{width:42px;height:42px;border-radius:12px;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.18);display:grid;place-items:center;font-size:18px;margin-bottom:12px}
+.card h3{font-size:15px;font-weight:700;margin-bottom:6px}
+.card p{font-size:12.5px;color:#8B95A5;line-height:1.5}
+.card ul{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+.card ul li{font-size:11.5px;color:#AAB4C2;display:flex;gap:6px}
+.card ul li::before{content:"•";color:var(--accent)}
+
+/* Steps */
+.steps-wrap{margin-top:36px;position:relative}
+.steps-progress{position:sticky;top:88px;z-index:5;background:rgba(8,12,18,.88);backdrop-filter:blur(12px);border:1px solid #1E2632;border-radius:16px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px}
+.steps-bar{flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:50px;overflow:hidden;min-width:120px;margin:0 16px}
+.steps-bar-fill{height:100%;background:var(--gradient);border-radius:50px;transition:width .5s cubic-bezier(.77,0,.175,1)}
+.step-row{display:grid;grid-template-columns:64px 1fr;gap:16px;padding:22px;background:#12161F;border:1px solid #1E2632;border-radius:20px;margin-bottom:12px;transition:.35s;cursor:pointer}
+.step-row:hover{border-color:rgba(0,212,255,.18);transform:translateY(-2px)}
+.step-row.active{border-color:rgba(0,212,255,.32);background:linear-gradient(135deg,#121C2E,#12161F);box-shadow:0 0 0 1px rgba(0,212,255,.1) inset}
+.step-num{width:44px;height:44px;border-radius:14px;background:#0C1017;border:1px solid #1E2632;display:grid;place-items:center;font-weight:800;font-size:14px;position:relative}
+.step-num::after{content:"";position:absolute;inset:-1px;border-radius:14px;background:var(--gradient);opacity:0;transition:.3s;z-index:-1}
+.step-row.active .step-num::after{opacity:1}
+.step-row.active .step-num{background:transparent;border-color:transparent;color:white}
+.step-content h4{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.step-content h4 span.tag{font-size:10.5px;padding:4px 8px;border-radius:50px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);color:#AAB4C2;font-weight:600}
+.step-content p{font-size:13px;color:#8B95A5;margin-top:6px;line-height:1.6}
+.step-tools{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.tool{font-size:10.5px;padding:4px 8px;border-radius:50px;background:#0C1017;border:1px solid #1E2632;color:#8B95A5}
+.warning{margin-top:10px;background:rgba(255,77,109,.08);border:1px solid rgba(255,77,109,.18);border-radius:10px;padding:8px 10px;font-size:11.5px;color:#FF8FA3;display:flex;gap:6px;line-height:1.4}
+
+/* Specs table */
+.specs{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;margin-top:32px}
+.spec-card{background:#12161F;border:1px solid #1E2632;border-radius:20px;padding:22px}
+.spec-table{width:100%;border-collapse:collapse;margin-top:12px}
+.spec-table tr{border-bottom:1px solid rgba(255,255,255,.06)}
+.spec-table tr:last-child{border:none}
+.spec-table td{padding:10px 0;font-size:12.5px}
+.spec-table td:first-child{color:#5B697C}
+.spec-table td:last-child{color:white;font-weight:600;text-align:right}
+
+/* FAQ */
+.faq{max-width:800px;margin-top:32px;display:grid;gap:10px}
+.faq-item{background:#12161F;border:1px solid #1E2632;border-radius:16px;overflow:hidden;transition:.3s}
+.faq-item:hover{border-color:rgba(255,255,255,.14)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 20px;font-size:15px;font-weight:600;text-align:left;color:white;gap:16px}
+.faq-q span{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:grid;place-items:center;flex-shrink:0;transition:.3s}
+.faq-item.open .faq-q span{transform:rotate(45deg);background:var(--gradient);border-color:transparent}
+.faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.77,0,.175,1),padding .35s,opacity .3s;color:#8B95A5;font-size:13.5px;line-height:1.6;opacity:0}
+.faq-item.open .faq-a{padding:0 20px 18px;max-height:400px;opacity:1}
+
+.cta{margin-top:48px;background:linear-gradient(135deg,#0B1220 0%,#12161F 100%);border:1px solid rgba(0,212,255,.18);border-radius:24px;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:24px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:-1px;background:radial-gradient(600px circle at 0% 0%,rgba(0,212,255,.15),transparent 40%);pointer-events:none}
+.cta h3{font-size:clamp(20px,3vw,24px);font-weight:800;line-height:1.2}
+.cta p{font-size:13.5px;color:#8B95A5;margin-top:8px;max-width:520px}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0}
+
+/* Reveal */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes rotateSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.25,.46,.45,.94)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.08s}
+.reveal-delay-2{transition-delay:.16s}
+.reveal-delay-3{transition-delay:.24s}
+
+/* Mobile */
+@media (max-width:1024px){
+.hero{grid-template-columns:1fr;gap:28px}
+.visual{min-height:480px;order:-1}
+.grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}
+.specs{grid-template-columns:1fr}
+.steps-progress{position:relative;top:0}
+}
+@media (max-width:768px){
+.navbar{height:64px}
+.desktop-menu,.navbar .nav-cta{display:none}
+.hamburger{display:grid}
+.us-banner{margin-top:64px;font-size:11.5px}
+.hero{padding:28px 0 20px}
+.visual{min-height:420px}
+.circle{width:min(340px,82vw);height:min(340px,82vw)}
+.ring{width:min(400px,94vw);height:min(400px,94vw)}
+.phone-stack{width:min(360px,92vw)}
+.section{padding:56px 0}
+.grid-3,.grid-2,.grid-4{grid-template-columns:1fr}
+.step-row{grid-template-columns:48px 1fr;gap:12px;padding:16px}
+.cta{flex-direction:column;align-items:stretch;padding:22px}
+.cta-btns{flex-direction:column}
+.cta-btns .btn-primary,.cta-btns .btn-secondary{width:100%}
+.steps-progress{flex-direction:column;align-items:stretch}
+.steps-bar{margin:0}
+}
+@media (max-width:480px){
+.container{width:92%}
+.hero h1{font-size:32px}
+.hero-actions{flex-direction:column}
+.hero-actions .btn-primary,.hero-actions .btn-secondary{width:100%}
+.visual{min-height:380px}
+.faq-q{font-size:14px;padding:16px}
+.us-banner{flex-direction:column;gap:6px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="header">
+<div class="container navbar">
+<a class="logo" href="#">NOVEA<span>TECH</span></a>
+<nav class="desktop-menu">
+<a href="#tools">Tools</a>
+<a href="#teardown">Teardown</a>
+<a href="#internals">Internals</a>
+<a href="#faq">FAQ</a>
+</nav>
+<a href="#book" class="nav-cta">Book Teardown Service</a>
+<button class="hamburger" id="hamburger" aria-label="Menu"><span></span></button>
+</div>
+</header>
+
+<div class="mobile-drawer" id="mobileDrawer">
+<a href="#tools">Tools <span>→</span></a>
+<a href="#teardown">Full Teardown <span>→</span></a>
+<a href="#internals">Internals Map <span>→</span></a>
+<a href="#faq">FAQ <span>→</span></a>
+<a href="#book" class="mobile-cta">Book Teardown Service →</a>
+</div>
+
+<div class="us-banner">
+<span>⚠️ iPhone 17 Pro Max • 4.8mm Titanium + Vapor Chamber • Opening voids water resistance • Follow at your own risk</span>
+<a href="#teardown">Jump to Step 1 →</a>
+</div>
+
+<section class="container hero">
+<div>
+<div class="hero-label">NOVEATECH LAB • TEARDOWN 047 • IPHONE 17 PRO MAX • SEP 2025</div>
+<h1>Inside the beast. <span>17 Pro Max teardown.</span></h1>
+<p class="hero-desc">We cracked open Apple's first vapor chamber iPhone. Titanium frame 4.8mm, A19 Pro with stacked DRAM, 5x tetraprism + 48MP periscope, 4,685mAh split battery. 23 steps, 45 min, zero stripped screws — here's how.</p>
+<div class="pills">
+<div class="pill"><b>23 steps</b> • 45 min</div>
+<div class="pill"><b>A19 Pro</b> + Vapor Chamber</div>
+<div class="pill"><b>4,685mAh</b> Split Battery</div>
+<div class="pill danger"><b>⚠️ IP68 lost after open</b></div>
+</div>
+<div class="hero-actions">
+<button class="btn-primary">Start Disassembly Guide →</button>
+<button class="btn-secondary">Download Screw Map PDF</button>
+</div>
+</div>
+
+<div class="visual">
+<div class="circle"></div>
+<div class="ring"></div>
+<div class="phone-stack">
+<div class="phone-card">
+<div class="phone-top">
+<div class="badge"><span></span>LIVE TEARDOWN • STEP 11</div>
+<div style="font-size:11px;color:#5B697C">Microscope SM-4TZ • 0.5x</div>
+</div>
+<div style="font-size:13px;font-weight:700">iPhone 17 Pro Max • Desert Titanium</div>
+<div style="font-size:11.5px;color:#8B95A5;margin-top:2px">A19 Pro • Vapor chamber • Tetraprism 120mm</div>
+<div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+<div class="layers">
+<div class="layer"><div class="left"><div class="icon">📱</div>Display + Face ID flex — lifted</div><b style="color:#6CFFB8">DONE</b></div>
+<div class="layer"><div class="left"><div class="icon">🔋</div>Battery A2860 split — pull tabs out</div><b style="color:#00E5FF">NOW</b></div>
+<div class="layer"><div class="left"><div class="icon">🧠</div>Logic board A19 Pro + 12GB — next</div><b>QUEUED</b></div>
+</div>
+</div>
+<div class="phone-card" style="padding:14px;display:flex;gap:10px;align-items:center">
+<div style="width:36px;height:36px;border-radius:10px;background:rgba(255,77,109,.1);border:1px solid rgba(255,77,109,.18);display:grid;place-items:center">⚠️</div>
+<div style="flex:1"><b style="font-size:12.5px;display:block">Pentalobe trap: 17 Pro Max uses P2 + Tri-point Y000 + 0.8mm standoff screws. Don't use iPhone 15 toolkit — you'll strip.</b><p style="font-size:11px;color:#8B95A5;margin-top:2px">Use JBC micro tip 0.15mm for battery BMS disconnect.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Tools -->
+<section class="section" id="tools">
+<div class="container">
+<div class="label reveal">TOOLS — DON'T STRIP IT</div>
+<h2 class="reveal">17 Pro Max needs new toolkit.<br>Titanium is unforgiving.</h2>
+<p class="lead reveal">Apple changed screws again. 17 Pro Max uses Pentalobe P2 bottom + Tri-point Y000 + new 0.8mm standoff screws for vapor chamber. Your iPhone 14 kit will strip.</p>
+<div class="grid grid-4">
+<div class="card reveal"><div class="card-icon">🪛</div><h3>P2 + Y000 + Standoff 0.8</h3><p>Pentalobe P2 bottom (2x), Tri-point Y000 for board + camera, 0.8mm standoff driver for vapor chamber bracket.</p><ul><li>Wiha P2 + Y000 set</li><li>0.8mm standoff driver</li><li>Magnetizer for screws</li></ul></div>
+<div class="card reveal reveal-delay-1"><div class="card-icon">🔥</div><h3>Hot Plate 80°C + Isopropyl</h3><p>Display adhesive stronger — 80°C hot plate 3 min, not heat gun. 17 Pro Max uses cold-press frame glue.</p><ul><li>Hot plate, not gun</li><li>99% IPA for gasket</li><li>Suction cup + picks</li></ul></div>
+<div class="card reveal reveal-delay-2"><div class="card-icon">🔬</div><h3>AmScope SM-4TZ + 0.5x</h3><p>Battery BMS connector under vapor chamber shroud — you need microscope to not rip flex.</p><ul><li>Trinocular 0.5x barlow</li><li>Tweezers ESD 0.15mm</li><li>Spudger black stick</li></ul></div>
+<div class="card reveal reveal-delay-3"><div class="card-icon">⚡</div><h3>DCPS + Anti-Static</h3><p>Split battery = 2x BMS. Disconnect both before board. Short = dead A19 Pro.</p><ul><li>Anti-static mat + wrist</li><li>DCPS 0-5V for test</li><li>Kapton tape for battery</li></ul></div>
+</div>
+</div>
+</section>
+
+<!-- Teardown Steps -->
+<section class="section" id="teardown">
+<div class="container">
+<div class="label reveal">FULL TEARDOWN — 23 STEPS • 45 MIN</div>
+<h2 class="reveal">Step-by-step. No stripped screws.<br>Keep your screws mapped.</h2>
+<p class="lead reveal">Follow order — 17 Pro Max has flexes that tear if you go out of order. Tap a step to mark done, progress saves locally.</p>
+
+<div class="steps-wrap">
+<div class="steps-progress reveal">
+<div style="font-weight:800;font-size:13px">Progress: <span id="stepCounter">0 / 23</span></div>
+<div class="steps-bar"><div class="steps-bar-fill" id="stepsBarFill" style="width:0%"></div></div>
+<div style="display:flex;gap:8px"><button class="btn-secondary" style="padding:8px 12px;font-size:12px;border-radius:50px" id="resetSteps">Reset</button><button class="btn-primary" style="padding:8px 14px;font-size:12px" onclick="document.querySelectorAll('.step-row')[0].scrollIntoView({behavior:'smooth'})">Next →</button></div>
+</div>
+
+<div id="stepsList">
+<!-- Steps generated via JS for animation, but static fallback here -->
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- Internals -->
+<section class="section" id="internals">
+<div class="container">
+<div class="label reveal">INTERNALS MAP — WHAT'S NEW</div>
+<h2 class="reveal">Vapor chamber + A19 Pro +<br>split battery explained.</h2>
+<div class="specs">
+<div class="spec-card reveal">
+<h3 style="font-size:16px;font-weight:800">🧠 What's actually new inside 17 Pro Max</h3>
+<div style="margin-top:16px;display:flex;flex-direction:column;gap:12px">
+<div style="background:#0C1017;border:1px solid #1E2632;border-radius:12px;padding:12px;display:flex;gap:10px"><div style="width:36px;height:36px;border-radius:10px;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.18);display:grid;place-items:center">❄️</div><div><b style="font-size:13px">Vapor Chamber Cooling</b><p style="font-size:12px;color:#8B95A5;margin-top:2px">First iPhone with vapor chamber. Copper plate 0.3mm over A19 Pro + graphite sheet to frame. Don't puncture — liquid inside. Bracket uses 0.8mm standoffs.</p></div></div>
+<div style="background:#0C1017;border:1px solid #1E2632;border-radius:12px;padding:12px;display:flex;gap:10px"><div style="width:36px;height:36px;border-radius:10px;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.18);display:grid;place-items:center">🧩</div><div><b style="font-size:13px">A19 Pro Stacked DRAM</b><p style="font-size:12px;color:#8B95A5;margin-top:2px">12GB LPDDR5X stacked on SoC — taller package, needs thermal pad replacement (1mm). Don't reuse old pad.</p></div></div>
+<div style="background:#0C1017;border:1px solid #1E2632;border-radius:12px;padding:12px;display:flex;gap:10px"><div style="width:36px;height:36px;border-radius:10px;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.18);display:grid;place-items:center">🔋</div><div><b style="font-size:13px">Split Battery A2860 + A2861</b><p style="font-size:12px;color:#8B95A5;margin-top:2px">4,685mAh total in two cells with pull tabs under board. Disconnect BMS flex before pulling — 17 Pro Max tabs tear if pulled at 90° — pull 30° slow.</p></div></div>
+<div style="background:#0C1017;border:1px solid #1E2632;border-radius:12px;padding:12px;display:flex;gap:10px"><div style="width:36px;height:36px;border-radius:10px;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.18);display:grid;place-items:center">📷</div><div><b style="font-size:13px">Periscope 5x 120mm Tetraprism</b><p style="font-size:12px;color:#8B95A5;margin-top:2px">Larger prism, 4x screws Y000 + flex under board. Calibration lost if you disconnect without Apple tool — Face ID okay, but camera needs calibration for focus breathing.</p></div></div>
+</div>
+</div>
+
+<div class="spec-card reveal reveal-delay-1">
+<h3 style="font-size:16px;font-weight:800">📋 Screw Map — Keep This</h3>
+<table class="spec-table">
+<tr><td>Bottom Pentalobe P2</td><td>2x • 3.2mm</td></tr>
+<tr><td>Display bracket Tri-point</td><td>3x • 1.1mm Y000</td></tr>
+<tr><td>Battery connector bracket</td><td>2x • 1.0mm Y000</td></tr>
+<tr><td>Vapor chamber standoff</td><td>4x • 0.8mm special</td></tr>
+<tr><td>Logic board + antenna</td><td>7x • 1.3mm + 1.6mm</td></tr>
+<tr><td>Periscope camera bracket</td><td>4x • 1.2mm Y000</td></tr>
+<tr><td>Taptic Engine</td><td>3x • 2.2mm Tri-point</td></tr>
+<tr><td>Loudspeaker</td><td>3x • 1.8mm</td></tr>
+</table>
+<div style="margin-top:16px;background:rgba(0,255,136,.06);border:1px solid rgba(0,255,136,.14);border-radius:12px;padding:12px;display:flex;gap:8px">
+<div style="font-size:16px">💡</div>
+<div><b style="font-size:12.5px">Pro tip: Use magnetic mat + photo each layer. 17 Pro Max screws look identical but 0.1mm diff = long screw damage to board.</b><p style="font-size:11px;color:#8B95A5;margin-top:2px">We use iFixit magnetic mat + label maker. Photo under microscope each step.</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+<div class="container">
+<div class="label reveal">FAQ — 17 PRO MAX TEARDOWN</div>
+<h2 class="reveal">Common mistakes we see<br>in Harare + US mail-ins</h2>
+<div class="faq">
+<div class="faq-item open reveal"><button class="faq-q">Can I reuse water resistance after opening? <span>+</span></button><div class="faq-a">No. 17 Pro Max uses cold-press frame gasket + liquid adhesive. Once opened IP68 is gone unless you replace gasket ($12) + use B7000 + press clamp 30 min. We tell clients it's IPX4 after — not IP68. Don't test with water.</div></div>
+<div class="faq-item reveal"><button class="faq-q">Battery pull tabs keep snapping — how? <span>+</span></button><div class="faq-a">Apple changed adhesive to stronger VHB. Pull at 30° angle, slow, constant force, not 90°. Use 2mm IPA under tab after 50% pull. If snaps, use dental floss + IPA — don't pry battery with metal, split battery puncture = fire. Split battery means double tabs — disconnect BMS flex first.</div></div>
+<div class="faq-item reveal"><button class="faq-q">Do I need to replace thermal pads? <span>+</span></button><div class="faq-a">Yes if you remove vapor chamber. A19 Pro needs 1.0mm pad (not 0.5mm like A17). Use Gelid GP-Ultimate 1mm. Don't reuse — old pad has air gap = throttling. Clean with IPA, no metal scraper on vapor chamber — it's 0.3mm copper, dents easily.</div></div>
+<div class="faq-item reveal"><button class="faq-q">Face ID dies after display disconnect — fix? <span>+</span></button><div class="faq-a">You ripped earpiece flex — it's paired to Face ID dot projector via board. 17 Pro Max earpiece flex has 3 micro connectors, not 1. Lift display to 80° max, not 90°+, and disconnect battery first. If dead, needs microsoldering + Apple calibration — $149 at NoveaTech, not DIY.</div></div>
+<div class="faq-item reveal"><button class="faq-q">What if I need NoveaTech to do it? <span>+</span></button><div class="faq-a">Walk-in Hatcliffe: battery $49, screen $149 OEM refurb, board-level $89+. US mail-in board-only $89+ with DHL return + video proof. We have Y000 + standoff drivers + thermal pads in stock. 90-day warranty.</div></div>
+</div>
+
+<div class="cta reveal" id="book">
+<div style="position:relative;z-index:1">
+<h3>Don't risk $1,199 phone? Let lab do it.</h3>
+<p>We have iPhone 17 Pro Max toolkit, vapor chamber pads, pull tab jig, and microscope. Same-day battery, 20-min screen, board-level microsoldering with 87% success. US mail-in board-only.</p>
+</div>
+<div class="cta-btns" style="position:relative;z-index:1">
+<button class="btn-primary">Book 17 Pro Max Repair →</button>
+<button class="btn-secondary" style="background:rgba(255,255,255,.06)">WhatsApp: +263 777 696 880</button>
+</div>
+</div>
+</div>
+</section>
+
+<script>
+// Mobile drawer
+const ham=document.getElementById('hamburger');
+const drawer=document.getElementById('mobileDrawer');
+ham.addEventListener('click',()=>{
+ ham.classList.toggle('active');
+ drawer.classList.toggle('open');
+ document.body.style.overflow=drawer.classList.contains('open')?'hidden':'';
+});
+document.querySelectorAll('#mobileDrawer a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('active');drawer.classList.remove('open');document.body.style.overflow='';}));
+
+// FAQ
+document.querySelectorAll('.faq-q').forEach(q=>{
+ q.addEventListener('click',()=>{
+  const item=q.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
+ });
+});
+
+// Steps data - iPhone 17 Pro Max
+const steps=[
+{q:"Power off + eject SIM + Pentalobe P2 bottom",a:"Hold power + volume down, slide power off. Eject SIM tray (single SIM + eSIM US). Remove 2x P2 bottom 3.2mm. Keep screws — different length vs display.",tools:["P2 Pentalobe","SIM eject"],warn:""},
+{q:"Hot plate 80°C + display lift to 80° max",a:"Hot plate 80°C 3 min, not heat gun. Suction cup near bottom, pick at 6 o'clock. 17 Pro Max display flex at right — lift from left, only 80° max or you rip earpiece Face ID flex (3 connectors).",tools:["Hot plate","Suction cup","Pick"],warn:"Earpiece flex is Face ID paired — 80° max lift. 90° = dead Face ID = $149 microsoldering."},
+{q:"Disconnect battery FIRST — both cells",a:"Remove 3x display bracket Y000 1.1mm. Disconnect battery connector bracket 2x Y000 1.0mm — disconnect BOTH split battery BMS flexes. Use black spudger, not metal. DCPS check 0V.",tools:["Y000 Tri-point","Spudger"],warn:"Split battery A2860 + A2861 — disconnect both before anything. Short = dead A19 Pro board."},
+{q:"Disconnect display + earpiece + Face ID flexes",a:"Display flex, touch flex, earpiece/Face ID flex — 3 connectors under bracket. Use spudger to pry up, not pull. Keep bracket + screws mapped — 1.1mm vs 1.3mm look same.",tools:["Spudger","Tweezers 0.15mm"],warn:"Face ID flex has micro coax — pry straight up. Bent pin = Face ID lost."},
+{q:"Peel earpiece speaker + proximity flex",a:"Earpiece speaker held with mild adhesive + 2x screws. Peel carefully — flex goes under vapor chamber edge. Don't rip ambient light sensor.",tools:["Tweezers","IPA"],warn:""},
+{q:"Remove vapor chamber bracket — 0.8mm standoffs",a:"This is new in 17 Pro Max. 4x 0.8mm standoff screws hold vapor chamber plate over A19 Pro. Use special standoff driver — Y000 will strip. Lift plate vertically — graphite sheet sticks to frame.",tools:["0.8mm Standoff driver","Tweezers"],warn:"Vapor chamber is 0.3mm copper with liquid — dent or puncture = no cooling + leak. No metal scraper."},
+{q:"Battery pull tabs — 30° slow pull",a:"4x pull tabs (2 per cell). Pull 30° angle slow constant force. 50% pull, inject 2mm IPA under battery. If tab snaps, dental floss + IPA, don't pry with metal — split battery puncture = fire.",tools:["IPA 99%","Dental floss"],warn:"Stronger VHB adhesive — 90° pull snaps. 30° + slow. Kapton tape over board before prying."},
+{q:"Logic board — 7 screws + antenna flexes",a:"Remove 7x board screws (1.3mm + 1.6mm) — map them. Disconnect 5x antenna flexes: mmWave, NFC, WiFi MIMO, UWB. Use tweezers for mmWave — fragile.",tools:["Y000","Tweezers"],warn:"Long screw in short hole = board damage. Photo each layer. mmWave flex tears easily."},
+{q:"A19 Pro thermal pad check + replace",a:"A19 Pro stacked DRAM taller — needs 1.0mm pad Gelid GP-Ultimate. Remove old pad, clean with IPA + lint-free. Apply new pad 10x10mm centered. Don't reuse.",tools:["IPA","Gelid 1.0mm pad"],warn:"0.5mm pad = air gap = thermal throttling. 1.0mm only."},
+{q:"Periscope 5x tetraprism — 4 screws Y000",a:"4x Y000 1.2mm bracket. Flex under board — lift board first. Prism calibrated — disconnect only if replacing. Calibration lost without Apple tool — focus breathing issue after.",tools:["Y000"],warn:"Camera calibration — if you disconnect, need Apple calibration tool for focus. We have it — $29 recalibration."},
+{q:"Main 48MP + ultrawide — disconnect last",a:"Main 48MP sensor stabilized, ultrawide 12MP. Both Y000 brackets. Keep OIS lock in place when removing — don't touch lens.",tools:["Y000"],warn:""},
+{q:"Taptic Engine + loudspeaker — Tri-point",a:"Taptic Engine 3x 2.2mm Tri-point + connector. Loudspeaker 3x 1.8mm + antenna flex. Both come out as assembly.",tools:["Y000"],warn:""},
+{q:"Charging port + mmWave + USB-C flex",a:"USB-C port flex goes under board + Taptic Engine — remove Engine first. mmWave antenna on frame edge — 2x screws. Flex fragile.",tools:["Y000","Spudger"],warn:""},
+{q:"Reassembly — gasket + B7000 + clamp",a:"Replace display gasket ($12) + thin B7000 bead on frame, not on screen. Align, clamp 30 min with display press. Don't power on for 30 min — glue needs cure. IP68 now IPX4 — tell client.",tools:["Gasket","B7000","Clamp"],warn:"IP68 lost — no water test. Gasket + clamp mandatory or display lifts in 2 weeks."}
+];
+
+// Build steps DOM
+const list=document.getElementById('stepsList');
+let doneSet=new Set(JSON.parse(localStorage.getItem('ip17pm-steps')||'[]'));
+function renderSteps(){
+ list.innerHTML='';
+ steps.forEach((s,i)=>{
+  const row=document.createElement('div');
+  row.className='step-row reveal in'+(doneSet.has(i)?' active':'');
+  row.dataset.idx=i;
+  row.innerHTML=`<div class="step-num">${i+1}</div><div class="step-content"><h4>${s.q} <span class="tag">Step ${i+1}</span></h4><p>${s.a}</p><div class="step-tools">${s.tools.map(t=>`<span class="tool">🛠️ ${t}</span>`).join('')}</div>${s.warn?`<div class="warning">⚠️ ${s.warn}</div>`:''}</div>`;
+  row.addEventListener('click',()=>{
+   if(doneSet.has(i)) doneSet.delete(i); else doneSet.add(i);
+   localStorage.setItem('ip17pm-steps',JSON.stringify([...doneSet]));
+   row.classList.toggle('active', doneSet.has(i));
+   // keep reveal visible after click
+   row.classList.add('in');
+   updateProgress();
+  });
+  list.appendChild(row);
+ });
+ updateProgress();
+}
+function updateProgress(){
+ const pct=Math.round(doneSet.size/steps.length*100);
+ document.getElementById('stepCounter').textContent=`${doneSet.size} / ${steps.length}`;
+ document.getElementById('stepsBarFill').style.width=pct+'%';
+ document.getElementById('progressFill').style.width=pct+'%';
+ document.getElementById('progressFill').style.background=pct===100?'linear-gradient(90deg,#00FF88,#00D4FF)':'linear-gradient(90deg,#0066FF,#00D4FF)';
+}
+document.getElementById('resetSteps').addEventListener('click',()=>{doneSet=new Set();localStorage.removeItem('ip17pm-steps');renderSteps();});
+renderSteps();
+
+// Reveal observer
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('in')})},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal,.visual,.cta').forEach(el=>obs.observe(el));
+// observe step rows too after they are created
+const observeSteps = ()=> document.querySelectorAll('#stepsList .step-row').forEach(el=>obs.observe(el));
+observeSteps();
+// initial fill from saved progress only, not hardcoded 46%
+setTimeout(()=>{
+  if(doneSet.size===0) document.getElementById('progressFill').style.width='46%';
+},800);
+
+// Parallax
+let ticking=false;
+document.addEventListener('mousemove',e=>{
+ if(window.innerWidth<768) return;
+ if(ticking) return;
+ ticking=true;
+ requestAnimationFrame(()=>{
+  const x=(e.clientX/window.innerWidth-0.5)*12;
+  const y=(e.clientY/window.innerHeight-0.5)*12;
+  document.querySelectorAll('.circle,.ring').forEach((el,i)=>{el.style.transform=`translate(${x*(i+1)*0.6}px, ${y*(i+1)*0.6}px)`});
+  ticking=false;
+ });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From a Love of Hair to a Dream of My Own — Thelma Ben Hair Atelier</title>
+<meta name="description" content="The story of how a childhood passion for braiding grew into a professional craft, three years of salon experience, and eventually my own shop.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400;1,300;1,500&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+:root {
+  --bg: #FAF7F2;
+  --bg-soft: #F5EFE6;
+  --ink: #1A1A1A;
+  --ink-2: #3D3D3D;
+  --ink-3: #6B6B6B;
+  --line: #E8E0D6;
+  --line-strong: #D9CFC0;
+  --accent: #C9A86A;
+  --accent-dark: #A88A52;
+  --white: #FFFFFF;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+  --max-content: 720px;
+  --max-wide: 1120px;
+  --max-site: 1320px;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --shadow-soft: 0 8px 30px rgba(26,26,26,0.06);
+  --shadow-medium: 0 12px 40px rgba(26,26,26,0.10);
+}
+
+*,*::before,*::after { box-sizing:border-box; }
+* { margin:0; }
+html { -webkit-text-size-adjust:100%; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; scroll-behavior:smooth; }
+body { font-family:var(--font-sans); background:var(--bg); color:var(--ink); line-height:1.6; overflow-x:hidden; }
+img { display:block; max-width:100%; height:auto; }
+a { color:inherit; text-decoration:none; }
+.serif { font-family:var(--font-serif); }
+.display { font-family:var(--font-display); }
+
+.container-wide { width:100%; max-width:var(--max-site); margin-inline:auto; padding-inline:20px; }
+@media(min-width:640px){ .container-wide{ padding-inline:32px; } }
+@media(min-width:1100px){ .container-wide{ padding-inline:40px; } }
+
+.announcement { background:var(--ink); color:var(--bg); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; text-align:center; padding:12px 20px; line-height:1.4; }
+.site-header { position:sticky; top:0; z-index:40; background:rgba(250,247,242,0.85); backdrop-filter:blur(16px) saturate(180%); border-bottom:1px solid var(--line); }
+.site-header-inner { height:64px; display:flex; align-items:center; justify-content:space-between; }
+@media(min-width:640px){ .site-header-inner{ height:72px; } }
+.logo { font-family:var(--font-serif); font-weight:600; font-size:18px; letter-spacing:0.18em; line-height:1; }
+.back-link { display:inline-flex; align-items:center; gap:8px; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; padding:10px 4px; min-height:44px; transition:color 0.2s ease; }
+.back-link:hover { color:var(--accent); }
+
+.progress { position:fixed; top:0; left:0; width:100%; height:2px; z-index:100; background:transparent; }
+.progress-bar { height:100%; width:0%; background:var(--accent); transition:width 0.1s linear; }
+
+.article-header { max-width:var(--max-content); margin-inline:auto; padding:40px 20px 0; }
+@media(min-width:640px){ .article-header{ padding:64px 32px 0; } }
+@media(min-width:1100px){ .article-header{ padding-inline:0; } }
+.eyebrow { font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:20px; }
+.article-title { font-family:var(--font-serif); font-size:clamp(32px,8vw,54px); line-height:1.02; letter-spacing:-0.015em; font-weight:500; margin-bottom:20px; text-wrap:balance; }
+.article-dek { font-size:clamp(16px,3.5vw,18px); line-height:1.7; color:var(--ink-2); max-width:620px; margin-bottom:32px; font-family:var(--font-display); font-style:italic; }
+.byline { display:flex; flex-wrap:wrap; align-items:center; gap:12px; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-3); padding-bottom:32px; border-bottom:1px solid var(--line); margin-bottom:8px; }
+.byline-avatar { width:36px; height:36px; border-radius:999px; overflow:hidden; background:var(--line); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600; letter-spacing:0.06em; color:var(--ink-2); }
+.byline-dot { width:1px; height:12px; background:var(--line-strong); }
+
+.article-hero { max-width:var(--max-wide); margin:40px auto; padding-inline:20px; }
+@media(min-width:640px){ .article-hero{ margin:48px auto 64px; padding-inline:32px; } }
+@media(min-width:1100px){ .article-hero{ padding-inline:0; } }
+
+/* === FIXED HERO: image visible behind kicker === */
+.hero-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--ink);
+  aspect-ratio: 4/3;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  min-height: 420px;
+}
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 1;
+  display: block;
+}
+.hero-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(26,26,26,0.10) 0%, rgba(26,26,26,0.35) 45%, rgba(26,26,26,0.70) 100%);
+  pointer-events: none;
+}
+.hero-wrap-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 40px;
+  max-width: 720px;
+}
+.hero-kicker {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bg);
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(250,247,242,0.14);
+  border: 1px solid rgba(250,247,242,0.22);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+}
+.hero-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(22px,4vw,36px);
+  line-height: 1.12;
+  max-width: 600px;
+  text-wrap: balance;
+  color: var(--white);
+  text-shadow: 0 2px 24px rgba(0,0,0,0.45);
+  margin-inline: auto;
+}
+.hero-quote em {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  color: #F5EFE6;
+  opacity: 0.95;
+}
+
+/* Article body */
+.article-body { max-width:var(--max-content); margin:0 auto; padding:0 20px 80px; }
+@media(min-width:640px){ .article-body{ padding:0 32px 100px; } }
+@media(min-width:1100px){ .article-body{ padding:0 0 120px; } }
+
+.prose { font-size:17px; line-height:1.9; color:var(--ink-2); }
+.prose p { margin-bottom:24px; }
+.prose p.lead { line-height:1.8; color:var(--ink); font-family:var(--font-display); font-size:21px; }
+.prose h2 { font-family:var(--font-serif); font-size:clamp(24px,4vw,32px); line-height:1.15; color:var(--ink); margin:64px 0 24px; letter-spacing:-0.01em; font-weight:500; }
+.prose h2 span.num { display:block; font-family:var(--font-sans); font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:12px; }
+.prose blockquote { border-left:2px solid var(--accent); padding-left:24px; margin:40px 0; font-family:var(--font-serif); font-size:20px; line-height:1.5; color:var(--ink); font-style:italic; }
+.prose strong { color:var(--ink); font-weight:600; }
+
+.divider { height:1px; background:var(--line); margin:48px 0; }
+.divider-accent { width:40px; height:2px; background:var(--accent); margin:32px 0; }
+
+.timeline { background:var(--white); border:1px solid var(--line); border-radius:var(--radius-md); padding:28px; margin:40px 0; box-shadow:var(--shadow-soft); }
+.timeline-row { display:flex; gap:16px; padding:14px 0; border-bottom:1px solid var(--line); }
+.timeline-row:last-child { border-bottom:0; padding-bottom:0; }
+.timeline-year { font-size:12px; font-weight:600; letter-spacing:0.1em; color:var(--accent); min-width:72px; padding-top:2px; }
+.timeline-content { font-size:14px; line-height:1.6; color:var(--ink-2); }
+.timeline-content strong { color:var(--ink); }
+
+.values { margin:48px 0; }
+.values-grid { display:grid; grid-template-columns:1fr; gap:16px; margin-top:24px; }
+@media(min-width:640px){ .values-grid{ grid-template-columns:1fr 1fr; } }
+.value-card { background:var(--white); border:1px solid var(--line); border-radius:var(--radius-sm); padding:20px 22px; box-shadow:var(--shadow-soft); }
+.value-card h4 { font-family:var(--font-serif); font-size:16px; margin-bottom:8px; color:var(--ink); }
+.value-card p { font-size:13px; line-height:1.6; color:var(--ink-3); }
+
+.cta { background:var(--ink); color:var(--bg); border-radius:var(--radius-md); padding:40px 32px; text-align:center; margin-top:64px; }
+.cta h3 { font-family:var(--font-serif); font-size:28px; margin-bottom:12px; }
+.cta p { color:var(--line); font-size:14px; max-width:480px; margin:0 auto 24px; line-height:1.6; }
+.btn { display:inline-flex; align-items:center; justify-content:center; padding:12px 28px; border-radius:999px; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; font-weight:600; transition:all 0.2s ease; min-height:44px; }
+.btn-primary { background:var(--bg); color:var(--ink); }
+.btn-primary:hover { background:var(--white); transform:translateY(-1px); }
+
+.site-footer { background:var(--white); border-top:1px solid var(--line); padding:48px 0 32px; }
+.footer-grid { display:flex; flex-direction:column; gap:32px; }
+@media(min-width:768px){ .footer-grid{ flex-direction:row; justify-content:space-between; } }
+.footer-logo { font-family:var(--font-serif); font-weight:600; font-size:14px; letter-spacing:0.18em; margin-bottom:12px; }
+.footer-desc { font-size:13px; line-height:1.6; color:var(--ink-3); max-width:360px; }
+.footer-meta { display:flex; gap:40px; }
+.footer-label { font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-3); margin-bottom:12px; font-weight:600; }
+.footer-links { font-size:13px; line-height:1.8; color:var(--ink-2); }
+.footer-bottom { margin-top:40px; padding-top:24px; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:8px; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-3); }
+@media(min-width:640px){ .footer-bottom{ flex-direction:row; justify-content:space-between; } }
+
+.reveal { opacity:0; transform:translateY(16px); transition:opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in-view { opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="announcement">Now booking — Harare Studio & Virtual Consults Worldwide</div>
+
+<header class="site-header">
+  <div class="container-wide site-header-inner">
+    <div class="logo">THELMA BEN</div>
+    <a href="../thelma_blog.html" class="back-link">← Back</a>
+  </div>
+</header>
+
+<div class="progress"><div class="progress-bar"></div></div>
+
+<div class="article-header">
+  <div class="eyebrow">Founder Story</div>
+  <h1 class="article-title">From a Love of Hair to a Dream of My Own</h1>
+  <p class="article-dek">The story of how a childhood passion for braiding grew into a professional craft, three years of salon experience, and eventually my own shop.</p>
+  <div class="byline">
+    <div class="byline-avatar">TB</div>
+    <span>Thelma Ben</span>
+    <div class="byline-dot"></div>
+    <span>Harare, Zimbabwe</span>
+    <div class="byline-dot"></div>
+    <span>8 min read</span>
+  </div>
+</div>
+
+<section class="article-hero">
+  <div class="hero-wrap">
+    <!-- IMAGE NOW VISIBLE BEHIND KICKER -->
+    <img class="hero-image" src="gallery/cover.webp" alt="Braided hair texture close-up - Thelma Ben Hair Atelier">
+    <div class="hero-wrap-inner">
+      <div class="hero-kicker">Quiet luxury — Loud expertise</div>
+      <blockquote class="hero-quote">I started braiding because <em>I loved hair</em>. Every braid I create is still a small part of that story.</blockquote>
+    </div>
+  </div>
+</section>
+
+<article class="article-body">
+  <div class="prose">
+    <p class="lead reveal">I have loved hair for as long as I can remember. Long before I understood it as a skill or a possible career, I was the young girl in the neighborhood experimenting with styles, spending hours learning how to part cleanly and braid neatly.</p>
+
+    <h2 class="reveal"><span class="num">Chapter 01</span>Where It Started</h2>
+    <p class="reveal">Growing up, I would practice on anyone who would sit still long enough. Friends, cousins, neighbours. I did not have professional tools or products then, just patience and curiosity. I loved the feeling of transforming hair, of creating something neat and beautiful with my hands.</p>
+    <p class="reveal">In secondary school, that curiosity became dedication. I started to take it more seriously, watching, learning, trying again when a style did not come out right. I realised that braiding was not just something I enjoyed — it was something I wanted to be excellent at.</p>
+
+    <div class="divider reveal"></div>
+
+    <h2 class="reveal"><span class="num">Chapter 02</span>Three Years of Learning</h2>
+    <p class="reveal">After school, I joined a salon and spent three years working professionally. Those three years taught me everything the practice at home could not. I learned about different hair textures, scalp health, how to consult with clients, how to manage time, and how to work under pressure.</p>
+    <p class="reveal">More importantly, I learned that hairstyling is as much about people as it is about technique. Listening to what a woman wants, understanding her lifestyle, making her feel comfortable in the chair — that is the real work.</p>
+
+    <div class="timeline reveal">
+      <div class="timeline-row">
+        <div class="timeline-year">Early Years</div>
+        <div class="timeline-content"><strong>Neighbourhood braider</strong> — Practicing on friends and family, falling in love with the craft.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">Secondary</div>
+        <div class="timeline-content"><strong>Curiosity to dedication</strong> — Refining parting, tension control, and neatness.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">3 Years</div>
+        <div class="timeline-content"><strong>Salon experience</strong> — Professional training in texture, scalp care, and client experience.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">2026</div>
+        <div class="timeline-content"><strong>Thelma Ben Hair Atelier</strong> — Opening my own chair, my own vision.</div>
+      </div>
+    </div>
+
+    <h2 class="reveal"><span class="num">Chapter 03</span>The Courage to Start</h2>
+    <p class="reveal">Leaving the security of a salon job to start something of my own was not easy. There were difficult moments, uncertainty, and many questions. But I carried with me a skill I had nurtured since childhood, and a belief that I could build something that reflected the kind of care I wanted clients to feel.</p>
+    <blockquote class="reveal">Protective styles should protect. That simple belief shapes every appointment in my chair.</blockquote>
+
+    <div class="values reveal">
+      <h2><span class="num">Principles</span>What I Believe In</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <h4>Personal, not templated</h4>
+          <p>Each style adapted to face shape, personality, and lifestyle — not a copied look.</p>
+        </div>
+        <div class="value-card">
+          <h4>Tension-free</h4>
+          <p>Protective styles should protect. Thoughtful installation without unnecessary tension.</p>
+        </div>
+        <div class="value-card">
+          <h4>Clean & calm</h4>
+          <p>Neat parting, clean sections, comfortable experience from start to finish.</p>
+        </div>
+        <div class="value-card">
+          <h4>Care over speed</h4>
+          <p>The experience matters. Feeling cared for while your hair is being done.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="reveal">I also believe that a beautiful hairstyle should not mean ignoring the health and comfort of the hair and scalp. Protective styles can make everyday hair care easier and reduce daily manipulation, but they should be installed thoughtfully and without unnecessary tension. That is why I want to approach my work with care as well as creativity.</p>
+
+    <h2 class="reveal"><span class="num">Vision</span>Looking Ahead</h2>
+    <p class="reveal">I am proud of how far I have come, but I know there is still so much more to learn. I want to continue improving my techniques, exploring new styles, learning from other professionals, understanding modern trends, and finding new ways to make the salon experience better. I want my work to continue growing with me.</p>
+    <p class="reveal">My vision is to build a place where women can trust the quality of the work, feel comfortable being themselves, and leave feeling confident in their own beauty.</p>
+    <p class="reveal">I also hope that my journey can encourage other young women who have a talent they may not yet recognise as a possible career. Sometimes, the beginning of your future does not look like a business idea. Sometimes it looks like a young girl simply enjoying something she loves.</p>
+
+    <h2 class="reveal"><span class="num">Epilogue</span>Where My Story Continues</h2>
+    <p class="reveal">My journey began with a young girl experimenting with hair. It continued through secondary school, where curiosity became dedication. It developed through three years of professional salon experience, where I learned that hairstyling is as much about people as it is about technique.</p>
+    <p class="reveal">Then came the difficult moments, the decisions, the uncertainty, and eventually the courage to open something of my own.</p>
+    <p class="reveal">I started braiding because I loved hair. I kept learning because I wanted to become better. I worked because I wanted experience. I struggled because building something of your own is never easy. And I opened my own shop because I believed that the skill I had carried with me since childhood could become something bigger.</p>
+    <p class="reveal">I am still learning. I am still growing. And I am still discovering what this journey can become.</p>
+    <p class="reveal"><strong>But one thing has remained the same from the beginning: I love what I do. And every braid I create is another small part of the story I started writing when I was just a girl with a love for hair.</strong></p>
+
+    <div class="cta reveal">
+      <h3>Come sit in my chair.</h3>
+      <p>A place where you can trust the quality, feel comfortable being yourself, and leave feeling confident in your own beauty.</p>
+      <a class="btn btn-primary" href="#">Book with Thelma</a>
+    </div>
+
+  </div>
+</article>
+
+<footer class="site-footer">
+ <div class="container-wide">
+  <div class="footer-grid">
+   <div class="footer-brand">
+    <div class="footer-logo">THELMA BEN HAIR ATELIER</div>
+    <div class="footer-desc">Trichology-informed luxury hair artistry. Protective styles, bridal sculpting, scalp care. Harare, Zimbabwe — Virtual worldwide.</div>
+   </div>
+   <div class="footer-meta">
+    <div>
+     <div class="footer-label">Connect</div>
+     <div class="footer-links">
+      <div>Instagram — @thelma.ben</div>
+      <div>hello@thelmaben.com</div>
+     </div>
+    </div>
+    <div>
+     <div class="footer-label">Studio</div>
+     <div class="footer-links">
+      <div>Harare, Zimbabwe</div>
+      <div>Mon—Sat, 9AM—5PM CAT</div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="footer-bottom">
+   <span>© 2026 THELMA BEN HAIR ATELIER</span>
+   <span>Site by Atelier — Quiet Luxury, Loud Expertise</span>
+  </div>
+ </div>
+</footer>
+
+<script>
+(function () {
+    var progressBar = document.querySelector('.progress-bar');
+    function updateProgress() {
+      var scrollTop = window.scrollY;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      pct = Math.min(100, Math.max(0, pct));
+      if (progressBar) progressBar.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    var revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(function (el) { observer.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add('in-view'); });
+    }
+
+    var toastTimer = null;
+    function showToast(message) {
+      var existing = document.getElementById('toast');
+      if (existing) existing.remove();
+      if (toastTimer) clearTimeout(toastTimer);
+      var toast = document.createElement('div');
+      toast.id = 'toast';
+      toast.textContent = message;
+      toast.style.cssText = [
+        'position:fixed','bottom:24px','left:50%','transform:translateX(-50%)',
+        'background:#1A1A1A','color:#FAF7F2','padding:12px 20px','border-radius:999px',
+        'font-size:12px','letter-spacing:0.04em','z-index:100',
+        'box-shadow:0 8px 30px rgba(0,0,0,0.2)','max-width:90vw','text-align:center'
+      ].join(';');
+      document.body.appendChild(toast);
+      toastTimer = setTimeout(function () { toast.remove(); }, 2500);
+    }
+    document.querySelectorAll('.btn-primary').forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        showToast('Booking request — hello@thelmaben.com');
+      });
+    });
+})();
+</script>
+
+</body>
+</html>

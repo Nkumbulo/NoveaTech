@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, viewport-fit=cover" />
+  <meta name="theme-color" content="#080C12" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Privacy & Terms · NoveaTech Lab</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#00A8FF; --primary-deep:#0066FF; --accent:#00E5FF;
+      --bg:#080C12; --card:#12161F; --card-2:#0C1017; --border:#1E2632;
+      --text:#CBD5E1; --muted:#94A3B8; --danger:#FF4D6D; --success:#00FF88;
+      --max:1280px; --safe-top:env(safe-area-inset-top,0px); --safe-bottom:env(safe-area-inset-bottom,0px);
+    }
+    *{font-family:'Inter',system-ui,sans-serif; box-sizing:border-box; -webkit-tap-highlight-color:transparent}
+    html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+    body{margin:0; background:var(--bg); color:var(--text); overflow-x:hidden; line-height:1.6; padding-bottom:calc(80px + var(--safe-bottom));}
+    a{color:var(--primary); text-decoration:none; font-weight:500}
+    a:hover{color:var(--accent)}
+    button{cursor:pointer; touch-action:manipulation; user-select:none}
+    img{max-width:100%}
+
+    @keyframes fadeUp{0%{opacity:0; transform:translateY(18px)}100%{opacity:1; transform:translateY(0)}}
+    @keyframes slideInRight{0%{transform:translateX(100%)}100%{transform:translateX(0)}}
+
+    .container{max-width:var(--max); margin:0 auto; padding:0 24px; width:100%}
+    .section{padding:28px 0}
+    .section-head{display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:18px; gap:12px; flex-wrap:wrap}
+    .section-title{font-size:clamp(20px,4vw,24px); font-weight:800; color:#fff; letter-spacing:-.02em; line-height:1.2}
+
+    /* header / nav (mirror from teardown) */
+    .header{position:fixed; top:0; left:0; right:0; height:64px; height:calc(64px + var(--safe-top)); padding-top:var(--safe-top); background:rgba(8,12,18,0.92); backdrop-filter:blur(20px) saturate(1.2); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid var(--border); z-index:60; display:flex; align-items:center; animation:fadeUp .6s ease both}
+    .navbar{display:flex; justify-content:space-between; align-items:center; width:100%}
+    .logo{font-weight:900; font-size:clamp(18px,4vw,20px); color:#fff; letter-spacing:-.02em} .logo span{color:var(--primary); font-weight:400}
+    .nav-links{display:flex; gap:24px; align-items:center}
+    .nav-links a{color:var(--muted); font-size:14px; font-weight:500; position:relative; transition:.2s; padding:8px 2px}
+    .nav-links a::after{content:''; position:absolute; bottom:0; left:0; width:0; height:2px; background:var(--primary); transition:width .3s}
+    .nav-links a:hover{color:#fff} .nav-links a:hover::after{width:100%}
+    .cta{background:linear-gradient(135deg,var(--primary),var(--primary-deep)); color:#fff; padding:10px 18px; border-radius:999px; font-weight:700; font-size:13px; border:none; box-shadow:0 6px 20px rgba(0,168,255,.35); transition:.25s; min-height:40px}
+    .cta:hover{transform:translateY(-1px); box-shadow:0 10px 28px rgba(0,168,255,.5)}
+    .cta:active{transform:scale(.97)}
+    .hamburger{display:none; background:var(--card); border:1px solid var(--border); width:44px; height:44px; border-radius:12px; color:#fff; align-items:center; justify-content:center; font-size:18px; flex-shrink:0}
+
+    /* mobile drawer */
+    .drawer{position:fixed; inset:0; z-index:80; background:rgba(0,0,0,.55); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); opacity:0; pointer-events:none; transition:.35s}
+    .drawer.open{opacity:1; pointer-events:auto}
+    .drawer-panel{position:absolute; right:0; top:0; bottom:0; width:min(320px,88vw); background:linear-gradient(180deg,var(--card),var(--bg)); border-left:1px solid var(--border); padding:calc(20px + var(--safe-top)) 20px calc(20px + var(--safe-bottom)); display:flex; flex-direction:column; gap:8px; transform:translateX(100%); transition:transform .4s cubic-bezier(.2,.8,.2,1); overflow-y:auto}
+    .drawer.open .drawer-panel{transform:translateX(0); animation:slideInRight .4s cubic-bezier(.2,.8,.2,1)}
+    .drawer-link{padding:16px 14px; border-radius:12px; background:rgba(255,255,255,.03); border:1px solid transparent; font-weight:600; font-size:15px; color:var(--text); display:flex; justify-content:space-between; align-items:center; min-height:52px; transition:.2s}
+    .drawer-link:hover{background:rgba(0,168,255,.08); border-color:rgba(0,168,255,.2); color:#fff; transform:translateX(4px)}
+
+    /* hero */
+    .legal-hero{background:linear-gradient(160deg,#0C1017,#12161F); border-bottom:1px solid var(--border); margin-top:calc(64px + var(--safe-top)); padding:60px 0 40px}
+    .legal-hero h1{font-size:clamp(32px,6vw,54px); font-weight:900; color:#fff; letter-spacing:-.03em; margin:0 0 10px; line-height:1.1}
+    .legal-hero p{font-size:clamp(14px,2.5vw,18px); color:var(--muted); max-width:720px; margin:0}
+
+    /* policy cards */
+    .policy-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start}
+    .policy-card{background:var(--card); border:1px solid var(--border); border-radius:20px; padding:24px; transition:.25s; box-shadow:0 12px 32px rgba(0,0,0,.25)}
+    .policy-card:hover{border-color:rgba(0,168,255,.25)}
+    .policy-card h2{color:#fff; font-weight:800; font-size:clamp(18px,2.8vw,22px); margin:0 0 16px; display:flex; gap:10px; align-items:center}
+    .policy-card h2 span{color:var(--primary)}
+    .policy-card h3{color:#fff; font-weight:700; font-size:16px; margin:20px 0 6px}
+    .policy-card p{color:var(--muted); margin:0 0 12px; font-size:clamp(13px,2vw,14px); line-height:1.7}
+    .policy-card ul{padding-left:20px; color:var(--muted); font-size:clamp(13px,2vw,14px); line-height:1.7; margin:0 0 12px}
+    .policy-card ul li{margin-bottom:6px}
+    .policy-card .highlight{background:rgba(0,168,255,.08); border-left:3px solid var(--primary); padding:12px 16px; border-radius:0 10px 10px 0; margin:16px 0}
+    .policy-card .highlight p{margin:0; color:#CBD5E1}
+    .badge-date{display:inline-block; background:var(--card-2); border:1px solid var(--border); padding:4px 12px; border-radius:999px; font-size:11px; font-weight:600; color:var(--muted); margin-top:8px}
+
+    .footer{border-top:1px solid var(--border); margin-top:32px; padding:24px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; color:var(--muted); font-size:11.5px; line-height:1.5; padding-bottom:calc(24px + var(--safe-bottom))}
+
+    /* toast */
+    .toast{position:fixed; bottom:calc(90px + var(--safe-bottom)); left:50%; transform:translateX(-50%) translateY(20px); background:var(--card); border:1px solid var(--border); color:#fff; padding:12px 18px; border-radius:12px; font-size:13px; font-weight:600; box-shadow:0 12px 32px rgba(0,0,0,.5); z-index:90; opacity:0; pointer-events:none; transition:.4s; max-width:90vw; text-align:center}
+    .toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+
+    /* mobile bottom bar (quick nav) */
+    .mobile-bar{position:fixed; bottom:0; left:0; right:0; background:rgba(18,22,31,0.94); backdrop-filter:blur(20px) saturate(1.3); -webkit-backdrop-filter:blur(20px); border-top:1px solid var(--border); padding:10px 16px; padding-bottom:calc(10px + var(--safe-bottom)); z-index:55; display:none; gap:10px; align-items:center; justify-content:space-between}
+    .mobile-bar .bar-link{color:var(--muted); font-size:12px; font-weight:600; transition:.2s}
+    .mobile-bar .bar-link:hover{color:#fff}
+
+    @media(max-width:1024px){
+      .policy-grid{grid-template-columns:1fr; gap:20px}
+    }
+    @media(max-width:768px){
+      .container{padding:0 16px}
+      .header{height:60px; height:calc(60px + var(--safe-top))}
+      .nav-links{display:none} .hamburger{display:flex}
+      .legal-hero{padding:40px 0 28px}
+      .legal-hero h1{font-size:28px}
+      .section{padding:20px 0}
+      .policy-card{padding:18px}
+      .mobile-bar{display:flex}
+      body{padding-bottom:calc(76px + var(--safe-bottom))}
+      .footer{flex-direction:column; gap:8px; text-align:center; padding:20px 16px calc(20px + var(--safe-bottom))}
+    }
+    @media(max-width:480px){
+      .container{padding:0 14px}
+      .policy-card{padding:14px}
+      .policy-card h2{font-size:18px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation-duration:.01ms !important; transition-duration:.01ms !important}
+    }
+    @media(hover:none){
+      .cta:hover{transform:none}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container navbar">
+      <div class="logo">NOVEA<span>TECH</span></div>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="#" onclick="toast('Repair Tools — P5 / P2 / T5 kits'); return false;">Repair Tools</a>
+        <a href="#" onclick="toast('Harare Lab — Sam Levy Village'); return false;">Harare Lab</a>
+        <a href="#" onclick="toast('Contact: lab@noveatech.zw'); return false;">Contact</a>
+        <button class="cta" onclick="toast('Booking opened — slot reserved')">Book Repair →</button>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <div class="drawer" id="drawer">
+    <div class="drawer-panel">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px">
+        <div class="logo">NoveaTech<span>Lab</span></div>
+        <button class="hamburger" style="display:flex" id="closeDrawer">✕</button>
+      </div>
+      <a href="#" class="drawer-link" onclick="toast('Teardowns catalog'); closeMenu(); return false;">Teardowns <span>→</span></a>
+      <a href="#" class="drawer-link" onclick="toast('Repair Tools kits'); closeMenu(); return false;">Repair Tools <span>→</span></a>
+      <a href="#" class="drawer-link" onclick="toast('Harare Lab — Sam Levy'); closeMenu(); return false;">Harare Lab <span>→</span></a>
+      <a href="#" class="drawer-link" onclick="toast('Contact: lab@noveatech.zw'); closeMenu(); return false;">Contact <span>→</span></a>
+      <button class="cta" style="margin-top:16px; width:100%; justify-content:center; min-height:52px" onclick="toast('Booking opened'); closeMenu();">Book Repair →</button>
+      <div style="margin-top:auto; padding-top:20px; font-size:12px; color:var(--muted); line-height:1.5">
+        Privacy & Terms • v2.0<br>Last updated April 2026
+      </div>
+    </div>
+  </div>
+
+  <section class="legal-hero">
+    <div class="container">
+      <p style="color:var(--accent); font-weight:700; letter-spacing:.04em; font-size:12px; margin:0 0 4px">NOVEA TECH LAB</p>
+      <h1>Privacy & Terms</h1>
+      <p>Your data, repairs, and web projects — transparent policies for our mobile repair, computer services, and IT solutions.</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="policy-grid">
+
+      <!-- PRIVACY POLICY -->
+      <div class="policy-card">
+        <h2><span>🔐</span> Privacy Policy</h2>
+        <p><strong>Effective:</strong> 1 April 2026 · NoveaTech Lab (Harare, ZW + SA shipping)</p>
+        <div class="highlight"><p>We collect only what's needed to repair your device, build your web solution, or provide IT support. No selling, no shady data brokering.</p></div>
+
+        <h3>1. What we collect</h3>
+        <ul>
+          <li><strong>Device data:</strong> model, serial, repair history, diagnostic logs (only with consent).</li>
+          <li><strong>Contact info:</strong> name, email, phone, shipping address for kits/repairs.</li>
+          <li><strong>Web/IT projects:</strong> credentials you provide for hosting, domain, or CMS access.</li>
+          <li><strong>Analytics:</strong> anonymized usage on our site (no personal tracking).</li>
+        </ul>
+
+        <h3>2. How we use it</h3>
+        <ul>
+          <li>Repair diagnostics, warranty fulfilment, and parts ordering.</li>
+          <li>Web development: deploy, test, and maintain your sites/apps.</li>
+          <li>Service updates, booking reminders, and tech tips (opt-out anytime).</li>
+          <li>Improve our tools and teardown guides.</li>
+        </ul>
+
+        <h3>3. Data retention</h3>
+        <ul>
+          <li>Repair records: 3 years (for warranty & parts traceability).</li>
+          <li>Web project data: retained for the duration of your maintenance contract.</li>
+          <li>You can request deletion anytime — we'll wipe it within 30 days.</li>
+        </ul>
+
+        <h3>4. Third-party sharing</h3>
+        <ul>
+          <li>We never sell data. We share only with shipping carriers (address) and Apple/authorized parts suppliers (serial for warranty).</li>
+          <li>For web hosting, we use reputable providers (AWS, Hetzner) — data is encrypted in transit and at rest.</li>
+        </ul>
+
+        <h3>5. Your rights</h3>
+        <ul>
+          <li>Access, correct, or delete your data — email <a href="mailto:privacy@noveatech.zw">privacy@noveatech.zw</a>.</li>
+          <li>Withdraw consent for marketing at any time.</li>
+        </ul>
+        <div class="badge-date">📅 v2.0 · reviewed 2026-04-01</div>
+      </div>
+
+      <!-- TERMS OF SERVICE -->
+      <div class="policy-card">
+        <h2><span>⚖️</span> Terms of Service</h2>
+        <p><strong>Last updated:</strong> 1 April 2026 · NoveaTech Lab</p>
+        <p>By using our repair, web development, or IT solutions, you agree to these terms.</p>
+
+        <h3>1. Repair services</h3>
+        <ul>
+          <li>Diagnostic fee applies (waived if you proceed with repair).</li>
+          <li>Parts used are genuine or high-quality aftermarket — we disclose upfront.</li>
+          <li>Data loss risk: we recommend backup; we are not liable for lost data.</li>
+          <li>Warranty: 90 days on repairs (parts & labor).</li>
+        </ul>
+
+        <h3>2. Web development & IT solutions</h3>
+        <ul>
+          <li>We own the code until final payment is made; after full payment, you own the final deliverables.</li>
+          <li>Hosting, domains, and third-party licenses are billed separately.</li>
+          <li>Maintenance plans: 24h response time for critical issues (business hours).</li>
+          <li>We aren't liable for third-party API changes or service outages beyond our control.</li>
+        </ul>
+
+        <h3>3. Payments & refunds</h3>
+        <ul>
+          <li>Repairs: 50% deposit required for parts orders; balance on completion.</li>
+          <li>Web projects: 30% deposit, 40% at prototype, 30% on final delivery.</li>
+          <li>Refunds: if we can't fix it, deposit returned. No refunds for completed work.</li>
+        </ul>
+
+        <h3>4. Liability</h3>
+        <ul>
+          <li>To the extent permitted by law, our liability is limited to the service fee paid.</li>
+          <li>We are not responsible for consequential damages (lost business, data loss).</li>
+          <li>For repairs, we carry professional indemnity insurance (details on request).</li>
+        </ul>
+
+        <h3>5. Governing law</h3>
+        <ul>
+          <li>These terms are governed by the laws of Zimbabwe, with disputes settled in Harare courts.</li>
+          <li>For SA customers, we comply with CPA standards.</li>
+        </ul>
+        <div class="badge-date">📅 v2.0 · reviewed 2026-04-01</div>
+      </div>
+
+      <!-- extra: contact & data request -->
+      <div class="policy-card" style="grid-column:1/-1; background:linear-gradient(135deg,#0C1017,#12161F); border-color:rgba(0,168,255,.15)">
+        <h2><span>📬</span> Contact & Data Requests</h2>
+        <p><strong>Privacy / DPO:</strong> <a href="mailto:privacy@noveatech.zw">privacy@noveatech.zw</a> — we respond within 48h.</p>
+        <p><strong>General / Repairs:</strong> <a href="mailto:lab@noveatech.zw">lab@noveatech.zw</a>  ·  <strong>Web / IT:</strong> <a href="mailto:dev@noveatech.zw">dev@noveatech.zw</a></p>
+        <p style="margin-top:8px; color:var(--muted); font-size:13px">Sam Levy Village, Harare, Zimbabwe · also shipping to South Africa.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer container">
+    <div>© 2026 NoveaTech Lab — Harare • Sam Levy Village + SA shipping. Built for repairability & digital trust.</div>
+    <div><a href="#" onclick="toast('Privacy & Terms page'); return false;">Privacy</a> · <a href="#" onclick="toast('Cookies: none used'); return false;">Cookies</a> · <a href="#" onclick="toast('lab@noveatech.zw'); return false;">Contact</a></div>
+  </footer>
+
+  <div class="mobile-bar" id="mobileBar">
+    <a href="#" class="bar-link" onclick="document.querySelector('.legal-hero').scrollIntoView({behavior:'smooth'}); return false;">Top</a>
+    <a href="#" class="bar-link" onclick="toast('Email: lab@noveatech.zw'); return false;">Contact</a>
+    <a href="#" class="bar-link" onclick="toast('Privacy & Terms v2.0'); return false;">v2.0</a>
+    <button class="cta" style="padding:6px 16px; font-size:12px; min-height:32px" onclick="toast('Booking opened — slot reserved')">Book</button>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    // ----- toast -----
+    function toast(msg) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.add('show');
+      clearTimeout(el._timer);
+      el._timer = setTimeout(() => el.classList.remove('show'), 2600);
+    }
+
+    // ----- mobile drawer -----
+    const drawer = document.getElementById('drawer');
+    const hamburger = document.getElementById('hamburger');
+    const closeDrawerBtn = document.getElementById('closeDrawer');
+
+    function openMenu() { drawer.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeMenu() { drawer.classList.remove('open'); document.body.style.overflow = ''; }
+
+    hamburger.addEventListener('click', openMenu);
+    closeDrawerBtn.addEventListener('click', closeMenu);
+    drawer.addEventListener('click', e => { if (e.target === drawer) closeMenu(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+    // swipe to close
+    let startX = 0;
+    drawer.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    drawer.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (dx > 80) closeMenu();
+    }, { passive: true });
+
+    // mobile bar show/hide on scroll (simple)
+    const mobileBar = document.getElementById('mobileBar');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y > 300) mobileBar.style.transform = 'translateY(0)';
+      else mobileBar.style.transform = 'translateY(100%)';
+    }, { passive: true });
+    mobileBar.style.transition = 'transform .35s cubic-bezier(.2,.8,.2,1)';
+    mobileBar.style.transform = 'translateY(100%)';
+  </script>
+</body>
+</html>

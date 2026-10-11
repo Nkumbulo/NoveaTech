@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nkumbulo Ndlovu — Technology Beyond the Interface</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen bg-[#0b1222] text-slate-100 selection:bg-[#f97316]/30 selection:text-white antialiased overflow-x-hidden">
+
+<!-- NAV -->
+<nav class="fixed top-0 inset-x-0 z-50">
+  <div class="mx-auto max-w-[1240px] px-5 md:px-8 py-4">
+    <div class="glass rounded-[1.25rem] px-5 md:px-6 py-3 flex items-center justify-between shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)]">
+
+      <a href="#top" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-xl bg-white text-[#0f172a] grid place-items-center font-black text-[13px] tracking-tight group-hover:bg-[#f97316] group-hover:text-white transition-colors">>_</div>
+        <div class="text-left leading-none hidden sm:block">
+          <div class="font-bold text-[13px] tracking-[-0.02em]">NOVEATECH</div>
+          <div class="mono text-[10px] opacity-60 tracking-widest uppercase mt-[2px]">---</div>
+        </div>
+      </a>
+
+      <div class="hidden md:flex items-center gap-1">
+        <a href="#about" class="px-4 py-2 rounded-full text-[13.5px] font-medium text-slate-300 hover:text-white hover:bg-white/5 transition">About</a>
+        <a href="#expertise" class="px-4 py-2 rounded-full text-[13.5px] font-medium text-slate-300 hover:text-white hover:bg-white/5 transition">Expertise</a>
+        <a href="#skills" class="px-4 py-2 rounded-full text-[13.5px] font-medium text-slate-300 hover:text-white hover:bg-white/5 transition">Skills</a>
+        <a href="#philosophy" class="px-4 py-2 rounded-full text-[13.5px] font-medium text-slate-300 hover:text-white hover:bg-white/5 transition">Philosophy</a>
+        <a href="#contact" class="px-4 py-2 rounded-full text-[13.5px] font-medium text-slate-300 hover:text-white hover:bg-white/5 transition">Contact</a>
+        <a href="#contact" class="ml-2 px-5 py-2.5 rounded-full bg-white text-[#0f172a] text-[13px] font-semibold hover:bg-[#f97316] hover:text-white transition-colors">Let's Talk</a>
+      </div>
+
+      <button id="navToggle" aria-label="Toggle menu" class="md:hidden w-9 h-9 rounded-full bg-white/10 grid place-items-center">
+        <div class="space-y-1.5">
+          <span id="bar1" class="h-0.5 w-4 bg-white rounded transition-all block"></span>
+          <span id="bar2" class="h-0.5 w-4 bg-white rounded transition-all block"></span>
+        </div>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="md:hidden overflow-hidden transition-all duration-300 max-h-0">
+      <div class="mt-2 glass rounded-[1.25rem] p-3 flex flex-col">
+        <a href="#about" class="mobile-link text-left px-4 py-3 rounded-xl hover:bg-white/5 text-[14px] font-medium">About</a>
+        <a href="#expertise" class="mobile-link text-left px-4 py-3 rounded-xl hover:bg-white/5 text-[14px] font-medium">Expertise</a>
+        <a href="#skills" class="mobile-link text-left px-4 py-3 rounded-xl hover:bg-white/5 text-[14px] font-medium">Skills</a>
+        <a href="#philosophy" class="mobile-link text-left px-4 py-3 rounded-xl hover:bg-white/5 text-[14px] font-medium">Philosophy</a>
+        <a href="#contact" class="mobile-link text-left px-4 py-3 rounded-xl hover:bg-white/5 text-[14px] font-medium">Contact</a>
+        <a href="#contact" class="mobile-link mt-2 w-full py-3 rounded-xl bg-[#f97316] text-white font-semibold text-center">Start a project</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="top" class="relative pt-[108px] md:pt-[132px] pb-16 md:pb-28 overflow-hidden">
+  <div class="absolute inset-0 -z-10 bg-[#0b1222]">
+    <div class="absolute inset-0 bg-[radial-gradient(60%_60%_at_20%_10%,rgba(249,115,22,.18),transparent),radial-gradient(50%_50%_at_90%_30%,rgba(56,189,248,.12),transparent),radial-gradient(40%_40%_at_50%_90%,rgba(168,85,247,.10),transparent)]"></div>
+    <div style="animation:blob1 12s ease-in-out infinite" class="absolute -top-24 -left-24 w-[520px] h-[520px] rounded-full bg-gradient-to-br from-[#f97316]/30 to-[#fb923c]/10 blur-[70px]"></div>
+    <div style="animation:blob2 14s ease-in-out infinite" class="absolute top-[20%] -right-32 w-[560px] h-[560px] rounded-full bg-gradient-to-br from-[#38bdf8]/20 to-[#818cf8]/15 blur-[80px]"></div>
+  </div>
+
+  <div class="mx-auto max-w-[1240px] px-5 md:px-8 grid lg:grid-cols-[1.15fr_.85fr] gap-10 md:gap-12 items-center">
+
+    <div data-reveal class="in-view">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-[11px] tracking-widest uppercase mono">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Available for new projects &bull; Harare, ZW
+        <svg class="w-3 h-3 opacity-70 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
+      </div>
+
+      <h1 class="mt-6 font-black tracking-[-0.04em] leading-[0.9] text-[42px] sm:text-[56px] md:text-[72px] lg:text-[84px]">
+        <span class="block">Nkumbulo</span>
+        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40">Ndlovu</span>
+      </h1>
+
+      <div class="mt-6 h-[28px] mono text-[13px] md:text-[15px] text-[#f97316] tracking-wide flex items-center gap-2">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+        <span id="typewriter"></span>
+        <span class="w-[8px] h-[16px] bg-[#f97316] ml-1 animate-pulse inline-block"></span>
+      </div>
+
+      <p class="mt-5 text-[17px] md:text-[18px] leading-[1.6] text-slate-300 max-w-[560px]">Self-Educated technologist bridging software engineering with advanced Apple hardware repair — from logic boards to web development.</p>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="../../index.html#portfolio" class="px-6 py-3.5 rounded-full bg-white text-[#0f172a] font-semibold text-[14px] flex items-center gap-2 hover:bg-[#f97316] hover:text-white transition-colors shadow-[0_10px_30px_-12px_rgba(255,255,255,.6)]">
+          View My Work
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="#contact" class="px-6 py-3.5 rounded-full bg-white/5 border border-white/10 text-white font-medium text-[14px] hover:bg-white/10 transition">Let's Talk</a>
+      </div>
+
+      <div id="stats-row" class="mt-10 grid grid-cols-3 gap-3 max-w-[480px]">
+        <div class="rounded-2xl bg-white/[0.04] border border-white/10 px-4 py-4">
+          <div class="mono font-bold text-[22px] leading-none"><span class="stat-num" data-value="9">0</span>+</div>
+          <div class="mt-1 text-[11px] uppercase tracking-widest text-slate-400 mono">Years Experience</div>
+        </div>
+        <div class="rounded-2xl bg-white/[0.04] border border-white/10 px-4 py-4">
+          <div class="mono font-bold text-[22px] leading-none"><span class="stat-num" data-value="2556">0</span>+</div>
+          <div class="mt-1 text-[11px] uppercase tracking-widest text-slate-400 mono">Devices Repaired</div>
+        </div>
+        <div class="rounded-2xl bg-white/[0.04] border border-white/10 px-4 py-4">
+          <div class="mono font-bold text-[22px] leading-none"><span class="stat-num" data-value="418">0</span>+</div>
+          <div class="mt-1 text-[11px] uppercase tracking-widest text-slate-400 mono">Project Collaborations</div>
+        </div>
+      </div>
+    </div>
+
+    <div data-reveal class="relative lg:h-[560px] flex items-center justify-center in-view [transition-delay:120ms]">
+      <div id="heroVisual" class="relative w-full max-w-[420px]">
+
+        <div class="relative rounded-[2rem] bg-[#111a2e] border border-white/10 p-[1px] overflow-hidden shadow-[0_40px_120px_-30px_rgba(0,0,0,.8)]">
+          <div class="rounded-[1.95rem] bg-gradient-to-b from-[#1a2746] to-[#0f172a] p-8 md:p-9">
+
+            <div class="flex justify-between items-start">
+              <div class="w-[88px] h-[88px] rounded-[1.6rem] bg-white grid place-items-center text-[#0f172a] font-black text-[28px] shadow-[0_0_0_8px_rgba(249,115,22,.18)] relative">
+                NN
+                <span class="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-[#f97316] grid place-items-center">
+                  <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+                </span>
+              </div>
+              <div class="px-3 py-1.5 rounded-full bg-emerald-400/10 border border-emerald-400/20 text-emerald-300 text-[11px] mono flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> ONLINE
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <div class="mono text-[11px] tracking-widest text-slate-400 uppercase">Current Focus</div>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[12px] mono">python</span>
+                <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[12px] mono">Microsoldering</span>
+                <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[12px] mono">A19 Pro</span>
+                <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[12px] mono">BoardView</span>
+              </div>
+            </div>
+
+            <div class="mt-8 rounded-2xl bg-[#0b1222] border border-white/5 p-4 mono text-[12px] leading-relaxed text-slate-300">
+              <div class="text-slate-500">// NoveaTech Lab</div>
+              <div class="text-white">func <span class="text-[#f97316]">repair</span>(device: iPhone) -&gt; Result {</div>
+              <div class="pl-4 text-slate-300">diagnose(.noPower)</div>
+              <div class="pl-4">microsolder(PMIC)</div>
+              <div class="pl-4 text-emerald-300">return .success</div>
+              <div class="text-white">}</div>
+            </div>
+
+            <div class="mt-6 flex items-center gap-3 text-[12px] mono text-slate-400">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+              Harare, Zimbabwe &bull; CAT
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute -top-5 right-2 md:right-0 rounded-2xl bg-white text-[#0f172a] px-4 py-3 shadow-[0_20px_40px_-15px_rgba(0,0,0,.6)] rotate-[3deg] hidden sm:flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-[#0f172a] text-white grid place-items-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <div class="leading-tight">
+            <div class="font-bold text-[13px]">Board-Level</div>
+            <div class="text-[11px] opacity-60">Microscope Certified</div>
+          </div>
+        </div>
+
+        <div class="absolute -bottom-5 left-2 md:left-0 rounded-2xl bg-[#f97316] text-white px-4 py-3 shadow-[0_20px_40px_-15px_rgba(249,115,22,.6)] -rotate-[2deg] hidden sm:flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-white/20 grid place-items-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+          </div>
+          <div class="leading-tight">
+            <div class="font-bold text-[13px]">2556+ Devices</div>
+            <div class="text-[11px] opacity-90">Restored</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-[1240px] px-5 md:px-8 mt-16 md:mt-24 overflow-hidden">
+    <div style="transform-origin:left; animation:lineGrow 1.2s ease forwards" class="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-16 md:py-24">
+  <div class="mx-auto max-w-[1240px] px-5 md:px-8 grid lg:grid-cols-[1.1fr_.9fr] gap-8 md:gap-14">
+    <div data-reveal>
+      <div class="mono text-[11px] tracking-[0.2em] uppercase text-[#f97316]">About Me</div>
+      <h2 class="mt-4 text-[32px] md:text-[44px] font-bold tracking-[-0.03em] leading-[1.05]">IT expect who <span class="text-white/50">lives</span> between software and silicon.</h2>
+    </div>
+    <div data-reveal class="[transition-delay:120ms]">
+      <div class="rounded-[1.75rem] bg-white text-[#0f172a] p-7 md:p-9 shadow-[0_30px_80px_-30px_rgba(0,0,0,.5)] border-l-[6px] border-l-[#f97316]">
+        <p class="text-[16px] md:text-[17px] leading-[1.7] text-[#1e293b]">Software Developer and Apple Hardware &amp; Software Technician with deep passion for technology, problem-solving, and advanced electronics. Expertise spans software development, iOS development, computer systems, Apple device diagnostics, board-level repair, and microsoldering.</p>
+        <p class="mt-5 text-[15px] leading-[1.7] text-slate-600">I specialize in understanding technology beyond the user interface — from developing digital solutions to diagnosing complex hardware faults at component level. Every device tells a story in voltage rails and stack traces.</p>
+        <div class="mt-7 flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 rounded-full bg-[#0f172a] text-white text-[11px] mono tracking-wide">NoveaTech Lab</span>
+          <span class="px-3 py-1.5 rounded-full bg-[#0f172a] text-white text-[11px] mono tracking-wide">Self-Taught</span>
+          <span class="px-3 py-1.5 rounded-full bg-[#0f172a] text-white text-[11px] mono tracking-wide">Apple Certified Path</span>
+          <span class="px-3 py-1.5 rounded-full bg-[#0f172a] text-white text-[11px] mono tracking-wide">2016 &bull; 2026</span>
+        </div>
+        <div class="mt-7">
+          <a href="journey_to_the_hut.html" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#0f172a] text-white text-[14px] font-semibold hover:bg-[#f97316] transition-colors">
+            Continue to read article
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise" class="py-12 md:py-20">
+  <div class="mx-auto max-w-[1240px] px-5 md:px-8">
+    <div data-reveal class="flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <div class="mono text-[11px] tracking-[0.2em] uppercase text-[#f97316]">Core Expertise</div>
+        <h2 class="mt-3 text-[28px] md:text-[40px] font-bold tracking-[-0.03em]">Eight disciplines, one workflow.</h2>
+      </div>
+      <div class="text-[14px] text-slate-400 max-w-[360px]">From keyboard to 0201 caps — the same curiosity drives every layer of the stack.</div>
+    </div>
+
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+
+      <div data-reveal class="group rounded-[1.75rem] bg-[#131d33] border border-white/10 p-6 md:p-7 hover:bg-white hover:text-[#0f172a] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,.6)]">
+        <div class="w-11 h-11 rounded-2xl bg-white/10 group-hover:bg-[#0f172a] group-hover:text-white text-white grid place-items-center transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+        </div>
+        <div class="mt-5 font-semibold tracking-[-0.02em] leading-tight">Software &amp; iOS Development</div>
+        <div class="mt-2 text-[13.5px] leading-[1.6] opacity-70 group-hover:opacity-80">Building performant apps with Swift, SwiftUI and modern web stacks.</div>
+        <div class="mt-5 h-px bg-white/10 group-hover:bg-[#0f172a]/10"></div>
+        <div class="mt-4 mono text-[11px] uppercase tracking-widest opacity-50">Learn more →</div>
+      </div>
+
+      <div data-reveal class="group rounded-[1.75rem] bg-[#131d33] border border-white/10 p-6 md:p-7 hover:bg-white hover:text-[#0f172a] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,.6)]">
+        <div class="w-11 h-11 rounded-2xl bg-white/10 group-hover:bg-[#0f172a] group-hover:text-white text-white grid place-items-center transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </div>
+        <div class="mt-5 font-semibold tracking-[-0.02em] leading-tight">Apple Diagnostics</div>
+        <div class="mt-2 text-[13.5px] leading-[1.6] opacity-70 group-hover:opacity-80">Deep system-level diagnostics for iPhone, iPad &amp; Mac.</div>
+        <div class="mt-5 h-px bg-white/10 group-hover:bg-[#0f172a]/10"></div>
+        <div class="mt-4 mono text-[11px] uppercase tracking-widest opacity-50">Learn more →</div>
+      </div>
+
+      <div data-reveal class="group rounded-[1.75rem] bg-[#131d33] border border-white/10 p-6 md:p-7 hover:bg-white hover:text-[#0f172a] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,.6)]">
+        <div class="w-11 h-11 rounded-2xl bg-white/10 group-hover:bg-[#0f172a] group-hover:text-white text-white grid place-items-center transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M11 9h4a2 2 0 0 0 2-2V3"/><circle cx="9" cy="9" r="2"/><path d="M7 21v-4a2 2 0 0 1 2-2h4"/><circle cx="15" cy="15" r="2"/></svg>
+        </div>
+        <div class="mt-5 font-semibold tracking-[-0.02em] leading-tight">iPhone Logic-Board Repair</div>
+        <div class="mt-2 text-[13.5px] leading-[1.6] opacity-70 group-hover:opacity-80">Component-level fault tracing on A-series boards.</div>
+        <div class="mt-5 h-px bg-white/10 group-hover:bg-[#0f172a]/10"></div>
+        <div class="mt-4 mono text-[11px] uppercase tracking-widest opacity-50">Learn more →</div>
+      </div>
+
+      <div data-reveal class="group rounded-[1.75rem] bg-[#131d33] border border-white/10 p-6 md:p-7 hover:bg-white hover:text-[#0f172a] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,.6)]">
+        <div class="w-11 h-11 rounded-2xl bg-white/10 group-hover:bg-[#0f172a] group-hover:text-white text-white grid place-items-center transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+        </div>
+        <div class="mt-5 font-semibold tracking-[-0.02em] leading-tight">Advanced Microsoldering</div>
+        <div class="mt-2 text-[13.5px] leading-[1.6] opacity-70 group-hover:opacity-80">0201, BGA, underfill — precision rework under microscope.</div>
+        <div class="mt-5 h-px bg-white/10 group-hover:bg-[#0f172a]/10"></div>
+        <div class="mt-4 mono text-[11px] uppercase tracking-widest opacity-50">Learn more →</div>
+      </div>
+
+      <div data-reveal class="group rounded-[1.75rem] bg-[#131d33] border border-white/10 p-6 md:p-7 hover:bg-white hover:text-[#0f172a] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,.6)]">
+        <div class="w-11 h-11 rounded-2xl bg-white/10 group-hover:bg-[#0f172a] group-hover:text-white text-white grid place-items-center transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+        </div>
+        <div class="mt-5 font-semibold tracking-[-0.02em] leading-tight">Computer Systems</div>
+        <div class="mt-2 text-[13.5px] leading-[1.6] opacity-70 group-hover:opacity-80">Hardware &amp; software troubleshooting from kernel to chassis.</div>
+        <div class="mt-5 h-px bg-white/10 group-hover:bg-[#0f172a]/10"></div>
+        <div class="mt-4 mono text-[11px] uppercase tracking-widest opacity-50">Learn more →</div>
+      </div>
+
+      <div data-reveal class="group rounded-[1.75rem] bg-[#131d33] border border-white/10 p-6 md:p-7 hover:bg-white hover:text-[#0f172a] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,.6)]">
+        <div class="w-11 h-11 rounded-2xl bg-white/10 group-hover:bg-[#0f172a] group-hover:text-white text-white grid place-items-center transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/><path d="M6 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h1"/><path d="m11 7-3 5h4l-3 5"/><line x1="22" x2="22" y1="11" y2="13"/></svg>
+        </div>
+        <div class="mt-5 font-semibold tracking-[-0.02em] leading-tight">Electronics Diagnostics</div>
+        <div class="mt-2 text-[13.5px] leading-[1.6] opacity-70 group-hover:opacity-80">Power rails, data lines, and sensor chains decoded.</div>
+        <div class="mt-5 h-px bg-white/10 group-hover:bg-[#0f172a]/10"></div>
+        <div class="mt-4 mono text-[11px] uppercase tracking-widest opacity-50">Learn more →</div>
+      </div>
+
+      <div data-reveal class="group rounded-[1.75rem] bg-[#131d33] border border-white/10 p-6 md:p-7 hover:bg-white hover:text-[#0f172a] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,.6)]">
+        <div class="w-11 h-11 rounded-2xl bg-white/10 group-hover:bg-[#0f172a] group-hover:text-white text-white grid place-items-center transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+        </div>
+        <div class="mt-5 font-semibold tracking-[-0.02em] leading-tight">Web &amp; Digital Solutions</div>
+        <div class="mt-2 text-[13.5px] leading-[1.6] opacity-70 group-hover:opacity-80">Clean, fast web experiences for businesses in Harare &amp; beyond.</div>
+        <div class="mt-5 h-px bg-white/10 group-hover:bg-[#0f172a]/10"></div>
+        <div class="mt-4 mono text-[11px] uppercase tracking-widest opacity-50">Learn more →</div>
+      </div>
+
+      <div data-reveal class="group rounded-[1.75rem] bg-[#131d33] border border-white/10 p-6 md:p-7 hover:bg-white hover:text-[#0f172a] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,.6)]">
+        <div class="w-11 h-11 rounded-2xl bg-white/10 group-hover:bg-[#0f172a] group-hover:text-white text-white grid place-items-center transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+        </div>
+        <div class="mt-5 font-semibold tracking-[-0.02em] leading-tight">Technical Problem Solving</div>
+        <div class="mt-2 text-[13.5px] leading-[1.6] opacity-70 group-hover:opacity-80">From no-power to no-boot, systematic root-cause resolution.</div>
+        <div class="mt-5 h-px bg-white/10 group-hover:bg-[#0f172a]/10"></div>
+        <div class="mt-4 mono text-[11px] uppercase tracking-widest opacity-50">Learn more →</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="py-12 md:py-20">
+  <div class="mx-auto max-w-[1240px] px-5 md:px-8">
+    <div data-reveal class="rounded-[2rem] bg-white p-7 md:p-10 shadow-[0_30px_80px_-30px_rgba(0,0,0,.25)]">
+      <div class="flex flex-wrap items-start justify-between gap-6">
+        <div>
+          <div class="mono text-[11px] tracking-[0.2em] uppercase text-[#f97316]">Specialized Skills</div>
+          <h3 class="mt-3 text-[24px] md:text-[30px] font-bold tracking-[-0.03em] text-[#0f172a]">Tools I touch daily.</h3>
+        </div>
+        <div class="px-4 py-2 rounded-full bg-[#0f172a] text-white mono text-[11px] flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Microscope On
+        </div>
+      </div>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <span class="skill-chip group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#0f172a] text-white text-[13px] font-medium border border-[#0f172a] hover:bg-white hover:text-[#0f172a] hover:border-[#0f172a]/10 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-10px_rgba(0,0,0,.4)] transition-all"><span class="w-5 h-5 rounded-full bg-[#f97316] grid place-items-center"><svg class="w-3 h-3 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>iPhone Diagnostics</span>
+        <span class="skill-chip group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#0f172a] text-white text-[13px] font-medium border border-[#0f172a] hover:bg-white hover:text-[#0f172a] hover:border-[#0f172a]/10 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-10px_rgba(0,0,0,.4)] transition-all"><span class="w-5 h-5 rounded-full bg-[#f97316] grid place-items-center"><svg class="w-3 h-3 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Mac Logic-Board</span>
+        <span class="skill-chip group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#0f172a] text-white text-[13px] font-medium border border-[#0f172a] hover:bg-white hover:text-[#0f172a] hover:border-[#0f172a]/10 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-10px_rgba(0,0,0,.4)] transition-all"><span class="w-5 h-5 rounded-full bg-[#f97316] grid place-items-center"><svg class="w-3 h-3 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Component-Level Repair</span>
+        <span class="skill-chip group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#0f172a] text-white text-[13px] font-medium border border-[#0f172a] hover:bg-white hover:text-[#0f172a] hover:border-[#0f172a]/10 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-10px_rgba(0,0,0,.4)] transition-all"><span class="w-5 h-5 rounded-full bg-[#f97316] grid place-items-center"><svg class="w-3 h-3 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Microsoldering</span>
+        <span class="skill-chip group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#0f172a] text-white text-[13px] font-medium border border-[#0f172a] hover:bg-white hover:text-[#0f172a] hover:border-[#0f172a]/10 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-10px_rgba(0,0,0,.4)] transition-all"><span class="w-5 h-5 rounded-full bg-[#f97316] grid place-items-center"><svg class="w-3 h-3 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>iOS Development</span>
+        <span class="skill-chip group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#0f172a] text-white text-[13px] font-medium border border-[#0f172a] hover:bg-white hover:text-[#0f172a] hover:border-[#0f172a]/10 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-10px_rgba(0,0,0,.4)] transition-all"><span class="w-5 h-5 rounded-full bg-[#f97316] grid place-items-center"><svg class="w-3 h-3 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Swift / SwiftUI</span>
+        <span class="skill-chip group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#0f172a] text-white text-[13px] font-medium border border-[#0f172a] hover:bg-white hover:text-[#0f172a] hover:border-[#0f172a]/10 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-10px_rgba(0,0,0,.4)] transition-all"><span class="w-5 h-5 rounded-full bg-[#f97316] grid place-items-center"><svg class="w-3 h-3 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Board-Level Troubleshooting</span>
+        <span class="skill-chip group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#0f172a] text-white text-[13px] font-medium border border-[#0f172a] hover:bg-white hover:text-[#0f172a] hover:border-[#0f172a]/10 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-10px_rgba(0,0,0,.4)] transition-all"><span class="w-5 h-5 rounded-full bg-[#f97316] grid place-items-center"><svg class="w-3 h-3 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Web Solutions</span>
+        <span class="skill-chip group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#0f172a] text-white text-[13px] font-medium border border-[#0f172a] hover:bg-white hover:text-[#0f172a] hover:border-[#0f172a]/10 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-10px_rgba(0,0,0,.4)] transition-all"><span class="w-5 h-5 rounded-full bg-[#f97316] grid place-items-center"><svg class="w-3 h-3 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Research &amp; Experimentation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILD / REPAIR / INNOVATE -->
+<section class="py-12 md:py-20">
+  <div class="mx-auto max-w-[1240px] px-5 md:px-8 grid md:grid-cols-3 gap-4 md:gap-5">
+
+    <div data-reveal class="rounded-[1.75rem] bg-[#131d33] border border-white/10 p-7 md:p-8 hover:border-white/15 transition-colors">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-white text-[#0f172a] grid place-items-center">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/></svg>
+        </div>
+        <div class="mono text-[11px] tracking-[0.2em] uppercase text-[#f97316]">Build</div>
+      </div>
+      <div class="mt-5 text-[19px] font-semibold tracking-[-0.02em]">Build digital products</div>
+      <div class="mt-2 text-[14px] leading-[1.6] text-slate-400">iOS apps in SwiftUI, fast web apps, and internal tools that feel native.</div>
+      <div class="mt-6 space-y-2">
+        <div class="mono text-[12px] text-slate-300 flex gap-2"><span class="text-[#f97316]">—</span> Swift &bull; SwiftUI</div>
+        <div class="mono text-[12px] text-slate-300 flex gap-2"><span class="text-[#f97316]">—</span> React &bull; Next.js</div>
+        <div class="mono text-[12px] text-slate-300 flex gap-2"><span class="text-[#f97316]">—</span> API &bull; Offline-first</div>
+      </div>
+    </div>
+
+    <div data-reveal class="rounded-[1.75rem] bg-[#131d33] border border-white/10 p-7 md:p-8 hover:border-white/15 transition-colors">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-white text-[#0f172a] grid place-items-center">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div class="mono text-[11px] tracking-[0.2em] uppercase text-[#f97316]">Repair</div>
+      </div>
+      <div class="mt-5 text-[19px] font-semibold tracking-[-0.02em]">Repair what others replace</div>
+      <div class="mt-2 text-[14px] leading-[1.6] text-slate-400">No power, no display, no touch — traced to component, fixed under microscope.</div>
+      <div class="mt-6 space-y-2">
+        <div class="mono text-[12px] text-slate-300 flex gap-2"><span class="text-[#f97316]">—</span> PMIC &bull; Tristar &bull; Hydra</div>
+        <div class="mono text-[12px] text-slate-300 flex gap-2"><span class="text-[#f97316]">—</span> Data recovery</div>
+        <div class="mono text-[12px] text-slate-300 flex gap-2"><span class="text-[#f97316]">—</span> Water damage</div>
+      </div>
+    </div>
+
+    <div data-reveal class="rounded-[1.75rem] bg-[#131d33] border border-white/10 p-7 md:p-8 hover:border-white/15 transition-colors">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-white text-[#0f172a] grid place-items-center">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+        </div>
+        <div class="mono text-[11px] tracking-[0.2em] uppercase text-[#f97316]">Innovate</div>
+      </div>
+      <div class="mt-5 text-[19px] font-semibold tracking-[-0.02em]">Innovate beyond the UI</div>
+      <div class="mt-2 text-[14px] leading-[1.6] text-slate-400">Research, teardown, documentation — pushing Harare's repair culture forward.</div>
+      <div class="mt-6 space-y-2">
+        <div class="mono text-[12px] text-slate-300 flex gap-2"><span class="text-[#f97316]">—</span> Schematics &bull; BoardView</div>
+        <div class="mono text-[12px] text-slate-300 flex gap-2"><span class="text-[#f97316]">—</span> Training &bull; Mentorship</div>
+        <div class="mono text-[12px] text-slate-300 flex gap-2"><span class="text-[#f97316]">—</span> Open lab notes</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy" class="py-12 md:py-24">
+  <div class="mx-auto max-w-[1240px] px-5 md:px-8">
+    <div data-reveal class="relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-gradient-to-br from-[#f97316] via-[#fb923c] to-[#f97316] p-[1px]">
+      <div class="rounded-[2rem] md:rounded-[2.5rem] bg-[#0f172a] p-8 md:p-14 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-[400px] h-[400px] rounded-full bg-[#f97316]/20 blur-[60px]"></div>
+
+        <div class="relative grid lg:grid-cols-[1.1fr_.9fr] gap-10 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 text-[11px] mono tracking-widest uppercase">
+              <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
+              Philosophy
+            </div>
+            <blockquote class="mt-6 text-[26px] md:text-[36px] font-bold tracking-[-0.03em] leading-[1.15]">&ldquo;Combine software engineering and advanced hardware expertise to <span class="text-[#f97316]">build, repair, and improve</span> technology — providing practical solutions to individuals and businesses.&rdquo;</blockquote>
+            <div class="mt-8 flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-white text-[#0f172a] grid place-items-center font-black">NN</div>
+              <div>
+                <div class="font-semibold tracking-[-0.02em]">Nkumbulo Ndlovu</div>
+                <div class="mono text-[11px] text-slate-400 uppercase tracking-widest">Harare &bull; FUTURE IS TODAY</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-[1.5rem] bg-white text-[#0f172a] p-6 md:p-7">
+            <div class="mono text-[11px] tracking-widest uppercase opacity-60">How I Work</div>
+            <div class="mt-4 space-y-4">
+              <div class="flex gap-3">
+                <div class="mt-1 w-6 h-6 rounded-full bg-[#0f172a] text-white grid place-items-center text-[11px] font-bold flex-shrink-0">1</div>
+                <div class="text-[14px] leading-[1.5] font-medium">Diagnose before you desolder.</div>
+              </div>
+              <div class="flex gap-3">
+                <div class="mt-1 w-6 h-6 rounded-full bg-[#0f172a] text-white grid place-items-center text-[11px] font-bold flex-shrink-0">2</div>
+                <div class="text-[14px] leading-[1.5] font-medium">Write code like hardware — every byte has a cost.</div>
+              </div>
+              <div class="flex gap-3">
+                <div class="mt-1 w-6 h-6 rounded-full bg-[#0f172a] text-white grid place-items-center text-[11px] font-bold flex-shrink-0">3</div>
+                <div class="text-[14px] leading-[1.5] font-medium">Document everything. Repair is knowledge.</div>
+              </div>
+            </div>
+            <div class="mt-6 h-px bg-[#0f172a]/10"></div>
+            <div class="mt-4 mono text-[11px]">EST. 2020 &bull; SELF-TAUGHT &bull; HARARE LAB</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-12 md:py-24">
+  <div class="mx-auto max-w-[1240px] px-5 md:px-8">
+    <div data-reveal class="rounded-[2rem] md:rounded-[2.5rem] bg-white text-[#0f172a] p-8 md:p-12 flex flex-col lg:flex-row gap-10 justify-between overflow-hidden relative">
+      <div class="absolute top-0 right-0 w-[300px] h-[300px] bg-[#f97316]/10 rounded-full blur-[50px] -translate-y-1/2 translate-x-1/3"></div>
+
+      <div class="relative">
+        <div class="mono text-[11px] tracking-[0.2em] uppercase text-[#f97316]">Contact</div>
+        <h3 class="mt-3 text-[32px] md:text-[44px] font-black tracking-[-0.04em] leading-[0.95]">Let's build or<br>fix something.</h3>
+        <p class="mt-4 text-[15px] leading-[1.6] text-slate-600 max-w-[380px]">Based in Harare, Zimbabwe. Available for iOS work, web projects, and advanced board-level diagnostics.</p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="mailto:hello@nkumbulo.dev" class="px-6 py-3.5 rounded-full bg-[#0f172a] text-white text-[14px] font-semibold inline-flex items-center gap-2 hover:bg-black transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            hello@nkumbulo.dev
+          </a>
+          <div class="px-5 py-3.5 rounded-full bg-[#0f172a]/5 border border-[#0f172a]/10 text-[14px] font-medium inline-flex items-center gap-2">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+            Harare, ZW
+          </div>
+        </div>
+      </div>
+
+      <div class="relative lg:w-[360px] rounded-[1.5rem] bg-[#0f172a] text-white p-6">
+        <div class="flex justify-between items-center">
+          <div class="mono text-[11px] uppercase tracking-widest opacity-60">Quick Pitch</div>
+          <div style="animation:pulseGlow 2s infinite" class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+        </div>
+        <div class="mt-5 space-y-3 text-[13px] leading-[1.6] text-slate-300">
+          <div class="flex gap-2"><span class="text-[#f97316]">•</span> iPhone no power / boot loop / touch disease</div>
+          <div class="flex gap-2"><span class="text-[#f97316]">•</span> MacBook no display / not charging</div>
+          <div class="flex gap-2"><span class="text-[#f97316]">•</span> SwiftUI apps &amp; web dashboards</div>
+        </div>
+        <div class="mt-6 rounded-xl bg-white/5 border border-white/10 p-3 mono text-[11px] text-slate-400">Response time: &lt; 6 hours &bull; Mon–Sat</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="pb-10 pt-4">
+  <div class="mx-auto max-w-[1240px] px-5 md:px-8">
+    <div class="rounded-[1.5rem] bg-[#131d33] border border-white/10 px-6 md:px-8 py-6 flex flex-col md:flex-row gap-4 justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-xl bg-white text-[#0f172a] grid place-items-center font-black text-[12px]">NN</div>
+        <div class="text-[13px] text-slate-300">&copy; <span id="year"></span> Nkumbulo Ndlovu &bull; <span class="mono text-[11px] opacity-60">Future is Today</span></div>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="https://github.com" target="_blank" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 grid place-items-center hover:bg-white hover:text-[#0f172a] transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 grid place-items-center hover:bg-white hover:text-[#0f172a] transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="mailto:hello@nkumbulo.dev" target="_blank" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 grid place-items-center hover:bg-white hover:text-[#0f172a] transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>
+        </a>
+        <a href="mailto:hello@nkumbulo.dev" target="_blank" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 grid place-items-center hover:bg-white hover:text-[#0f172a] transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="mt-6 text-center mono text-[10px] tracking-[0.2em] uppercase text-white/20">Special Thanks &bull; To &bull; Thelma &bull; </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="link-handler.js"></script>
+</body>
+</html>

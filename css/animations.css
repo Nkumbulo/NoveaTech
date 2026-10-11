@@ -1,0 +1,607 @@
+/*=========================================
+NOVEATECH
+ANIMATIONS
+=========================================*/
+
+
+/* KEYFRAMES */
+
+
+@keyframes marquee{
+
+from{ transform:translateX(0); }
+
+to{ transform:translateX(-50%); }
+
+}
+
+
+
+@keyframes spin{
+
+from{ transform:rotate(0deg); }
+
+to{ transform:rotate(360deg); }
+
+}
+
+
+
+@keyframes pulseDot{
+
+0%,100%{ opacity:1; transform:scale(1); }
+
+50%{ opacity:.4; transform:scale(1.3); }
+
+}
+
+
+
+@keyframes barPulse{
+
+0%,100%{ transform:scaleY(.6); opacity:.7; }
+
+50%{ transform:scaleY(1); opacity:1; }
+
+}
+
+
+
+@keyframes floatY{
+
+0%,100%{ transform:translateY(0); }
+
+50%{ transform:translateY(-14px); }
+
+}
+
+
+
+@keyframes floatParticle{
+
+0%{ transform:translate(0,0); opacity:0; }
+
+10%{ opacity:.6; }
+
+90%{ opacity:.6; }
+
+100%{ transform:translate(var(--dx,40px),var(--dy,-120px)); opacity:0; }
+
+}
+
+
+
+@keyframes shimmer{
+
+0%{ background-position:-200% 0; }
+
+100%{ background-position:200% 0; }
+
+}
+
+
+
+@keyframes fadeInUp{
+
+from{ opacity:0; transform:translateY(28px); }
+
+to{ opacity:1; transform:translateY(0); }
+
+}
+
+
+
+@keyframes fadeInScale{
+
+from{ opacity:0; transform:scale(.92); }
+
+to{ opacity:1; transform:scale(1); }
+
+}
+
+
+
+@keyframes drawLine{
+
+from{ width:0; }
+
+to{ width:100%; }
+
+}
+
+
+
+/*=========================================
+SCROLL REVEAL
+=========================================*/
+
+
+.reveal{
+
+opacity:0;
+
+transform:translateY(32px);
+
+transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
+
+}
+
+
+
+.reveal.in{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+
+.reveal-left{
+
+opacity:0;
+
+transform:translateX(-40px);
+
+transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
+
+}
+
+
+
+.reveal-left.in{
+
+opacity:1;
+
+transform:translateX(0);
+
+}
+
+
+
+.reveal-right{
+
+opacity:0;
+
+transform:translateX(40px);
+
+transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
+
+}
+
+
+
+.reveal-right.in{
+
+opacity:1;
+
+transform:translateX(0);
+
+}
+
+
+
+.reveal-scale{
+
+opacity:0;
+
+transform:scale(.88);
+
+transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+
+}
+
+
+
+.reveal-scale.in{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+
+
+/* stagger delays for grids/lists */
+
+
+.stagger .reveal:nth-child(1),
+.stagger .reveal-scale:nth-child(1){ transition-delay:.05s; }
+
+.stagger .reveal:nth-child(2),
+.stagger .reveal-scale:nth-child(2){ transition-delay:.15s; }
+
+.stagger .reveal:nth-child(3),
+.stagger .reveal-scale:nth-child(3){ transition-delay:.25s; }
+
+.stagger .reveal:nth-child(4),
+.stagger .reveal-scale:nth-child(4){ transition-delay:.35s; }
+
+.stagger .reveal:nth-child(5),
+.stagger .reveal-scale:nth-child(5){ transition-delay:.45s; }
+
+.stagger .reveal:nth-child(6),
+.stagger .reveal-scale:nth-child(6){ transition-delay:.55s; }
+
+
+
+/*=========================================
+PROCESS / HOW IT WORKS — SCROLL-LINKED PROGRESS
+=========================================*/
+
+
+/* glowing fill overlays the dashed track; JS drives its width 0-80%
+   to match the track's existing left:10% / right:10% bounds */
+
+.process-line-fill{
+
+position:absolute;
+
+top:79px;
+
+left:10%;
+
+height:2px;
+
+width:0;
+
+background:var(--gradient);
+
+box-shadow:0 0 16px rgba(0,229,255,.6);
+
+z-index:0;
+
+pointer-events:none;
+
+}
+
+
+
+/* marker dot rides at the head of the fill, JS drives its left 10%-90% */
+
+.process-progress-dot{
+
+position:absolute;
+
+top:79px;
+
+left:10%;
+
+width:10px;
+
+height:10px;
+
+border-radius:50%;
+
+background:var(--accent);
+
+border:1px solid var(--white);
+
+transform:translate(-50%,-50%);
+
+box-shadow:0 0 12px rgba(0,229,255,.9),0 0 24px rgba(0,102,255,.7);
+
+z-index:2;
+
+pointer-events:none;
+
+}
+
+
+.process-progress-dot::before{
+
+content:"";
+
+position:absolute;
+
+inset:-6px;
+
+border-radius:50%;
+
+background:rgba(0,229,255,.2);
+
+filter:blur(3px);
+
+}
+
+
+
+/* number circle fills in once the scroll progress reaches it */
+
+.process-num{
+
+position:relative;
+
+}
+
+
+.process-num.active{
+
+background:var(--gradient);
+
+color:var(--white);
+
+border-color:transparent;
+
+box-shadow:0 0 30px rgba(0,229,255,.4);
+
+}
+
+
+.process-num.active:before,
+.process-num.active:after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+border-radius:50%;
+
+border:1px solid rgba(0,229,255,.4);
+
+animation:pulseRing 2.2s cubic-bezier(.16,1,.3,1) infinite;
+
+}
+
+
+.process-num.active:after{
+
+border-color:rgba(0,229,255,.2);
+
+animation-delay:.6s;
+
+}
+
+
+@keyframes pulseRing{
+
+0%{ transform:scale(1); opacity:.6; }
+
+100%{ transform:scale(1.8); opacity:0; }
+
+}
+
+
+
+/* small live-status dot in the corner of each circle */
+
+.process-num-dot{
+
+position:absolute;
+
+top:-3px;
+
+right:-3px;
+
+width:14px;
+
+height:14px;
+
+border-radius:50%;
+
+background:var(--background);
+
+border:1px solid var(--border);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+z-index:1;
+
+}
+
+
+.process-num-dot:after{
+
+content:"";
+
+width:7px;
+
+height:7px;
+
+border-radius:50%;
+
+background:hsla(0,0%,100%,.25);
+
+transition:var(--transition);
+
+}
+
+
+.process-num.active .process-num-dot:after{
+
+background:var(--accent);
+
+box-shadow:0 0 8px var(--accent);
+
+animation:pulseDot 1.8s ease-in-out infinite;
+
+}
+
+
+
+/* number circles pop in with the reveal, hover state stays untouched */
+
+.process-step .process-num{
+
+opacity:0;
+
+transform:scale(.55);
+
+}
+
+
+.process-step:where(.in) .process-num{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+
+
+@media (max-width:900px){
+
+.process-line-fill,
+.process-progress-dot{
+
+display:none;
+
+}
+
+}
+
+
+
+@media (prefers-reduced-motion: reduce){
+
+.process-num.active:before,
+.process-num.active:after{
+
+animation:none;
+
+opacity:0;
+
+}
+
+}
+/* =========================================
+   PROCESS SCROLL BUG FIX noveatech.debug
+   Keep Process in the main page scroll.
+   Never create a nested scroll container.
+========================================= */
+
+.process,
+.process-track {
+    overflow: visible !important;
+    overscroll-behavior: auto !important;
+    touch-action: pan-y !important;
+}
+
+
+/* Decorative process elements must
+   never capture mouse/touch input */
+
+.process-line,
+.process-line-fill,
+.process-progress-dot {
+    pointer-events: none !important;
+}
+
+
+
+/*=========================================
+AMBIENT / DECORATIVE MOTION
+=========================================*/
+
+
+.tech-card{
+
+animation:floatY 6s ease-in-out infinite;
+
+}
+
+
+
+.particle{
+
+animation:floatParticle linear infinite;
+
+}
+
+
+
+.badge-live span{
+
+animation:pulseDot 1.6s ease-in-out infinite;
+
+}
+
+
+
+/* tilt targets (JS sets rotation via inline transform) */
+
+
+.tilt{
+
+transition:transform .15s ease-out;
+
+will-change:transform;
+
+}
+
+
+
+/* magnetic buttons (JS sets translate via inline transform) */
+
+
+.magnetic{
+
+transition:transform .25s cubic-bezier(.16,1,.3,1);
+
+}
+
+
+
+/*=========================================
+LOADING SKELETON (counters before JS runs)
+=========================================*/
+
+
+.count-up{
+
+display:inline-block;
+
+}
+
+
+
+/*=========================================
+REDUCED MOTION + TOUCH GUARDS
+=========================================*/
+
+
+@media (hover:none), (pointer:coarse){
+
+.hero-glow{ display:none; }
+
+.tilt{ transform:none !important; }
+
+}
+
+
+
+@media (prefers-reduced-motion: reduce){
+
+*{
+
+animation-duration:.001ms !important;
+
+animation-iteration-count:1 !important;
+
+transition-duration:.001ms !important;
+
+scroll-behavior:auto !important;
+
+}
+
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-scale{
+
+opacity:1 !important;
+
+transform:none !important;
+
+}
+
+}

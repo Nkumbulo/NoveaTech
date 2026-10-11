@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Mobile & Computer Repair | Screen, Battery, All Replacements | NoveaTech Harare + US Mail-In</title>
+<meta name="description" content="NoveaTech mobile & computer repair. iPhone screen, battery, charging port, water damage. MacBook screen, battery, keyboard, SSD upgrade. From $29, same-day, 90-day warranty. US mail-in board-only.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#00A8FF;--primary-deep:#0066FF;--accent:#00E5FF;--background:#050505;--surface:#111827;--white:#fff;--text:#CBD5E1;--muted:#94A3B8;--border:rgba(255,255,255,.12);--border-soft:rgba(255,255,255,.08);--gradient:linear-gradient(135deg,var(--primary-deep),var(--accent));}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:Inter,sans-serif;background:#080C12;color:white;overflow-x:hidden;line-height:1.5;min-width:0}
+.container{width:min(90%,1200px);margin-inline:auto}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;border:none;background:none;cursor:pointer}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(5,5,5,.72);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.06)}
+.navbar{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-weight:900;font-size:22px;letter-spacing:-.02em;flex-shrink:0}
+.logo span{color:var(--accent)}
+.desktop-menu{display:flex;gap:28px;align-items:center}
+.desktop-menu a{color:var(--text);font-size:14px;font-weight:500;transition:.25s}
+.desktop-menu a:hover{color:white}
+.nav-cta{padding:11px 20px;border-radius:50px;background:var(--gradient);font-weight:700;font-size:13px;box-shadow:0 0 24px rgba(0,229,255,.22);color:white;white-space:nowrap;transition:.3s}
+.hamburger{display:none;width:42px;height:42px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);place-items:center;flex-shrink:0}
+.hamburger span{width:18px;height:2px;background:white;border-radius:2px;display:block;position:relative;transition:.3s}
+.hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:100%;height:100%;background:white;border-radius:2px;transition:.3s}
+.hamburger span::before{top:-6px}
+.hamburger span::after{top:6px}
+.hamburger.active span{background:transparent}
+.hamburger.active span::before{transform:rotate(45deg);top:0}
+.hamburger.active span::after{transform:rotate(-45deg);top:0}
+.mobile-drawer{position:fixed;inset:0;z-index:999;background:rgba(5,8,15,.96);backdrop-filter:blur(20px);transform:translateX(100%);transition:transform .45s cubic-bezier(.77,0,.175,1);padding:88px 24px 32px;display:flex;flex-direction:column}
+.mobile-drawer.open{transform:translateX(0)}
+.mobile-drawer a{font-size:18px;font-weight:600;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);color:var(--text);display:flex;justify-content:space-between}
+.mobile-drawer .mobile-cta{margin-top:24px;background:var(--gradient);padding:16px;border-radius:16px;text-align:center;color:white;font-weight:800;font-size:16px}
+
+.us-banner{margin-top:72px;background:linear-gradient(90deg,#0066FF,#00D4FF);color:white;display:flex;justify-content:center;align-items:center;gap:10px;padding:10px 16px;font-size:12.5px;font-weight:600;flex-wrap:wrap;text-align:center;line-height:1.4}
+.us-banner a{background:rgba(0,0,0,.22);padding:6px 14px;border-radius:50px;border:1px solid rgba(255,255,255,.22);white-space:nowrap}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:48px 0 32px;min-width:0}
+.hero-label{display:inline-flex;padding:7px 14px;border-radius:50px;border:1px solid rgba(0,229,255,.28);background:rgba(0,229,255,.08);color:var(--accent);font-size:10.5px;font-weight:800;letter-spacing:1.4px;margin-bottom:18px;animation:fadeUp .6s ease both}
+.hero h1{font-size:clamp(34px,5vw,52px);font-weight:900;line-height:.92;letter-spacing:-.04em;margin-bottom:16px;animation:fadeUp .7s .1s ease both}
+.hero h1 span{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-desc{color:#8B95A5;font-size:clamp(14px,2vw,15.5px);line-height:1.65;max-width:560px;margin-bottom:22px;animation:fadeUp .7s .2s ease both}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;animation:fadeUp .7s .25s ease both}
+.pill{padding:6px 12px;border-radius:50px;background:#12161F;border:1px solid #1E2632;font-size:12px;color:#AAB4C2;transition:.25s}
+.pill:hover{border-color:rgba(0,212,255,.2);transform:translateY(-1px)}
+.pill b{color:white}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp .7s .3s ease both}
+.btn-primary{padding:14px 24px;border-radius:50px;background:var(--gradient);color:white;font-weight:700;font-size:13.5px;border:none;box-shadow:0 0 24px rgba(0,212,255,.3);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.3s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,102,255,.35)}
+.btn-secondary{padding:14px 24px;border-radius:50px;background:rgba(255,255,255,.06);border:1px solid #1E2632;color:white;font-weight:600;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:.3s}
+.btn-secondary:hover{background:rgba(255,255,255,.1)}
+
+.visual{position:relative;min-height:540px;display:grid;place-items:center;animation:fadeIn .9s .2s ease both}
+.circle{position:absolute;width:min(400px,80vw);height:min(400px,80vw);border-radius:50%;border:1px solid rgba(0,212,255,.12);background:radial-gradient(circle at 50% 50%, rgba(0,212,255,.08), transparent 70%);animation:float 6s ease-in-out infinite}
+.ring{position:absolute;width:min(480px,92vw);height:min(480px,92vw);border-radius:50%;border:1px dashed rgba(255,255,255,.06);animation:rotateSlow 40s linear infinite}
+.device-card{background:#12161F;border:1px solid #1E2632;border-radius:28px;padding:20px;width:min(360px,100%);box-shadow:0 0 0 1px rgba(0,212,255,.1),0 24px 80px rgba(0,0,0,.5);position:relative;z-index:2;animation:floatCard 5s ease-in-out infinite}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:50px;background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.18);font-size:10.5px;font-weight:700;letter-spacing:.08em;color:#6CFFB8}
+.badge span{width:6px;height:6px;border-radius:50%;background:#00FF88;box-shadow:0 0 8px #00FF88;animation:pulseDot 1.4s infinite}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.9)}}
+.dev-head h3{font-size:17px;font-weight:800;margin-top:10px}
+.dev-head p{font-size:12px;color:#8B95A5}
+.health{margin-top:14px;background:#0C1017;border:1px solid #1E2632;border-radius:12px;padding:12px}
+.health-row{display:flex;justify-content:space-between;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#5B697C;margin-bottom:6px}
+.bar{height:6px;background:rgba(255,255,255,.06);border-radius:50px;overflow:hidden}
+.fill{height:100%;width:0;background:linear-gradient(90deg,#0066FF,#00D4FF);border-radius:50px;transition:width 1.5s cubic-bezier(.77,0,.175,1) .5s}
+.fill.animate{width:78%}
+.checks{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.check{display:flex;justify-content:space-between;align-items:center;background:#0C1017;border:1px solid #1E2632;border-radius:10px;padding:9px 12px;font-size:12px;transition:.25s}
+.check:hover{border-color:rgba(0,212,255,.14);transform:translateX(2px)}
+
+/* SECTIONS */
+.section{padding:76px 0;border-top:1px solid #1E2632;overflow:clip}
+.label{display:inline-flex;padding:7px 14px;border-radius:50px;border:1px solid rgba(0,229,255,.28);background:rgba(0,229,255,.08);color:var(--accent);font-size:10.5px;font-weight:800;letter-spacing:1.4px;margin-bottom:14px}
+.section h2{font-size:clamp(26px,4vw,36px);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:12px}
+.lead{color:#8B95A5;max-width:640px;font-size:clamp(14px,2vw,15px);line-height:1.6}
+.tabs{display:flex;gap:10px;margin-top:24px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{padding:10px 18px;border-radius:50px;background:#12161F;border:1px solid #1E2632;color:#8B95A5;font-size:13px;font-weight:600;cursor:pointer;transition:.3s;white-space:nowrap;flex-shrink:0}
+.tab.active{background:var(--gradient);border-color:transparent;color:white;box-shadow:0 0 18px rgba(0,212,255,.22)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;animation:fadeGrid .4s ease}
+@keyframes fadeGrid{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.card{background:#12161F;border:1px solid #1E2632;border-radius:20px;padding:20px;transition:.35s cubic-bezier(.25,.46,.45,.94);position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:.35s}
+.card:hover{border-color:rgba(0,212,255,.22);transform:translateY(-4px);box-shadow:0 10px 32px rgba(0,0,0,.35)}
+.card:hover::before{opacity:1}
+.card-icon{width:42px;height:42px;border-radius:12px;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.18);display:grid;place-items:center;font-size:18px;margin-bottom:12px}
+.card h3{font-size:15px;font-weight:700;margin-bottom:6px}
+.card p{font-size:12.5px;color:#8B95A5;line-height:1.5;min-height:38px}
+.card .price{margin-top:12px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.card .price b{color:white;font-size:14px}
+.card .price span{font-size:11px;color:#5B697C;background:#0C1017;border:1px solid #1E2632;padding:4px 8px;border-radius:50px;white-space:nowrap}
+.card .time{font-size:11px;color:#6CFFB8;margin-top:8px;display:flex;align-items:center;gap:4px}
+
+.pricing{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:32px}
+.price-card{background:#12161F;border:1px solid #1E2632;border-radius:20px;padding:22px;transition:.3s}
+.price-card:hover{border-color:rgba(255,255,255,.14)}
+.price-card h3{font-size:16px;font-weight:800}
+.price-card .sub{font-size:12px;color:#8B95A5;margin:4px 0 16px}
+.table{width:100%;border-collapse:collapse}
+.table tr{border-bottom:1px solid rgba(255,255,255,.06)}
+.table tr:last-child{border:none}
+.table td{padding:12px 0;font-size:13px;vertical-align:top}
+.table td:first-child{color:#CBD5E1;line-height:1.4;padding-right:12px}
+.table td:first-child span{display:block;font-size:11px;color:#5B697C;margin-top:2px}
+.table td:last-child{color:white;font-weight:700;white-space:nowrap;text-align:right}
+.warranty{margin-top:16px;background:#0C1017;border:1px solid #1E2632;border-radius:12px;padding:12px;display:flex;gap:10px}
+.warranty i{width:32px;height:32px;border-radius:8px;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.18);display:grid;place-items:center;flex-shrink:0;font-style:normal}
+.warranty b{font-size:12.5px;display:block}
+.warranty p{font-size:11px;color:#8B95A5;margin-top:2px;line-height:1.4}
+
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.step{background:#0C1017;border:1px solid #1E2632;border-radius:16px;padding:18px;transition:.3s;position:relative;overflow:hidden}
+.step::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:.3s}
+.step:hover::before{opacity:1}
+.step:hover{transform:translateY(-3px);border-color:rgba(0,229,255,.14)}
+.num{width:30px;height:30px;border-radius:50%;background:var(--gradient);display:grid;place-items:center;font-weight:800;font-size:12px;margin-bottom:10px;box-shadow:0 4px 12px rgba(0,102,255,.3)}
+.step h4{font-size:13.5px;font-weight:700;margin-bottom:6px}
+.step p{font-size:12px;color:#8B95A5;line-height:1.5}
+
+/* FAQ */
+.faq{display:grid;gap:10px;margin-top:28px;max-width:800px}
+.faq-item{background:#12161F;border:1px solid #1E2632;border-radius:16px;overflow:hidden;transition:.3s}
+.faq-item:hover{border-color:rgba(255,255,255,.14)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 20px;font-size:15px;font-weight:600;text-align:left;color:white;gap:16px}
+.faq-q span{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:grid;place-items:center;flex-shrink:0;transition:.3s}
+.faq-item.open .faq-q span{transform:rotate(45deg);background:var(--gradient);border-color:transparent}
+.faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.77,0,.175,1),padding .35s ease,opacity .3s ease;color:#8B95A5;font-size:13.5px;line-height:1.6;opacity:0}
+.faq-item.open .faq-a{padding:0 20px 18px;max-height:420px;opacity:1}
+
+.cta{margin-top:44px;background:linear-gradient(135deg,#0B1220 0%,#12161F 100%);border:1px solid rgba(0,212,255,.18);border-radius:24px;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:24px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:-1px;background:radial-gradient(600px circle at 0% 0%,rgba(0,212,255,.15),transparent 40%);pointer-events:none}
+.cta h3{font-size:clamp(20px,3vw,24px);font-weight:800;line-height:1.2}
+.cta p{font-size:13.5px;color:#8B95A5;margin-top:8px;line-height:1.55;max-width:520px}
+
+/* REVEAL + KEYFRAMES */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes rotateSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.25,.46,.45,.94)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.08s}
+.reveal-delay-2{transition-delay:.16s}
+.reveal-delay-3{transition-delay:.24s}
+
+/* MOBILE BREAKPOINTS */
+@media (max-width:1024px){
+.hero{grid-template-columns:1fr;gap:28px}
+.visual{min-height:460px;order:-1}
+.pricing{grid-template-columns:1fr;max-width:560px;margin-inline:auto}
+.process{grid-template-columns:repeat(2,1fr)}
+.grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:768px){
+.navbar{height:64px}
+.desktop-menu,.navbar .nav-cta{display:none}
+.hamburger{display:grid}
+.us-banner{margin-top:64px}
+.hero{padding:28px 0 20px}
+.visual{min-height:420px}
+.circle{width:min(320px,78vw);height:min(320px,78vw)}
+.ring{width:min(380px,90vw);height:min(380px,90vw)}
+.device-card{width:min(340px,92vw);padding:16px;border-radius:22px}
+.section{padding:56px 0}
+.grid{grid-template-columns:1fr}
+.process{grid-template-columns:1fr}
+.pricing{grid-template-columns:1fr}
+.card p{min-height:auto}
+.cta{flex-direction:column;align-items:stretch;padding:22px}
+.cta > div:last-child{flex-direction:column}
+.cta .btn-primary,.cta .btn-secondary{width:100%}
+.tabs{margin-left:-4%;margin-right:-4%;padding-left:4%;padding-right:4%;width:108%}
+}
+@media (max-width:480px){
+.container{width:92%}
+.hero h1{font-size:32px}
+.hero-actions{flex-direction:column}
+.hero-actions .btn-primary,.hero-actions .btn-secondary{width:100%}
+.visual{min-height:380px}
+.table td{font-size:12.5px}
+.faq-q{font-size:14px;padding:16px}
+.us-banner{flex-direction:column;gap:6px}
+}
+@media (prefers-reduced-motion:reduce){
+*,*::before,*::after{animation:none!important;transition:none!important}
+.reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+<div class="container navbar">
+<a class="logo" href="#">NOVEA<span>TECH</span></a>
+<nav class="desktop-menu">
+<a href="#repairs">Repairs</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+</nav>
+<a href="#book" class="nav-cta">Book Repair</a>
+<button class="hamburger" id="hamburger" aria-label="Open menu"><span></span></button>
+</div>
+</header>
+
+<div class="mobile-drawer" id="mobileDrawer">
+<a href="#repairs">Repairs <span>→</span></a>
+<a href="#pricing">Pricing <span>→</span></a>
+<a href="#faq">FAQ <span>→</span></a>
+<a href="#book" class="mobile-cta">Book Same-Day Repair →</a>
+</div>
+
+<div class="us-banner">
+<span>🇺🇸 US Mail-In: Board-only for logic boards • Walk-in Harare same-day for screen/battery</span>
+<a href="#pricing">See Pricing →</a>
+</div>
+
+<section class="container hero">
+<div>
+<div class="hero-label">MOBILE + COMPUTER REPAIR • SAME-DAY • 90-DAY WARRANTY</div>
+<h1>Screen, battery, all parts. <span>Fixed while you wait.</span></h1>
+<p class="hero-desc">iPhone, Samsung, MacBook, Windows — cracked screen 20 min, battery 15 min, keyboard 60 min, SSD upgrade with clone. Genuine OEM pull + premium GX options. Harare walk-in + US mail-in board-only.</p>
+<div class="pills">
+<div class="pill"><b>20 min</b> Screen</div>
+<div class="pill"><b>15 min</b> Battery</div>
+<div class="pill"><b>Same-Day</b> MacBook</div>
+<div class="pill"><b>12-mo</b> Battery Warranty</div>
+<div class="pill"><b>90-Day</b> Parts</div>
+</div>
+<div class="hero-actions">
+<button class="btn-primary">Book $5 Diagnostic →</button>
+<button class="btn-secondary">WhatsApp Lab</button>
+</div>
+</div>
+
+<div class="visual">
+<div class="circle"></div>
+<div class="ring"></div>
+<div class="device-card">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div class="badge"><span></span>IN REPAIR • TESTING</div>
+<div style="font-size:11px;color:#5B697C">GX OLED • True Tone OK</div>
+</div>
+<div class="dev-head">
+<h3>iPhone 13 Pro • Screen + Battery</h3>
+<p>GX OLED + 0-cycle battery • BMS transfer • No pop-up</p>
+</div>
+<div class="health">
+<div class="health-row"><span>Battery Health Reset</span><span>100%</span></div>
+<div class="bar"><div class="fill" id="healthFill"></div></div>
+</div>
+<div class="checks">
+<div class="check"><span>✅ True Tone restored</span><b>OK</b></div>
+<div class="check"><span>🔋 Battery cycle 0 • 100%</span><b>OK</b></div>
+<div class="check"><span>👆 Touch 120Hz sampling</span><b>PASS</b></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="repairs">
+<div class="container">
+<div class="label reveal">WHAT WE FIX — MOBILE + COMPUTER</div>
+<h2 class="reveal">All replacements, not just screen.</h2>
+<p class="lead reveal">Choose genuine OEM pull or save with premium OEM — we tell you exactly which part you get. No surprise.</p>
+<div class="tabs reveal" id="tabs">
+<button class="tab active" data-tab="mobile">📱iPhone / Samsung</button>
+<button class="tab" data-tab="computer">💻MacBook / Windows(PC)</button>
+</div>
+
+<div class="grid" id="tab-mobile">
+<div class="card reveal"><div class="card-icon">📱</div><h3>Screen Replacement</h3><p>Cracked OLED, GX OLED vs genuine refurb — True Tone kept, touch 120Hz.</p><div class="price"><b>$45 - $189</b><span>GX / OEM</span></div><div class="time">⏱ 20 min • Touch warranty</div></div>
+<div class="card reveal reveal-delay-1"><div class="card-icon">🔋</div><h3>Battery — 100% Health</h3><p>0-cycle, BMS transfer, no pop-up for 11+. 12-month warranty, JC programmer reset.</p><div class="price"><b>$29 - $49</b><span>0 Cycle</span></div><div class="time">⏱ 15 min • Health 100%</div></div>
+<div class="card reveal reveal-delay-2"><div class="card-icon">🔌</div><h3>Charging Port Flex</h3><p>Not charging, mic not working, no loudspeaker — port + mic + seal + screws.</p><div class="price"><b>$29</b><span>Flex + Seal</span></div><div class="time">⏱ 25 min • Mic test</div></div>
+<div class="card reveal"><div class="card-icon">📷</div><h3>Back Glass / Housing / Camera</h3><p>Laser back glass, housing straightening, OEM camera module with calibration.</p><div class="price"><b>$59 - $129</b><span>Laser + OEM</span></div><div class="time">⏱ 40 min • Housing keep</div></div>
+<div class="card reveal reveal-delay-1"><div class="card-icon">💧</div><h3>Water Damage / No Power</h3><p>Ultrasonic clean + board-level repair, short finding with thermal cam + DCPS.</p><div class="price"><b>$89 - $149</b><span>Board Level</span></div><div class="time">⏱ 24h • Data first</div></div>
+<div class="card reveal reveal-delay-2"><div class="card-icon">🔊</div><h3>Speaker / Mic / Face ID</h3><p>Ear speaker, loudspeaker, mic, Face ID dot projector repair — genuine flex.</p><div class="price"><b>$39 - $99</b><span>Genuine Flex</span></div><div class="time">⏱ 30 min • Test video</div></div>
+</div>
+
+<div class="grid" id="tab-computer" style="display:none">
+<div class="card reveal"><div class="card-icon">🖥️</div><h3>Screen Assembly Retina</h3><p>True Tone transfer, camera, lid sensor — Retina 2018-2023 Air/Pro 13/14/16".</p><div class="price"><b>$229 - $489</b><span>Assembly</span></div><div class="time">⏱ 45 min • True Tone kept</div></div>
+<div class="card reveal reveal-delay-1"><div class="card-icon">🔋</div><h3>Battery A2338 / A2442</h3><p>0-cycle battery, adhesive + cycle reset, coconutBattery health proof.</p><div class="price"><b>$119 - $189</b><span>0 Cycle</span></div><div class="time">⏱ 45 min • Adhesive kit</div></div>
+<div class="card reveal reveal-delay-2"><div class="card-icon">⌨️</div><h3>Keyboard / Trackpad</h3><p>Keys stuck, butterfly failure, trackpad no click, palmrest replacement.</p><div class="price"><b>$69 - $189</b><span>Topcase</span></div><div class="time">⏱ 60 min • Backlight test</div></div>
+<div class="card reveal"><div class="card-icon">⚡</div><h3>SSD / RAM Upgrade</h3><p>Slow MacBook, 128GB full, 8GB RAM lag. SSD upgrade + RAM + macOS clone.</p><div class="price"><b>$59 - $249</b><span>NVMe + Clone</span></div><div class="time">⏱ 30 min • Data kept</div></div>
+<div class="card reveal reveal-delay-1"><div class="card-icon">🔌</div><h3>Charging / DC Jack / CD3217</h3><p>Not charging, MagSafe no light, USB-C no power — CD3215, CD3217, DC jack, charger IC.</p><div class="price"><b>$79 - $189</b><span>Board Level</span></div><div class="time">⏱ Board-level diag</div></div>
+<div class="card reveal reveal-delay-2"><div class="card-icon">🧠</div><h3>Board / No Power / Liquid</h3><p>MacBook no power, liquid spill, short — PPBUS, T2, M1/M2 microsoldering.</p><div class="price"><b>$149 - $299</b><span>Microsoldering</span></div><div class="time">⏱ 24-48h • 87% success</div></div>
+</div>
+
+</div>
+</section>
+
+<section class="section" id="pricing">
+<div class="container">
+<div class="label reveal">PRICING — GENUINE vs PREMIUM OEM</div>
+<h2 class="reveal">Transparent pricing. Genuine by default,<br>save with premium OEM if you want.</h2>
+<div class="pricing">
+<div class="price-card reveal">
+<h3>📱 Mobile — Most Common</h3><div class="sub">iPhone 11 to 14 Pro pricing, others similar</div>
+<table class="table">
+<tr><td>Screen — iPhone 11 GX <span>20 min, touch warranty</span></td><td>$45</td></tr>
+<tr><td>Screen — 13 Pro OEM Refurb <span>True Tone kept</span></td><td>$149</td></tr>
+<tr><td>Battery — 100% Health 0 cycle <span>12-mo warranty</span></td><td>$29-$49</td></tr>
+<tr><td>Charging Port Flex <span>Mic + seal</span></td><td>$29</td></tr>
+<tr><td>Back Glass — Laser <span>Housing keep</span></td><td>$59</td></tr>
+<tr><td>Camera Module OEM <span>Calibration</span></td><td>$59</td></tr>
+</table>
+<div class="warranty"><i>🛡️</i><div><b>90-Day Warranty on all parts</b><p>Genuine: Apple OEM pull. Premium OEM: GX, Incell — we tell you which.</p></div></div>
+</div>
+<div class="price-card reveal reveal-delay-1">
+<h3>💻 Computer — MacBook + Windows</h3><div class="sub">A2338 M1 Air example, others quoted in 10 min</div>
+<table class="table">
+<tr><td>Screen Assembly Retina <span>True Tone, camera</span></td><td>$229-$489</td></tr>
+<tr><td>Battery A2338 0 cycle <span>Cycle reset, adhesive</span></td><td>$119</td></tr>
+<tr><td>Keyboard Topcase <span>Backlight + trackpad</span></td><td>$129-$189</td></tr>
+<tr><td>SSD Upgrade 512GB NVMe <span>Clone + macOS</span></td><td>$99</td></tr>
+<tr><td>USB-C CD3217 Repair <span>Board-level</span></td><td>$89-$149</td></tr>
+<tr><td>Liquid Board Repair <span>Microsoldering</span></td><td>$149-$249</td></tr>
+</table>
+<div class="warranty"><i>⚡</i><div><b>Same-Day for Parts, 24-48h Board</b><p>Walk-in Hatcliffe, US mail-in board-only DHL. Video proof before pay.</p></div></div>
+</div>
+</div>
+
+<div class="process">
+<div class="step reveal"><div class="num">1</div><h4>$5 Diag (Credited)</h4><p>We test battery health, screen, charging amps with DCPS + give firm quote. $5 free if you repair.</p></div>
+<div class="step reveal reveal-delay-1"><div class="num">2</div><h4>Parts In Stock Check</h4><p>We show GX vs OEM options + difference. You choose. No surprise.</p></div>
+<div class="step reveal reveal-delay-2"><div class="num">3</div><h4>15-60 Min Repair</h4><p>Screen 20 min, battery 15 min, MacBook 45 min. You wait or watch via video for US.</p></div>
+<div class="step reveal reveal-delay-3"><div class="num">4</div><h4>Test + 90-Day Warranty</h4><p>Touch, Face ID, battery cycles, charge amps, keyboard — all tested + warranty card.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="faq">
+<div class="container">
+<div class="label reveal">FAQ — SCREEN + BATTERY + ALL PARTS</div>
+<h2 class="reveal">Questions about screen, battery,<br>and replacements</h2>
+<div class="faq">
+<div class="faq-item open reveal"><button class="faq-q">Genuine vs GX vs Incell — which screen? <span>+</span></button><div class="faq-a"><b>Genuine OEM refurb:</b> Original Apple OLED refurbished — True Tone, best color, $149-$189. <b>GX OLED:</b> Aftermarket OLED close to original, $75-$129. <b>Incell LCD:</b> Cheaper, thicker, battery drain more, $45-$69. We recommend GX for 2+ year use, Incell to save on old phone. We always tell you which.</div></div>
+<div class="faq-item reveal"><button class="faq-q">Battery health shows 100% after? <span>+</span></button><div class="faq-a">Yes — we use JC V1S programmer to reset battery health to 100% + cycle 0. For iPhone 11+ we transfer BMS for no pop-up. 12-mo warranty on battery capacity.</div></div>
+<div class="faq-item reveal"><button class="faq-q">How long for MacBook battery + screen? <span>+</span></button><div class="faq-a">Battery 45 min (adhesive removal + cycle reset). Screen 45-60 min (True Tone transfer). We clone SSD if upgrading so you keep data. Same-day if parts in stock — we stock A2338, A2442, A2141 common.</div></div>
+<div class="faq-item reveal"><button class="faq-q">Do you keep my data? <span>+</span></button><div class="faq-a">Screen/battery/keyboard never touches data. SSD upgrade we clone 1:1. Board-level repair we prioritize data recovery first — we fix board to keep data, not swap board.</div></div>
+<div class="faq-item reveal"><button class="faq-q">Warranty? <span>+</span></button><div class="faq-a">90 days parts + workmanship. Battery 12 months. Screen touch lifetime warranty on GX/OEM. Physical damage / new drop not covered. Warranty card with video of test included.</div></div>
+</div>
+
+<div class="cta reveal" id="book">
+<div style="position:relative;z-index:1"><h3>Cracked screen or dead battery? Fixed today.</h3><p>$5 diag credited. Get firm quote in 10 mins. Walk-in Hatcliffe Harare 8AM-6PM, US mail-in board-only for logic boards. Genuine + premium OEM options.</p></div>
+<div style="display:flex;gap:10px;flex-shrink:0;position:relative;z-index:1;flex-wrap:wrap"><button class="btn-primary">Book Same-Day Repair →</button><button class="btn-secondary">WhatsApp: +263 777 696 880</button></div>
+</div>
+</div>
+</section>
+
+<script>
+// Mobile drawer
+const ham = document.getElementById('hamburger');
+const drawer = document.getElementById('mobileDrawer');
+ham.addEventListener('click', ()=>{
+ ham.classList.toggle('active');
+ drawer.classList.toggle('open');
+ document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+});
+document.querySelectorAll('#mobileDrawer a').forEach(a=>a.addEventListener('click',()=>{
+ ham.classList.remove('active');drawer.classList.remove('open');document.body.style.overflow='';
+}));
+
+// Tabs - fixed event issue
+document.querySelectorAll('.tab').forEach(tab=>{
+ tab.addEventListener('click', (e)=>{
+  const t = tab.dataset.tab;
+  document.getElementById('tab-mobile').style.display = t==='mobile'?'grid':'none';
+  document.getElementById('tab-computer').style.display = t==='computer'?'grid':'none';
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  tab.classList.add('active');
+  // re-trigger reveal for new grid
+  document.querySelectorAll('#tab-'+t+' .card').forEach((c,i)=>{
+   c.classList.remove('in');
+   setTimeout(()=>c.classList.add('in'), i*60);
+  });
+ });
+});
+
+// FAQ
+document.querySelectorAll('.faq-q').forEach(q=>{
+ q.addEventListener('click',()=>{
+  const item=q.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
+ });
+});
+
+// Reveal observer
+const observer = new IntersectionObserver((entries)=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.classList.add('in');
+   const fill = entry.target.querySelector?.('#healthFill') || (entry.target.id==='healthFill' ? entry.target : null);
+   if(fill) fill.classList.add('animate');
+  }
+ });
+},{threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal, .visual').forEach(el=>observer.observe(el));
+setTimeout(()=>document.getElementById('healthFill')?.classList.add('animate'),800);
+
+// parallax desktop
+let ticking=false;
+document.addEventListener('mousemove', e=>{
+ if(window.innerWidth<768) return;
+ if(ticking) return;
+ ticking=true;
+ requestAnimationFrame(()=>{
+  const x=(e.clientX/window.innerWidth-0.5)*12;
+  const y=(e.clientY/window.innerHeight-0.5)*12;
+  document.querySelectorAll('.circle,.ring').forEach((el,i)=>{
+   el.style.transform=`translate(${x*(i+1)*0.6}px, ${y*(i+1)*0.6}px)`;
+  });
+  ticking=false;
+ });
+});
+</script>
+</body>
+</html>

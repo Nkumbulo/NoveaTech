@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>IT Solutions for US Startups | NoveaTech Managed IT + NOV AI | $199/mo</title>
+<meta name="description" content="NoveaTech IT solutions for US startups. Networking, cybersecurity, cloud, MDM, plus NOV AI bot that auto-fixes 87% of L1 tickets. Slack EST 9AM-5PM, 15-min SLA, $199/mo Stripe, cancel anytime.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#00A8FF;--primary-deep:#0066FF;--accent:#00E5FF;--bg:#080C12;--surface:#111827;--surface-2:#0B1220;--card:#12161F;--border:#1E2632;--text:#CBD5E1;--muted:#94A3B8;--gradient:linear-gradient(135deg,var(--primary-deep),var(--accent));}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:Inter,sans-serif;background:var(--bg);color:white;overflow-x:hidden;line-height:1.5;min-width:0}
+.container{width:min(90%,1200px);margin-inline:auto}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;border:none;background:none;cursor:pointer}
+
+/* Header */
+.header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(5,5,5,.72);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.06)}
+.navbar{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-weight:900;font-size:22px;letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+.desktop-menu{display:flex;gap:26px;align-items:center}
+.desktop-menu a{color:var(--text);font-size:13.5px;font-weight:500;transition:.25s}
+.desktop-menu a:hover{color:white}
+.desktop-menu a.active{color:white;font-weight:600}
+.nav-cta{padding:11px 20px;border-radius:50px;background:var(--gradient);font-weight:700;font-size:13px;box-shadow:0 0 24px rgba(0,229,255,.22);color:white;white-space:nowrap;transition:.3s}
+.hamburger{display:none;width:42px;height:42px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);place-items:center;flex-shrink:0}
+.hamburger span{width:18px;height:2px;background:white;border-radius:2px;display:block;position:relative;transition:.3s}
+.hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:100%;height:100%;background:white;border-radius:2px;transition:.3s}
+.hamburger span::before{top:-6px}
+.hamburger span::after{top:6px}
+.hamburger.active span{background:transparent}
+.hamburger.active span::before{transform:rotate(45deg);top:0}
+.hamburger.active span::after{transform:rotate(-45deg);top:0}
+.mobile-drawer{position:fixed;inset:0;z-index:999;background:rgba(5,8,15,.96);backdrop-filter:blur(20px);transform:translateX(100%);transition:transform .45s cubic-bezier(.77,0,.175,1);padding:88px 24px 32px;display:flex;flex-direction:column}
+.mobile-drawer.open{transform:translateX(0)}
+.mobile-drawer a{font-size:18px;font-weight:600;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);color:var(--text);display:flex;justify-content:space-between}
+.mobile-drawer .mobile-cta{margin-top:24px;background:var(--gradient);padding:16px;border-radius:16px;text-align:center;color:white;font-weight:800;font-size:16px;box-shadow:0 10px 30px rgba(0,102,255,.3)}
+
+.us-banner{margin-top:72px;background:linear-gradient(90deg,#0066FF,#00D4FF);color:white;display:flex;justify-content:center;align-items:center;gap:10px;padding:10px 16px;font-size:12px;font-weight:700;letter-spacing:.02em;flex-wrap:wrap;text-align:center;line-height:1.4}
+.us-banner .dot{width:8px;height:8px;border-radius:50%;background:white;box-shadow:0 0 8px white;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+
+/* Hero */
+.hero{padding:48px 0 32px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;min-width:0}
+.label{display:inline-flex;padding:7px 14px;border-radius:50px;border:1px solid rgba(0,229,255,.28);background:rgba(0,229,255,.08);color:var(--accent);font-size:10.5px;font-weight:800;letter-spacing:1.4px;margin-bottom:16px;animation:fadeUp .6s ease both}
+.hero h1{font-size:clamp(34px,5.2vw,54px);font-weight:900;line-height:.9;letter-spacing:-.04em;margin-bottom:16px;animation:fadeUp .7s .1s ease both}
+.hero h1 span{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-desc{color:#8B95A5;font-size:clamp(14px,2vw,16px);line-height:1.65;max-width:560px;margin-bottom:22px;animation:fadeUp .7s .2s ease both}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;animation:fadeUp .7s .25s ease both}
+.pill{padding:6px 12px;border-radius:50px;background:#12161F;border:1px solid #1E2632;font-size:11.5px;color:#AAB4C2}
+.pill b{color:white}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp .7s .3s ease both}
+.btn-primary{padding:14px 22px;border-radius:50px;background:var(--gradient);color:white;font-weight:700;font-size:14px;box-shadow:0 0 28px rgba(0,229,255,.22);display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.3s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,102,255,.35)}
+.btn-secondary{padding:14px 22px;border-radius:50px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:white;font-weight:600;font-size:14px;transition:.3s;display:inline-flex;align-items:center;justify-content:center}
+.btn-secondary:hover{background:rgba(255,255,255,.1)}
+.hero-stats{display:flex;gap:24px;margin-top:28px;flex-wrap:wrap;animation:fadeUp .7s .35s ease both}
+.stat h4{font-size:clamp(22px,4vw,28px);font-weight:800}
+.stat p{font-size:10.5px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-top:2px}
+
+.visual{position:relative;min-height:520px;display:grid;place-items:center;animation:fadeIn .9s .2s ease both}
+.circle{position:absolute;width:min(400px,80vw);height:min(400px,80vw);border-radius:50%;border:1px solid rgba(0,212,255,.12);background:radial-gradient(circle at 50% 50%, rgba(0,212,255,.08), transparent 70%);animation:float 6s ease-in-out infinite}
+.ring{position:absolute;width:min(480px,92vw);height:min(480px,92vw);border-radius:50%;border:1px dashed rgba(255,255,255,.06);animation:rotateSlow 40s linear infinite}
+.tickets-card{background:#12161F;border:1px solid #1E2632;border-radius:28px;padding:20px;width:min(380px,100%);box-shadow:0 0 0 1px rgba(0,212,255,.1),0 24px 80px rgba(0,0,0,.5);position:relative;z-index:2;animation:floatCard 5s ease-in-out infinite}
+.tickets-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.badge-live{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:50px;background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.18);font-size:10.5px;font-weight:700;letter-spacing:.08em;color:#6CFFB8}
+.badge-live span{width:6px;height:6px;border-radius:50%;background:#00FF88;box-shadow:0 0 8px #00FF88;animation:pulseDot 1.4s infinite}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.9)}}
+.ticket{ background:#0C1017;border:1px solid #1E2632;border-radius:12px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;transition:.25s;font-size:12.5px}
+.ticket:hover{border-color:rgba(0,212,255,.18);transform:translateX(2px)}
+.ticket small{color:#5B697C;font-size:11px;display:block}
+
+/* Sections */
+.section{padding:80px 0;border-top:1px solid #1E2632;overflow:clip}
+.section h2{font-size:clamp(28px,4vw,38px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-bottom:14px}
+.lead{color:#8B95A5;max-width:640px;font-size:clamp(14px,2vw,15.5px);line-height:1.6}
+.grid{display:grid;gap:16px;margin-top:36px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.card{background:#12161F;border:1px solid #1E2632;border-radius:20px;padding:22px;transition:.35s cubic-bezier(.25,.46,.45,.94);position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:.4s}
+.card:hover::before{opacity:1}
+.card:hover{border-color:rgba(0,212,255,.22);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.35),0 0 24px rgba(0,212,255,.08)}
+.icon{width:44px;height:44px;border-radius:12px;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.18);display:grid;place-items:center;font-size:20px;margin-bottom:14px}
+.card h3{font-size:16px;font-weight:700;margin-bottom:8px}
+.card p{font-size:13px;color:#8B95A5;line-height:1.55;min-height:40px}
+.card ul{margin-top:12px;display:flex;flex-direction:column;gap:6px}
+.card ul li{font-size:12px;color:#AAB4C2;display:flex;gap:6px}
+.card ul li::before{content:"•";color:var(--accent)}
+
+/* NOV AI */
+.novai{background:linear-gradient(135deg,#0B1220,#12161F);border:1px solid rgba(0,212,255,.18);border-radius:28px;padding:28px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;position:relative;overflow:hidden;margin-top:36px}
+.novai::before{content:"";position:absolute;inset:-1px;background:radial-gradient(600px circle at 0% 0%,rgba(0,212,255,.12),transparent 40%);pointer-events:none}
+.novai h3{font-size:clamp(22px,3vw,28px);font-weight:800;line-height:1.1}
+.novai p{font-size:13.5px;color:#8B95A5;margin-top:10px;line-height:1.6}
+.flow{margin-top:16px;display:flex;flex-direction:column;gap:10px}
+.flow-item{display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:10px 12px;font-size:12.5px}
+.flow-item b{color:white}
+.ai-demo{background:#0C1017;border:1px solid #1E2632;border-radius:16px;padding:16px}
+.ai-line{display:flex;gap:8px;margin-bottom:10px;font-size:12px}
+.ai-line .who{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:12px;flex-shrink:0}
+.ai-line.bot .who{background:var(--gradient)}
+.ai-line.user .who{background:rgba(255,255,255,.08)}
+
+/* Pricing */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;align-items:stretch}
+.price-card{background:#12161F;border:1px solid #1E2632;border-radius:24px;padding:26px;display:flex;flex-direction:column;transition:.35s;position:relative}
+.price-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.price-card.popular{border-color:rgba(0,212,255,.28);background:linear-gradient(180deg,#121C2E,#12161F);box-shadow:0 0 0 1px rgba(0,212,255,.12) inset,0 20px 60px rgba(0,102,255,.15)}
+.pop-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gradient);padding:6px 14px;border-radius:50px;font-size:10.5px;font-weight:800;white-space:nowrap}
+.price-card h3{font-size:18px;font-weight:800}
+.price-card .sub{font-size:12.5px;color:#8B95A5;margin:4px 0 16px}
+.amount{font-size:34px;font-weight:900;letter-spacing:-.03em}
+.amount span{font-size:13px;font-weight:500;color:#8B95A5}
+.features{list-style:none;display:flex;flex-direction:column;gap:10px;margin:18px 0 22px;flex:1}
+.features li{font-size:13px;color:#AAB4C2;display:flex;gap:8px;line-height:1.4}
+.features li::before{content:"✓";color:var(--accent);font-weight:800}
+.price-btn{width:100%;padding:14px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:white;font-weight:700;font-size:14px;transition:.25s;margin-top:auto}
+.price-btn:hover{background:white;color:#080C12}
+.popular .price-btn{background:var(--gradient);border-color:transparent;box-shadow:0 8px 24px rgba(0,102,255,.3)}
+
+/* FAQ */
+.faq{max-width:800px;margin-top:36px;display:grid;gap:10px}
+.faq-item{background:#12161F;border:1px solid #1E2632;border-radius:16px;overflow:hidden;transition:.3s}
+.faq-item:hover{border-color:rgba(255,255,255,.14)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 20px;font-size:15px;font-weight:600;text-align:left;color:white;gap:16px}
+.faq-q span{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:grid;place-items:center;transition:.3s;flex-shrink:0}
+.faq-item.open .faq-q span{transform:rotate(45deg);background:var(--gradient);border-color:transparent}
+.faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.77,0,.175,1),padding .35s,opacity .3s;color:#8B95A5;font-size:13.5px;line-height:1.6;opacity:0}
+.faq-item.open .faq-a{padding:0 20px 18px;max-height:420px;opacity:1}
+
+.cta{margin-top:48px;background:linear-gradient(135deg,#0B1220 0%,#12161F 100%);border:1px solid rgba(0,212,255,.18);border-radius:24px;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:24px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:-1px;background:radial-gradient(600px circle at 0% 0%,rgba(0,212,255,.15),transparent 40%);pointer-events:none}
+.cta h3{font-size:clamp(20px,3vw,24px);font-weight:800;line-height:1.2}
+.cta p{font-size:13.5px;color:#8B95A5;margin-top:8px;max-width:520px}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0}
+
+/* Reveal */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes rotateSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.25,.46,.45,.94)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.08s}
+.reveal-delay-2{transition-delay:.16s}
+.reveal-delay-3{transition-delay:.24s}
+
+/* Mobile */
+@media (max-width:1024px){
+.hero{grid-template-columns:1fr;gap:28px}
+.visual{min-height:460px;order:-1}
+.grid-3{grid-template-columns:repeat(2,1fr)}
+.pricing-grid{grid-template-columns:1fr;max-width:520px;margin-inline:auto}
+.novai{grid-template-columns:1fr}
+}
+@media (max-width:768px){
+.navbar{height:64px}
+.desktop-menu,.navbar .nav-cta{display:none}
+.hamburger{display:grid}
+.us-banner{margin-top:64px;font-size:11.5px}
+.hero{padding:28px 0 20px}
+.visual{min-height:420px}
+.circle{width:min(320px,78vw);height:min(320px,78vw)}
+.ring{width:min(380px,90vw);height:min(380px,90vw)}
+.tickets-card{width:min(340px,92vw);padding:16px;border-radius:22px}
+.section{padding:56px 0}
+.grid-3,.grid-2{grid-template-columns:1fr}
+.cta{flex-direction:column;align-items:stretch;padding:22px}
+.cta-btns{flex-direction:column}
+.cta-btns .btn-primary,.cta-btns .btn-secondary{width:100%}
+}
+@media (max-width:480px){
+.container{width:92%}
+.hero h1{font-size:32px}
+.hero-actions{flex-direction:column}
+.hero-actions .btn-primary,.hero-actions .btn-secondary{width:100%}
+.visual{min-height:380px}
+.amount{font-size:30px}
+.faq-q{font-size:14px;padding:16px}
+.us-banner{flex-direction:column;gap:6px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="header">
+<div class="container navbar">
+<a class="logo" href="#">NOVEA<span>TECH</span></a>
+<nav class="desktop-menu">
+<a href="#home">Home</a>
+<a href="#services" class="active">IT Services</a>
+<a href="#novai">NOV AI</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+</nav>
+<a href="#pricing" class="nav-cta">Get IT Support $199/mo</a>
+<button class="hamburger" id="hamburger" aria-label="Menu"><span></span></button>
+</div>
+</header>
+
+<div class="mobile-drawer" id="mobileDrawer">
+<a href="#home">Home <span>→</span></a>
+<a href="#services">IT Services <span>→</span></a>
+<a href="#novai">NOV AI <span>→</span></a>
+<a href="#pricing">Pricing <span>→</span></a>
+<a href="#faq">FAQ <span>→</span></a>
+<a href="#pricing" class="mobile-cta">Get IT Support $199/mo →</a>
+</div>
+
+<div class="us-banner">
+<span class="dot"></span>
+<span>BUILT FOR US STARTUPS • SLACK EST • 15-MIN SLA • $199/MO STRIPE USD • NOV AI INCLUDED</span>
+</div>
+
+<!-- HERO -->
+<section class="container hero" id="home">
+<div>
+<div class="label">IT SOLUTIONS • NOV AI • MANAGED IT FOR US TEAMS</div>
+<h1>Stop paying $8k/mo for IT that replies <span>tomorrow.</span></h1>
+<p class="hero-desc">Networking, security, cloud, devices, AI bot, human helpdesk. One flat retainer. No per-ticket surprise invoices. Trusted by 40+ US startups • Harare HQ + US EST coverage 9AM-5PM + contractor on-call for Scale.</p>
+<div class="pills">
+<div class="pill"><b>15-min</b> SLA EST</div>
+<div class="pill"><b>87%</b> auto-fixed by NOV AI</div>
+<div class="pill"><b>Slack-first</b> #it-support</div>
+<div class="pill"><b>$199/mo</b> Stripe USD</div>
+</div>
+<div class="hero-actions">
+<button class="btn-primary">Start at $199/mo →</button>
+<button class="btn-secondary">See how it works</button>
+</div>
+<div class="hero-stats">
+<div class="stat"><h4>40+</h4><p>US Startups</p></div>
+<div class="stat"><h4>87%</h4><p>Auto-Resolve</p></div>
+<div class="stat"><h4>15m</h4><p>SLA Response</p></div>
+</div>
+</div>
+
+<div class="visual">
+<div class="circle"></div>
+<div class="ring"></div>
+<div class="tickets-card">
+<div class="tickets-head">
+<div class="badge-live"><span></span>AUTO-FIXING • 14 TODAY</div>
+<div style="font-size:11px;color:#5B697C">Trusted by 40+ US startups</div>
+</div>
+<div class="ticket"><div><b>Password reset — Sarah (Austin)</b><small>Auto-fixed by NOV AI • 2m ago</small></div><span style="color:#6CFFB8;font-weight:700;font-size:11px">DONE</span></div>
+<div class="ticket"><div><b>VPN not working — Mike VPN</b><small>DNS fix + credential refresh</small></div><span style="color:#00E5FF;font-weight:700;font-size:11px">FIXING</span></div>
+<div class="ticket"><div><b>Escalated → Nkumbulo • 14m SLA</b><small>Onboarding MacBook Pro 14"</small></div><span style="color:#8B95A5;font-weight:700;font-size:11px">HUMAN</span></div>
+<div style="margin-top:12px;background:#0C1017;border:1px solid #1E2632;border-radius:10px;padding:10px 12px;font-size:11.5px;color:#8B95A5;display:flex;justify-content:space-between"><span>Slack EST 9AM-5PM coverage</span><b style="color:white">Overlap + US contractor</b></div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+<div class="container">
+<div class="label reveal">IT SERVICES — WHAT WE COVER</div>
+<h2 class="reveal">Networking, security, cloud,<br>devices, AI bot, human helpdesk.</h2>
+<p class="lead reveal">One flat retainer. No per-ticket surprise invoices. Remote-first office setup for US startups.</p>
+<div class="grid grid-3">
+<div class="card reveal"><div class="icon">🌐</div><h3>Networking & WiFi</h3><p>UniFi, Meraki, VLANs, site-to-site VPN. Remote-first office setup for US startups.</p><ul><li>Office + remote VPN</li><li>WiFi heatmapping</li><li>Failover 4G/Starlink</li></ul></div>
+<div class="card reveal reveal-delay-1"><div class="icon">🛡️</div><h3>Cybersecurity</h3><p>MFA, endpoint, email phishing protection, dark web monitoring. SOC-lite for startups.</p><ul><li>Google Workspace hardening</li><li>CrowdStrike / Defender</li><li>Phishing training</li></ul></div>
+<div class="card reveal reveal-delay-2"><div class="icon">☁️</div><h3>Cloud & M365 / Google</h3><p>Migration, backup, DLP, retention. We manage your cloud so you don't get $2k surprise bill.</p><ul><li>Backup + 90-day restore</li><li>Cost optimization</li><li>SSO + SCIM</li></ul></div>
+<div class="card reveal"><div class="icon">💻</div><h3>Device Management</h3><p>Mac + Windows MDM, zero-touch deploy, auto-patch. New hire in Austin gets laptop ready.</p><ul><li>Intune / Mosyle</li><li>Auto-patch + encrypt</li><li>Remote wipe</li></ul></div>
+<div class="card reveal reveal-delay-1"><div class="icon">🤖</div><h3>NOV AI — Your L1 Bot</h3><p>Our AI trained on 2,500+ fixes. Auto-resolves password resets, VPN, printer, DNS — escalates only when needed.</p><ul><li>87% auto-resolve</li><li>Loom + runbook auto</li><li>Slack #it-support</li></ul></div>
+<div class="card reveal reveal-delay-2"><div class="icon">👨‍💻</div><h3>Human Helpdesk EST</h3><p>When NOV AI escalates, Nkumbulo + team in Slack in 15 mins EST 9AM-5PM. No ticket black hole.</p><ul><li>9AM-5PM EST + on-call Scale</li><li>Async-first, Loom videos</li><li>No per-ticket fee</li></ul></div>
+</div>
+
+<div class="novai reveal" id="novai">
+<div style="position:relative;z-index:1">
+<div class="label" style="margin-bottom:12px">NOV AI — BUILT BY NOVEATECH</div>
+<h3>The AI that actually fixes IT,<br>not just replies.</h3>
+<p>NOV AI is our AI agent trained on 2,500+ NoveaTech repair + IT tickets. It lives in your Slack #it-support, understands "VPN not working", runs checks (DNS, gateway, credentials), fixes via script, and closes ticket with documentation.</p>
+<div class="flow">
+<div class="flow-item"><span>⚡</span><div><b>Slack message → NOV AI parses</b><br><span style="color:#8B95A5">Password reset, VPN, printer, DNS — no form needed.</span></div></div>
+<div class="flow-item"><span>🔍</span><div><b>Auto checks + fix via script</b><br><span style="color:#8B95A5">Runs diagnostics, fixes, documents with Loom.</span></div></div>
+<div class="flow-item"><span>👨‍💻</span><div><b>Escalate to human with context if needed</b><br><span style="color:#8B95A5">87% resolved without human. 15-min SLA when escalated.</span></div></div>
+</div>
+</div>
+<div class="ai-demo" style="position:relative;z-index:1">
+<div class="ai-line user"><div class="who">👩</div><div style="background:rgba(255,255,255,.06);padding:8px 12px;border-radius:14px 14px 14px 4px">VPN not working again, need for client call in 10 mins!</div></div>
+<div class="ai-line bot"><div class="who">🤖</div><div style="background:rgba(0,102,255,.15);border:1px solid rgba(0,212,255,.2);padding:8px 12px;border-radius:14px 14px 4px 14px">Got it Sarah — checking DNS + gateway + creds... fixed! Flushed DNS, refreshed token. Try now. Loom + runbook saved. ✅</div></div>
+<div class="ai-line user"><div class="who">👩</div><div style="background:rgba(255,255,255,.06);padding:8px 12px;border-radius:14px 14px 14px 4px">Works! Thanks!</div></div>
+<div style="margin-top:12px;padding:8px 10px;background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.18);border-radius:10px;font-size:11px;color:#6CFFB8">⏱ Auto-resolved in 2m • No human needed • Runbook updated</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+<div class="container">
+<div class="label reveal">PRICING — USD • FLAT, NO SURPRISES</div>
+<h2 class="reveal">Start at $199. Scale when you need.</h2>
+<p class="lead reveal">All plans include NOV AI, Slack support, 24/7 monitoring. Pay monthly via Stripe, cancel anytime.</p>
+<div class="pricing-grid">
+<div class="price-card reveal">
+<h3>Starter</h3><div class="sub">For teams 1-10 • Async-first</div>
+<div class="amount">$199<span>/mo</span></div>
+<ul class="features">
+<li>NOV AI — unlimited auto-fixes</li>
+<li>Slack #it-support 9AM-2PM EST</li>
+<li>Google Workspace / M365 mgmt</li>
+<li>MDM basic + 24/7 monitoring</li>
+<li>Monthly report + Loom runbooks</li>
+</ul>
+<button class="price-btn">Starter — checkout draft ready</button>
+<div style="margin-top:10px;font-size:11px;color:#5B697C;text-align:center">Stripe $199/mo link copied.</div>
+</div>
+<div class="price-card popular reveal reveal-delay-1">
+<div class="pop-badge">MOST POPULAR — US STARTUPS</div>
+<h3>Growth</h3><div class="sub">For teams 11-50 • 15-min SLA</div>
+<div class="amount">$499<span>/mo</span></div>
+<ul class="features">
+<li>Everything in Starter</li>
+<li>9AM-5PM EST coverage + on-call</li>
+<li>15-min SLA human escalation</li>
+<li>Cybersecurity + MFA rollout</li>
+<li>Onboarding/offboarding automation</li>
+<li>Cost optimization monthly</li>
+</ul>
+<button class="price-btn">Growth — 15-min SLA enabled</button>
+<div style="margin-top:10px;font-size:11px;color:#5B697C;text-align:center">Draft audit invite created.</div>
+</div>
+<div class="price-card reveal reveal-delay-2">
+<h3>Scale</h3><div class="sub">For teams 50+ • SOC-lite + custom</div>
+<div class="amount">$999<span>/mo+</span></div>
+<ul class="features">
+<li>Everything in Growth</li>
+<li>Custom NOV AI trained on your stack</li>
+<li>SOC lite + compliance help (SOC2)</li>
+<li>Dedicated Slack channel + Loom</li>
+<li>Partner onsite Austin/Miami/NYC $120/hr</li>
+<li>Custom reporting + QBR</li>
+</ul>
+<button class="price-btn">IT Audit call — calendar draft</button>
+<div style="margin-top:10px;font-size:11px;color:#5B697C;text-align:center">Check preview below.</div>
+</div>
+</div>
+
+<div class="grid grid-2" style="margin-top:28px">
+<div class="card reveal"><h3 style="font-size:14px">How remote IT works for US teams</h3><p style="min-height:auto;margin-top:6px">Slack is async-first, Loom videos for fixes. Zero-touch MDM solves 95% — new hire in Austin gets laptop ready without onsite. US contractor on-call for Scale. Harare HQ overlaps EST.</p></div>
+<div class="card reveal reveal-delay-1"><h3 style="font-size:14px">Stripe USD • Cancel anytime</h3><p style="min-height:auto;margin-top:6px">Monthly via Stripe. No contract. We export all docs, runbooks, credentials on exit. We want you to stay because we're good, not because you're locked. $5 diag credited if you repair.</p></div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+<div class="container">
+<div class="label reveal">FAQ — MANAGED IT + NOV AI</div>
+<h2 class="reveal">How it works for US startups</h2>
+<div class="faq">
+<div class="faq-item open reveal"><button class="faq-q">How does EST support work from Harare? <span>+</span></button><div class="faq-a">9AM-5PM EST coverage with overlap + US contractor on-call for Scale. Slack is async-first, Loom videos for fixes. Response time — password reset, VPN auto Loom + runbook by NOV AI. When escalated, Nkumbulo + team in 15 mins EST.</div></div>
+<div class="faq-item reveal"><button class="faq-q">What is NOV AI actually? <span>+</span></button><div class="faq-a">NOV AI is our AI agent we built trained on 2,500+ NoveaTech repair + IT tickets. It lives in your Slack #it-support, understands "VPN not working", runs checks (DNS, gateway, credentials), fixes via script, and closes ticket with documentation. 87% of L1 tickets auto-resolved, no human needed. When it can't fix, it escalates to us with full context.</div></div>
+<div class="faq-item reveal"><button class="faq-q">Do you handle compliance? SOC2, etc? <span>+</span></button><div class="faq-a">We help you GET ready for SOC2 — MFA, MDM, encryption, backup, access logs — all required controls. For actual audit we partner with US compliance firm. We don't claim SOC2 ourselves, we make you pass.</div></div>
+<div class="faq-item reveal"><button class="faq-q">What if we need onsite? <span>+</span></button><div class="faq-a">For Harare clients we do onsite. For US, we are 100% remote + we have partner network in Austin, Miami, NYC for smart-hands ($120/hr) if you need someone to rack switch. Most startups don't need onsite — zero-touch MDM solves 95%.</div></div>
+<div class="faq-item reveal"><button class="faq-q">Cancel anytime? <span>+</span></button><div class="faq-a">Yes. Monthly via Stripe. No contract. We export all docs, runbooks, credentials on exit. We want you to stay because we're good, not because you're locked.</div></div>
+</div>
+
+<div class="cta reveal" id="book">
+<div style="position:relative;z-index:1">
+<h3>NoveaTech $199/mo + NOV AI included.</h3>
+<p>Networking, security, cloud, devices, AI bot, human helpdesk. One flat retainer. Get audit call + pricing draft ready for EST. Check preview below.</p>
+</div>
+<div class="cta-btns" style="position:relative;z-index:1">
+<button class="btn-primary">Get IT Support $199/mo →</button>
+<button class="btn-secondary">WhatsApp: +263 777 696 880</button>
+</div>
+</div>
+</div>
+</section>
+
+<script>
+// Mobile drawer
+const ham=document.getElementById('hamburger');
+const drawer=document.getElementById('mobileDrawer');
+ham.addEventListener('click',()=>{
+ ham.classList.toggle('active');
+ drawer.classList.toggle('open');
+ document.body.style.overflow=drawer.classList.contains('open')?'hidden':'';
+});
+document.querySelectorAll('#mobileDrawer a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('active');drawer.classList.remove('open');document.body.style.overflow='';}));
+
+// FAQ
+document.querySelectorAll('.faq-q').forEach(q=>{
+ q.addEventListener('click',()=>{
+  const item=q.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
+ });
+});
+
+// Reveal
+const obs=new IntersectionObserver((entries)=>{
+ entries.forEach(e=>{
+  if(e.isIntersecting) e.target.classList.add('in');
+ });
+},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal,.visual,.novai,.cta').forEach(el=>obs.observe(el));
+
+// Parallax
+let ticking=false;
+document.addEventListener('mousemove',e=>{
+ if(window.innerWidth<768) return;
+ if(ticking) return;
+ ticking=true;
+ requestAnimationFrame(()=>{
+  const x=(e.clientX/window.innerWidth-0.5)*12;
+  const y=(e.clientY/window.innerHeight-0.5)*12;
+  document.querySelectorAll('.circle,.ring').forEach((el,i)=>{
+   el.style.transform=`translate(${x*(i+1)*0.6}px, ${y*(i+1)*0.6}px)`;
+  });
+  ticking=false;
+ });
+});
+</script>
+</body>
+</html>

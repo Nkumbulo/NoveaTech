@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!-- noveatech.org WEBSITE designed by Nkumbulo Ndlovu 8/9/2026-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THEHUT | SHOP TECH & ACCESSORIES</title>
+<meta name="description" content="Shop genuine tech at NoveaTech. Phones, laptops, accessories, components — tested, warrantied, ready to ship.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shopcss/main.css">
+<link rel="stylesheet" href="shopcss/animations.css">
+<link rel="stylesheet" href="shopcss/responsive.css">
+<link rel="stylesheet" href="shopcss/shop.css">
+<link rel="stylesheet" href="shopcss/thehut-banner-glassy.css">
+</head>
+<body>
+<header class="header" style="background:rgba(5,5,5,.85); backdrop-filter:blur(20px); border-bottom:1px solid var(--border-soft);">
+<nav class="navbar container">
+<!-- LOGO -->
+
+<picture>
+    <!-- Mobile logo -->
+    <source media="(max-width: 768px)" srcset="images/logo/logomobile.png">
+
+    <!-- Desktop logo -->
+    <img src="images/logo/logodesktop.png" alt="NoveaTech Logo" class="logo">
+</picture>
+
+<ul class="desktop-menu">
+<li><a href="index.html#home">Home</a></li>
+<li><a href="index.html#services">Services</a></li>
+<li><a href="#" class="active">Shop</a></li>
+<li><a href="index.html#portfolio">Portfolio</a></li>
+<li><a href="index.html#contact">Contact</a></li>
+</ul>
+<a href="#" class="nav-cta" id="openCartTop" style="display:flex; gap:8px; align-items:center;">
+  <span>🛒</span> Cart <span id="navCartCount" style="background:white; color:#07111F; padding:2px 8px; border-radius:20px; font-size:11px;">0</span>
+</a>
+<button class="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+<div class="mobile-brand"><h2>Novea<span>Tech</span></h2><p>Technology Solutions</p></div>
+<div class="mobile-grid">
+<a href="index.html#home">HOME</a><a href="index.html#services">SERVICES</a><a href="#">SHOP</a><a href="index.html#portfolio">PORTFOLIO</a><a href="index.html#contact">CONTACT</a>
+</div>
+</div>
+</header>
+
+<section class="shop-hero">
+<div class="container shop-hero-grid">
+<div>
+<div class="shop-kicker"><div class="live-dot"></div><span class="section-label" style="margin:0">THE🛖 • LIVE INVENTORY</span></div>
+<h1>Tech that<br><span>actually works.</span><br>Tested. Warrantied.</h1>
+<p>Same engineering team that does board-level repair now curates every device, part and accessory we sell. No counterfeits, no surprises — just genuine tech with same-day pickup or next-day delivery.</p>
+<div class="shop-stats">
+<div class="shop-stat"><strong>✔ 6-Month Warranty</strong><span>On every item</span></div>
+<div class="shop-stat"><strong>⚡ Tested by Techs</strong><span>Not just boxed</span></div>
+<div class="shop-stat"><strong>↩ 7-Day Returns</strong><span>No questions</span></div>
+</div>
+</div>
+
+<div>
+<div class="thehut-banner" id="thehutBanner">
+  <div class="logo-stage">
+    <img src="images/logo/thehut.png" alt="The Hut - Tech Repairs Accessories" />
+    <div class="window-unit">
+      <div class="window-glow-outer"></div>
+      <div class="window-blue">
+        <div class="pane-h"></div>
+        <div class="pane-v"></div>
+      </div>
+    </div>
+     <!-- 6 dots positioned exactly over the blue circles -->
+  <div class="circuit-dot" style="left:23.5%; top:20.7%;"></div>
+  <div class="circuit-dot" style="left:20.9%; top:27.4%;"></div>
+  <div class="circuit-dot small" style="left:33%; top:27.2%;"></div>
+  <div class="circuit-dot" style="left:20.9%; top:36%;"></div>
+  <div class="circuit-dot" style="left:17.6%; top:42.4%;"></div>
+  <div class="circuit-dot" style="left:23.8%; top:50%;"></div>
+  </div>
+  <div class="banner-meta">
+    <p><strong>Need a custom build? We source it.</strong> Tested by techs • 6-month warranty</p>
+    <a class="cta" href="https://wa.me/263777696880" target="_blank">Chat to Source →</a>
+  </div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="container">
+<div class="shop-controls">
+<div class="search-box">🔍 <input id="searchInput" type="text" placeholder="Search iPhone, Dell XPS, SSD, chargers..."></div>
+<div class="cat-pills" id="catPills">
+<button class="cat-pill active" data-cat="all">All Products</button>
+<button class="cat-pill" data-cat="phones">Phones</button>
+<button class="cat-pill" data-cat="laptops">Laptops</button>
+<button class="cat-pill" data-cat="accessories">Accessories</button>
+<button class="cat-pill" data-cat="components">Components</button>
+<button class="cat-pill" data-cat="tools">Repair Tools</button>
+</div>
+<select class="sort-select" id="sortSelect">
+<option value="featured">Featured</option>
+<option value="low">Price: Low → High</option>
+<option value="high">Price: High → Low</option>
+<option value="new">Newest</option>
+</select>
+</div>
+
+<div class="shop-layout">
+<aside class="filters">
+<h4>FILTER BY</h4>
+<div class="filter-group">
+<strong style="font-size:12px; color:white;">Condition</strong>
+<label class="filter-option"><input type="checkbox" name="condition" value="new" checked> New</label>
+<label class="filter-option"><input type="checkbox" name="condition" value="refurbished" checked> Certified Refurbished</label>
+<label class="filter-option"><input type="checkbox" name="condition" value="openbox"> Open Box</label>
+</div>
+<div class="filter-group">
+<strong style="font-size:12px; color:white;">Price Range</strong>
+<label class="filter-option"><input type="radio" name="price" value="all" checked> All</label>
+<label class="filter-option"><input type="radio" name="price" value="under100"> Under $100</label>
+<label class="filter-option"><input type="radio" name="price" value="100-500"> $100 - $500</label>
+<label class="filter-option"><input type="radio" name="price" value="500plus"> $500+</label>
+</div>
+<div class="filter-group">
+<strong style="font-size:12px; color:white;">Availability</strong>
+<label class="filter-option"><input type="checkbox" id="inStockOnly" checked> In Stock Only</label>
+</div>
+<div style="padding:14px; border-radius:12px; background:var(--gradient-soft); border:1px solid rgba(0,229,255,.2);">
+<p style="font-size:12px; color:var(--text); line-height:1.5;">💡 <strong style="color:white;">Pro Tip:</strong> Every refurbished device is microsoldering-checked by our lab. You get a board report.</p>
+</div>
+</aside>
+<main>
+<div id="resultsInfo" class="results-info">Loading...</div>
+<div class="products-grid" id="productsGrid"></div>
+<div id="pagination" class="pagination-wrapper"></div></main>
+</div>
+</section>
+
+<button class="cart-fab search-fab" id="searchFab" aria-label="Search products" aria-expanded="false">🔍</button>
+<div class="floating-search" id="floatingSearch">
+  <div class="floating-search-price">
+    <label for="floatingPriceSelect">Price</label>
+    <select id="floatingPriceSelect">
+      <option value="all">All</option>
+      <option value="under100">Under $100</option>
+      <option value="100-500">$100 - $500</option>
+      <option value="500plus">$500+</option>
+    </select>
+  </div>
+  <div class="floating-search-row">
+    <span class="floating-search-icon">🔍</span>
+    <input type="text" id="floatingSearchInput" placeholder="Search products..." autocomplete="off">
+    <button class="floating-search-close" id="floatingSearchClose" aria-label="Close search">✕</button>
+  </div>
+</div>
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
+<div style="padding:24px; border-bottom:1px solid var(--border-soft); display:flex; justify-content:space-between; align-items:center;">
+<h3 style="font-size:18px;">Your Cart <span id="drawerCount" style="color:var(--accent);">(0)</span></h3>
+<div style="display:flex; align-items:center; gap:14px;">
+<button id="clearCartBtn" class="clear-cart-btn" style="display:none;">Clear all</button>
+<button id="closeCart" style="width:36px; height:36px; border-radius:50%; border:1px solid var(--border); background:none; color:white; cursor:pointer; flex-shrink:0;">✕</button>
+</div>
+</div>
+<div id="cartItems" style="flex:1; overflow:auto;"></div>
+<div style="padding:20px; border-top:1px solid var(--border-soft); background:rgba(255,255,255,.02);">
+<div style="display:flex; justify-content:space-between; margin-bottom:12px;"><span style="color:var(--muted); font-size:13px;">Subtotal</span><strong id="cartSubtotal">$0</strong></div>
+<div style="display:flex; justify-content:space-between; margin-bottom:18px;"><span style="color:var(--muted); font-size:13px;">Delivery</span><span style="font-size:13px; color:#00E5FF;">Calculated at checkout</span></div>
+<button id="checkoutBtn" style="width:100%; padding:16px; border-radius:50px; border:none; background:var(--gradient); color:white; font-weight:700; cursor:pointer;">Checkout on WhatsApp →</button>
+<p style="text-align:center; font-size:11px; color:var(--muted); margin-top:10px;">Secure • Warranty included • Pay on delivery available</p>
+</div>
+</aside>
+
+<footer style="margin-top:80px;">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<a href="index.html#home" class="logo">Novea<span>Tech</span></a>
+<p>Advanced electronics repair, microsoldering, IT solutions and modern web development — under one roof. Now with curated tech sales.</p>
+</div>
+<div><h4>Shop</h4><ul class="footer-links"><li><a href="#" class="footer-cat-link" data-cat="phones">Phones</a></li><li><a href="#" class="footer-cat-link" data-cat="laptops">Laptops</a></li><li><a href="#" class="footer-cat-link" data-cat="accessories">Accessories</a></li><li><a href="#" class="footer-cat-link" data-cat="components">Components</a></li></ul></div>
+<div><h4>Help</h4><ul class="footer-links"><li><a href="#" class="footer-stub-link" data-topic="Shipping & Returns">Shipping & Returns</a></li><li><a href="#" class="footer-stub-link" data-topic="Warranty Policy">Warranty Policy</a></li><li><a href="#" class="footer-stub-link" data-topic="Track Order">Track Order</a></li><li><a href="#" class="footer-stub-link" data-topic="FAQs">FAQs</a></li></ul></div>
+<div><h4>Stay Updated</h4><p style="color:var(--muted);font-size:14px;margin-bottom:6px;">New drops & repair tips, no spam.</p><form class="newsletter-form" id="newsletterForm"><input type="email" id="newsletterEmail" placeholder="Your email" required><button type="submit">Join</button></form></div>
+</div>
+<div class="footer-bottom"><span>© 2026 NoveaTech. All rights reserved.</span><div class="legal-links"><a href="#" class="footer-stub-link" data-topic="Privacy Policy">Privacy</a><a href="#" class="footer-stub-link" data-topic="Terms of Service">Terms</a></div></div>
+</div>
+</footer>
+
+<div class="footer-modal-overlay" id="footerModalOverlay">
+  <div class="footer-modal">
+    <button class="footer-modal-close" id="footerModalClose" aria-label="Close">✕</button>
+    <div class="footer-modal-icon">🚧</div>
+    <h3 id="footerModalTitle">Page not published yet</h3>
+    <p id="footerModalBody">This page hasn't been written yet — rather than show you a broken link, we're being upfront about it.</p>
+    <a class="footer-modal-cta" href="https://wa.me/263777696880" target="_blank" rel="noopener">Ask us on WhatsApp →</a>
+  </div>
+</div>
+
+
+
+<script src="js/main.js"></script>
+<script src="js/shop.js"></script>
+<div id="cart-toast" class="toast">Item added to cart!</div>
+</body>
+</html>

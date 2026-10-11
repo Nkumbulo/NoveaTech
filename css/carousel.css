@@ -1,0 +1,124 @@
+/* NoveaTech Carousel - ULTRA SMOOTH v3 - NO BLUR, PURE GPU noveatech.debug */
+
+.novea-carousel-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 40px auto 0;
+  padding: 10px 0 50px;
+  perspective: 1200px; /* ONLY here, not in cards noveatech.debug*/
+  perspective-origin: 50% 50%;
+  overflow: visible;
+}
+
+.nc-track {
+  position: relative;
+  height: 560px;
+  transform-style: preserve-3d;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+/* Core card - fixed centering via negative margins, not translate(-50%,-50%) noveatech.debug*/
+.nc-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 380px;
+  min-height: 478px;
+  margin-left: -190px; /* -width/2 */
+  margin-top: -239px;  /* -height/2 */
+  background: #12161F;
+  border: 1px solid #1E2632;
+  border-radius: 32px;
+  overflow: hidden;
+  cursor: pointer;
+  
+  /* SMOOTH EASING - no overshoot, Apple-like */
+  transition: transform 650ms cubic-bezier(.32,.72,0,1),
+              opacity 650ms cubic-bezier(.32,.72,0,1),
+              border-color 300ms ease,
+              box-shadow 300ms ease;
+  
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+}
+
+.nc-card.center {
+  border-color: rgba(0,212,255,.22);
+  box-shadow: 0 0 0 1px rgba(0,212,255,.12),
+              0 0 60px rgba(0,212,255,.16),
+              0 24px 80px rgba(0,0,0,.55);
+}
+
+.nc-card.side {
+  /* no blur filter! */
+}
+
+/* content */
+.nc-card-image { position:relative; height:220px; overflow:hidden; background:#0C1017; }
+.nc-card-image img {
+  width:100%; height:100%; object-fit:cover;
+  transition: transform 650ms cubic-bezier(.32,.72,0,1);
+}
+.nc-card.center .nc-card-image img { transform: scale(1.04); }
+
+.nc-image-overlay {
+  position:absolute; inset:0;
+  background: linear-gradient(to top, #12161F 6%, transparent 60%);
+  pointer-events:none;
+}
+.nc-image-badge, .nc-badge {
+  position:absolute; top:14px; left:14px;
+  padding:6px 12px; border-radius:50px;
+  background: rgba(0,212,255,.12);
+  border:1px solid rgba(0,212,255,.22);
+  backdrop-filter: blur(12px);
+  font-size:11px; font-weight:700; letter-spacing:.08em;
+  text-transform:uppercase; color:#00D4FF;
+}
+.nc-card-content { padding:24px 26px 22px; }
+.nc-badge { position:relative; top:auto; left:auto; margin-bottom:14px; display:inline-flex; background: rgba(0,229,255,.08); border-color: rgba(0,229,255,.22); color:#00E5FF; font-size:10.5px; }
+.nc-card-content h3 { font-size:22px; font-weight:800; color:white; margin-bottom:10px; line-height:1.1; }
+.nc-card-content p { font-size:13.5px; line-height:1.6; color:#8B95A5; min-height:66px; }
+.nc-card-btn {
+  margin-top:18px; display:inline-flex; gap:8px; padding:10px 18px;
+  border-radius:50px; background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10); color:white; font-size:13px; font-weight:600;
+  transition: transform .25s ease, background .25s ease;
+}
+.nc-card.center .nc-card-btn { background: linear-gradient(135deg, #0066FF, #00E5FF); border-color:transparent; }
+.nc-glow { position:absolute; inset:-1px; border-radius:32px; background: radial-gradient(600px circle at 50% -20%, rgba(0,212,255,.12), transparent 60%); opacity:0; transition: opacity .3s ease; pointer-events:none; }
+.nc-card.center .nc-glow { opacity:1; }
+
+/* arrows */
+.nc-arrow {
+  position:absolute; top:50%; transform: translateY(-50%);
+  width:52px; height:52px; border-radius:50%;
+  background: rgba(18,22,31,.88); border:1px solid #1E2632; color:#AAB4C2;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; z-index:30; backdrop-filter: blur(16px);
+  transition: all .25s ease;
+}
+.nc-arrow:hover { background:#12161F; border-color: rgba(0,212,255,.28); color:white; transform: translateY(-50%) scale(1.06); }
+.nc-prev { left: max(16px, calc(50% - 620px)); }
+.nc-next { right: max(16px, calc(50% - 620px)); }
+
+.nc-controls { margin-top:28px; display:flex; flex-direction:column; align-items:center; gap:16px; }
+.nc-dots { display:flex; gap:10px; }
+.nc-dot { width:8px; height:8px; border-radius:50%; background:#1E2632; border:none; cursor:pointer; transition: all .4s cubic-bezier(.32,.72,0,1); }
+.nc-dot.active { width:28px; background: linear-gradient(90deg, #00D4FF, #00A3FF); box-shadow: 0 0 12px rgba(0,212,255,.4); }
+.nc-progress { width:120px; height:2px; background: rgba(255,255,255,.08); border-radius:50px; overflow:hidden; }
+.nc-progress-bar { height:100%; width:0%; background: linear-gradient(90deg, #00D4FF, #00A3FF); }
+
+@media (max-width:1100px){ .nc-track{height:540px} .nc-card{width:360px; margin-left:-180px} .nc-prev{left:16px} .nc-next{right:16px} }
+@media (max-width:768px){
+  .nc-card{width:310px; margin-left:-155px; min-height:448px; margin-top:-224px; border-radius:24px}
+  .nc-track{height:520px}
+  .nc-arrow{top:auto; bottom:0; transform:none; width:44px; height:44px}
+  .nc-arrow:hover{transform:scale(1.06)}
+  .nc-prev{left:calc(50% - 68px)} .nc-next{right:calc(50% - 68px)}
+  .nc-controls{padding-bottom:62px}
+}
